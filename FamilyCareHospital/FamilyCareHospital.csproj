@@ -1,0 +1,1393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D51F015D-B9D9-4099-9763-546083C285F2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FamilyCareHospital</RootNamespace>
+    <AssemblyName>FamilyCareHospital</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\BloodTest.cs" />
+    <Compile Include="Controllers\CholosterolTest.cs" />
+    <Compile Include="Controllers\Conduct.cs" />
+    <Compile Include="Controllers\getTestList.cs" />
+    <Compile Include="Controllers\LabAppointment.cs" />
+    <Compile Include="Controllers\LabPatient.cs" />
+    <Compile Include="Controllers\LabTest.cs" />
+    <Compile Include="Controllers\Scans.cs" />
+    <Compile Include="Controllers\Validation.cs" />
+    <Compile Include="DBAccess\ConnectionManager.cs" />
+    <Compile Include="DBAccess\DBDelete.cs" />
+    <Compile Include="DBAccess\DBInsert.cs" />
+    <Compile Include="DBAccess\DBRetrieve.cs" />
+    <Compile Include="DBAccess\DBUpdate.cs" />
+    <Compile Include="DoctorChanneling_Interface\CalculatePayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\CalculatePayments.designer.cs">
+      <DependentUpon>CalculatePayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\DoctorMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\DoctorMain.designer.cs">
+      <DependentUpon>DoctorMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\DoctorRegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\DoctorRegistrationForm.designer.cs">
+      <DependentUpon>DoctorRegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\DoctorSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\DoctorSearch.designer.cs">
+      <DependentUpon>DoctorSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\MakeAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\MakeAppointment.designer.cs">
+      <DependentUpon>MakeAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\validation.cs" />
+    <Compile Include="DoctorChanneling_Interface\ViewAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorChanneling_Interface\ViewAppointments.designer.cs">
+      <DependentUpon>ViewAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface Transport\DriverDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface Transport\DriverDetails.designer.cs">
+      <DependentUpon>DriverDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface Transport\PatientDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface Transport\PatientDetails.designer.cs">
+      <DependentUpon>PatientDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface Transport\PaymentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface Transport\PaymentDetails.designer.cs">
+      <DependentUpon>PaymentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface Transport\Statement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface Transport\Statement.designer.cs">
+      <DependentUpon>Statement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface Transport\TransportMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface Transport\TransportMain.designer.cs">
+      <DependentUpon>TransportMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface Transport\VechileDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface Transport\VechileDetails.designer.cs">
+      <DependentUpon>VechileDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\LabHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\LabHome.designer.cs">
+      <DependentUpon>LabHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\LabPatientBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\LabPatientBill.designer.cs">
+      <DependentUpon>LabPatientBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ManageTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\ManageTest.designer.cs">
+      <DependentUpon>ManageTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\PatientReg_Apponitments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\PatientReg_Apponitments.designer.cs">
+      <DependentUpon>PatientReg_Apponitments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\add_departmentHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\add_departmentHR.designer.cs">
+      <DependentUpon>add_departmentHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\apply_leaveHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\apply_leaveHR.designer.cs">
+      <DependentUpon>apply_leaveHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\assign_workHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\assign_workHR.designer.cs">
+      <DependentUpon>assign_workHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\AttendanceHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\AttendanceHR.designer.cs">
+      <DependentUpon>AttendanceHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\calculate_salaryHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\calculate_salaryHR.designer.cs">
+      <DependentUpon>calculate_salaryHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\mainHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\mainHR.designer.cs">
+      <DependentUpon>mainHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\registrationHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\registrationHR.designer.cs">
+      <DependentUpon>registrationHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\view_leaveHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\view_leaveHR.designer.cs">
+      <DependentUpon>view_leaveHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interfaces_HR\view_salaryHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interfaces_HR\view_salaryHR.designer.cs">
+      <DependentUpon>view_salaryHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\AddCategory.designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\AddCategory_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\AddCategory_NM.designer.cs">
+      <DependentUpon>AddCategory_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\IssueOrder_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\IssueOrder_NM.designer.cs">
+      <DependentUpon>IssueOrder_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ManageStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ManageStock.designer.cs">
+      <DependentUpon>ManageStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ManageStock_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ManageStock_NM.designer.cs">
+      <DependentUpon>ManageStock_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ManageSupplier_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ManageSupplier_NM.designer.cs">
+      <DependentUpon>ManageSupplier_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\OrdreIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\OrdreIssue.designer.cs">
+      <DependentUpon>OrdreIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\Payment.designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\Payment_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\Payment_NM.designer.cs">
+      <DependentUpon>Payment_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\PurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\PurchaseOrder.designer.cs">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\PurchaseOrder_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\PurchaseOrder_NM.designer.cs">
+      <DependentUpon>PurchaseOrder_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\StoreMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\StoreMain.designer.cs">
+      <DependentUpon>StoreMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\Supplier.designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ViewIssueOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ViewIssueOrder.designer.cs">
+      <DependentUpon>ViewIssueOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ViewIssueOrder_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ViewIssueOrder_NM.designer.cs">
+      <DependentUpon>ViewIssueOrder_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ViewPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ViewPurchaseOrder.designer.cs">
+      <DependentUpon>ViewPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ViewPurchaseOrder_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ViewPurchaseOrder_NM.designer.cs">
+      <DependentUpon>ViewPurchaseOrder_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ViewStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ViewStock.designer.cs">
+      <DependentUpon>ViewStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="interface_Store\ViewStock_NM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="interface_Store\ViewStock_NM.designer.cs">
+      <DependentUpon>ViewStock_NM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginHR.designer.cs">
+      <DependentUpon>loginHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Add_Prescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Add_Prescription.designer.cs">
+      <DependentUpon>Add_Prescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Advance_payement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Advance_payement.designer.cs">
+      <DependentUpon>Advance_payement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Clinicbill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Clinicbill.designer.cs">
+      <DependentUpon>Clinicbill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Clinicbill_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Clinicbill_1.designer.cs">
+      <DependentUpon>Clinicbill_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Clinicview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Clinicview.designer.cs">
+      <DependentUpon>Clinicview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Clinic_Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Clinic_Manage.designer.cs">
+      <DependentUpon>Clinic_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Clinic_Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Clinic_Registration.designer.cs">
+      <DependentUpon>Clinic_Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Fullbill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Fullbill.designer.cs">
+      <DependentUpon>Fullbill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\OPDbill-1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\OPDbill-1.designer.cs">
+      <DependentUpon>OPDbill-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\OPDbill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\OPDbill.designer.cs">
+      <DependentUpon>OPDbill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\OPDmain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\OPDmain.designer.cs">
+      <DependentUpon>OPDmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\OPDview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\OPDview.designer.cs">
+      <DependentUpon>OPDview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\OPD_Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\OPD_Manage.designer.cs">
+      <DependentUpon>OPD_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\OPD_Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\OPD_Registration.designer.cs">
+      <DependentUpon>OPD_Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Prescriptionview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Prescriptionview.designer.cs">
+      <DependentUpon>Prescriptionview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPD\Prescription_Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPD\Prescription_Manage.designer.cs">
+      <DependentUpon>Prescription_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHaddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHaddCategory.designer.cs">
+      <DependentUpon>PHaddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHmain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHmain.designer.cs">
+      <DependentUpon>PHmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHmanage_stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHmanage_stock.designer.cs">
+      <DependentUpon>PHmanage_stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHmanage_supplier_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHmanage_supplier_details.designer.cs">
+      <DependentUpon>PHmanage_supplier_details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHpayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHpayment.designer.cs">
+      <DependentUpon>PHpayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHplaced_order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHplaced_order.designer.cs">
+      <DependentUpon>PHplaced_order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHpurchased_order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHpurchased_order.designer.cs">
+      <DependentUpon>PHpurchased_order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHretail_sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHretail_sale.designer.cs">
+      <DependentUpon>PHretail_sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHview sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHview sales.designer.cs">
+      <DependentUpon>PHview sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHview_purchase_order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHview_purchase_order.designer.cs">
+      <DependentUpon>PHview_purchase_order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHview_stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pharmacy-Interfaces\PHview_stock.designer.cs">
+      <DependentUpon>PHview_stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ward Interface\Drug Store\Ward_Admin_Manage-Drug-Store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\Drug Store\Ward_Admin_Manage-Drug-Store.designer.cs">
+      <DependentUpon>Ward_Admin_Manage-Drug-Store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\Drug Store\Ward_Admin_View-Drugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\Drug Store\Ward_Admin_View-Drugs.designer.cs">
+      <DependentUpon>Ward_Admin_View-Drugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\In_Patient_Transfer_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\In_Patient_Transfer_Form.designer.cs">
+      <DependentUpon>In_Patient_Transfer_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\Ward_Admin_Manage-In-Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\Ward_Admin_Manage-In-Patient.designer.cs">
+      <DependentUpon>Ward_Admin_Manage-In-Patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\Ward_Admin_RegisterIn-Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\Ward_Admin_RegisterIn-Patient.designer.cs">
+      <DependentUpon>Ward_Admin_RegisterIn-Patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\Ward_Admin_View-In-Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\in_patient_2\Ward_Admin_View-In-Patient.designer.cs">
+      <DependentUpon>Ward_Admin_View-In-Patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\ward handling_1\Ward_Admin_ViewWard_WHandling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\ward handling_1\Ward_Admin_ViewWard_WHandling.designer.cs">
+      <DependentUpon>Ward_Admin_ViewWard_WHandling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\ward handling_1\Ward_Admin_WardHandling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\ward handling_1\Ward_Admin_WardHandling.designer.cs">
+      <DependentUpon>Ward_Admin_WardHandling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ward Interface\Ward_MainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ward Interface\Ward_MainFrame.designer.cs">
+      <DependentUpon>Ward_MainFrame.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorChanneling_Interface\CalculatePayments.resx">
+      <DependentUpon>CalculatePayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorChanneling_Interface\DoctorMain.resx">
+      <DependentUpon>DoctorMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorChanneling_Interface\DoctorRegistrationForm.resx">
+      <DependentUpon>DoctorRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorChanneling_Interface\DoctorSearch.resx">
+      <DependentUpon>DoctorSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorChanneling_Interface\MakeAppointment.resx">
+      <DependentUpon>MakeAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorChanneling_Interface\ViewAppointments.resx">
+      <DependentUpon>ViewAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface Transport\DriverDetails.resx">
+      <DependentUpon>DriverDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface Transport\PatientDetails.resx">
+      <DependentUpon>PatientDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface Transport\PaymentDetails.resx">
+      <DependentUpon>PaymentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface Transport\Statement.resx">
+      <DependentUpon>Statement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface Transport\TransportMain.resx">
+      <DependentUpon>TransportMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface Transport\VechileDetails.resx">
+      <DependentUpon>VechileDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\LabHome.resx">
+      <DependentUpon>LabHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\LabPatientBill.resx">
+      <DependentUpon>LabPatientBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\ManageTest.resx">
+      <DependentUpon>ManageTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\PatientReg_Apponitments.resx">
+      <DependentUpon>PatientReg_Apponitments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\add_departmentHR.resx">
+      <DependentUpon>add_departmentHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\apply_leaveHR.resx">
+      <DependentUpon>apply_leaveHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\assign_workHR.resx">
+      <DependentUpon>assign_workHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\AttendanceHR.resx">
+      <DependentUpon>AttendanceHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\calculate_salaryHR.resx">
+      <DependentUpon>calculate_salaryHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\mainHR.resx">
+      <DependentUpon>mainHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\registrationHR.resx">
+      <DependentUpon>registrationHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\view_leaveHR.resx">
+      <DependentUpon>view_leaveHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interfaces_HR\view_salaryHR.resx">
+      <DependentUpon>view_salaryHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\AddCategory_NM.resx">
+      <DependentUpon>AddCategory_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\IssueOrder_NM.resx">
+      <DependentUpon>IssueOrder_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ManageStock.resx">
+      <DependentUpon>ManageStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ManageStock_NM.resx">
+      <DependentUpon>ManageStock_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ManageSupplier_NM.resx">
+      <DependentUpon>ManageSupplier_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\OrdreIssue.resx">
+      <DependentUpon>OrdreIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\Payment_NM.resx">
+      <DependentUpon>Payment_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\PurchaseOrder.resx">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\PurchaseOrder_NM.resx">
+      <DependentUpon>PurchaseOrder_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\StoreMain.resx">
+      <DependentUpon>StoreMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ViewIssueOrder.resx">
+      <DependentUpon>ViewIssueOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ViewIssueOrder_NM.resx">
+      <DependentUpon>ViewIssueOrder_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ViewPurchaseOrder.resx">
+      <DependentUpon>ViewPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ViewPurchaseOrder_NM.resx">
+      <DependentUpon>ViewPurchaseOrder_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ViewStock.resx">
+      <DependentUpon>ViewStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="interface_Store\ViewStock_NM.resx">
+      <DependentUpon>ViewStock_NM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginHR.resx">
+      <DependentUpon>loginHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Add_Prescription.resx">
+      <DependentUpon>Add_Prescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Advance_payement.resx">
+      <DependentUpon>Advance_payement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Clinicbill.resx">
+      <DependentUpon>Clinicbill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Clinicbill_1.resx">
+      <DependentUpon>Clinicbill_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Clinicview.resx">
+      <DependentUpon>Clinicview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Clinic_Manage.resx">
+      <DependentUpon>Clinic_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Clinic_Registration.resx">
+      <DependentUpon>Clinic_Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Fullbill.resx">
+      <DependentUpon>Fullbill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\OPDbill-1.resx">
+      <DependentUpon>OPDbill-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\OPDbill.resx">
+      <DependentUpon>OPDbill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\OPDmain.resx">
+      <DependentUpon>OPDmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\OPDview.resx">
+      <DependentUpon>OPDview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\OPD_Manage.resx">
+      <DependentUpon>OPD_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\OPD_Registration.resx">
+      <DependentUpon>OPD_Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Prescriptionview.resx">
+      <DependentUpon>Prescriptionview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPD\Prescription_Manage.resx">
+      <DependentUpon>Prescription_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHaddCategory.resx">
+      <DependentUpon>PHaddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHmain.resx">
+      <DependentUpon>PHmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHmanage_stock.resx">
+      <DependentUpon>PHmanage_stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHmanage_supplier_details.resx">
+      <DependentUpon>PHmanage_supplier_details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHpayment.resx">
+      <DependentUpon>PHpayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHplaced_order.resx">
+      <DependentUpon>PHplaced_order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHpurchased_order.resx">
+      <DependentUpon>PHpurchased_order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHretail_sale.resx">
+      <DependentUpon>PHretail_sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHview sales.resx">
+      <DependentUpon>PHview sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHview_purchase_order.resx">
+      <DependentUpon>PHview_purchase_order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pharmacy-Interfaces\PHview_stock.resx">
+      <DependentUpon>PHview_stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Ward Interface\Drug Store\Ward_Admin_Manage-Drug-Store.resx">
+      <DependentUpon>Ward_Admin_Manage-Drug-Store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\Drug Store\Ward_Admin_View-Drugs.resx">
+      <DependentUpon>Ward_Admin_View-Drugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\in_patient_2\In_Patient_Transfer_Form.resx">
+      <DependentUpon>In_Patient_Transfer_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\in_patient_2\Ward_Admin_Manage-In-Patient.resx">
+      <DependentUpon>Ward_Admin_Manage-In-Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\in_patient_2\Ward_Admin_RegisterIn-Patient.resx">
+      <DependentUpon>Ward_Admin_RegisterIn-Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\in_patient_2\Ward_Admin_View-In-Patient.resx">
+      <DependentUpon>Ward_Admin_View-In-Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\ward handling_1\Ward_Admin_ViewWard_WHandling.resx">
+      <DependentUpon>Ward_Admin_ViewWard_WHandling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\ward handling_1\Ward_Admin_WardHandling.resx">
+      <DependentUpon>Ward_Admin_WardHandling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ward Interface\Ward_MainFrame.resx">
+      <DependentUpon>Ward_MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\ADDicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ADD add_file_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\back2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\blue-left-arrow-icon-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\blue-left-hoover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\blue-right-arrow-hoover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\blue-right-arrow-icon-201.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cancel_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cancel_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\DELETE trash_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\EDIT edit_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\enter_test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\family care.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\home4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\manageApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\manageTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Power-Shutdown1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\registerP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\search_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\search-icon-png-251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\DELETEicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\EDITicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\Home12icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\HOMEicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\LOGOUTicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\LOGOUTicon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\PAYMENTicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\REGIicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\SEARCH1icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\SEARCH2icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\SEARCHicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dimu\VIEWicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\Add User Male-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\add_file_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\add_tag_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\Banknotes-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\delete_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\edit_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\home_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\Purchase Order-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\Return Purchase-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\search_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\Sell Stock Filled-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\shutdown_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\undo_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sajith\view_details_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\ADD add_file_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\arrow_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\AVAILABILITY_CHECK arrow_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\AVAILABILITY_CHECK checkmark_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\BACK undo_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\broom_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\DELETE trash_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\delete_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\EDIT edit_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\edit_black_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\edit_white_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\FILE_EDIT edit_property_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\home_48px HOME ICON_Corrct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\home_48px HOME ICON_Corrct1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\homem-mulher-1246140257.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\MANAGE_DRUG_STORE pill_78px copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\MANAGE_IN_PA wheelchair_96px_edit patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\MANAGE_WARD physical_therapy_filled_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\more_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\PaDEATAILS homem-mulher-1246140257.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\physical_therapy_filled_100px copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\physical_therapy_filled_100px copy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\physical_therapy_filled_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\pill_78px copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\pill_78px copy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\pill_78px copycopy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\pill_78px copycopy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\plus_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\PRINT print_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\print_filled_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\REFRESH refresh_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\refresh_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\REGISTER_IN_PA wheelchair_96px copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\save_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\SEARCH search_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\search_filled_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\shutdown_logout_Correct_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\Sorting Arrows Horizontal-25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\undo_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\VIEW_DRUG_STORE pill_78px copycopy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\VIEW_IN_PA wheelchair_96px_extra c copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\VIEW_WARD physical_therapy_filled_100px copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\wheelchair_96px copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\wheelchair_96px copy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\wheelchair_96px_edit patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\wheelchair_96px_edit patient1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\wheelchair_96px_extra c copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shermila\wheelchair_96px_extra c copy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\banknotes_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\document_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\outpatient-icon-49432.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\survey_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\undo_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\wheelchair_72px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\ADD add_file_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\BACK undo_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\DELETE trash_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\EDIT edit_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\fine_print_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\HOME home_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\LOGOUT shutdown_logout_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\product_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\kushan\SEARCH search_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\ADD add_file_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\add_list_64pxbl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\add_list_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\add_tag_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\available_updates_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\BACK undo_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\banknotes_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\banknotes_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\cancel_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\DELETE trash_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\delete_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\EDIT edit_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_file_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_file_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_file_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_file_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_user_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_user_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_user_72px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\edit_user_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\exit_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\exit_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\exit_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\fine_print_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\fine_print_64pxbl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\fine_print_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\google_web_search_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\google_web_search_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\HOME home_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\home_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\interstate_truck_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\interstate_truck_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\left_squared_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\list_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\list_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\list_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\list_96pxBl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\LOGOUT shutdown_logout_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\minus_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\minus_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\new_product_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\plus_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\product_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\product_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\SEARCH search_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\search_property_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\shopping_cart_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\shopping_cart_loaded_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\show_property_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\show_property_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\to_do_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\todo_list_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\todo_list_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\todo_list_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\undo_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\view_file_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hashani\withdrawal_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\add_user_male_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\ambulance_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\banknotes_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\driver_100px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\home_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\logout_rounded_up_filled_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arvind\transaction_list_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\OPDADD .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\OPDBACK .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\OPDHOME .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\OPDlogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\OPDREFRESH .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\prashan\OPDSEARCH .png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

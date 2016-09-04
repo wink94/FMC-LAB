@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FamilyCareHospital
+{
+    public partial class Admin : Form
+    {
+        public Admin()
+        {
+            InitializeComponent();
+        }
+
+        string position = "Admin";
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            StoreMain sm = new StoreMain(position);
+            sm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1(position);
+            f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Ward_MainFrame wf = new Ward_MainFrame(position);
+            wf.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OPDmain om = new OPDmain(position);
+            om.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DoctorMain dm = new DoctorMain(position);
+            dm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            interfaces_HR.mainHR mh = new interfaces_HR.mainHR(position);
+            mh.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Pharmacy_Interfaces.PHmain pm = new Pharmacy_Interfaces.PHmain(position);
+            pm.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            TransportMain tm = new TransportMain(position);
+            tm.Show();
+        }
+    }
+}
