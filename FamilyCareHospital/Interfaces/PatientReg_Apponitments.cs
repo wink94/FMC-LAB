@@ -9,16 +9,21 @@ namespace FamilyCareHospital
 {
     public partial class Form2 : Form
     {
-        private DBRetrieve dbr = new DBRetrieve();
-        private LabPatient labPatient = new LabPatient();
-        private LabAppointment labappmnt = new LabAppointment();
-        private LabAppointment manipulateLabAppmnt = new LabAppointment();
-        private LabPatient manipulateLabPatient = new LabPatient();
+        private DBRetrieve dbr ;
+        private LabPatient labPatient ;
+        private LabAppointment labappmnt ;
+        private LabAppointment manipulateLabAppmnt ;
+        private LabPatient manipulateLabPatient;
         
 
         public Form2()
         {
             InitializeComponent();
+            dbr = new DBRetrieve();
+            labPatient = new LabPatient();
+            labappmnt = new LabAppointment();
+            manipulateLabAppmnt = new LabAppointment();
+            manipulateLabPatient = new LabPatient();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -37,29 +42,188 @@ namespace FamilyCareHospital
 
             Validation validation = new Validation();
 
-            if (validation.alphaVal(txtPName.Text," Patient Name ") & validation.IsNumeric(txtPAge.Text, " patient age ") & validation.numberVal(txtPPhone.Text, " patient telephone ") & validation.emailVal(txtPEmail.Text) & validation.checkTestListEmpty(labPatient) &validation.checkFieldIsSet(labappmnt.Adate,"Lab Appointment"))
-            {
-                labPatient.setDetails(txtPName.Text, cmbGender.SelectedValue.ToString(), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text));
-               
-                LabPatientBill lpb = new LabPatientBill(labPatient,labappmnt);
-                lpb.ShowDialog();
-                //this.Dispose();
+            
 
-                if (lpb.appoinmentStatus)
+                if (fieldCheck(txtPName.Text, "name", "lblLPNameErr", "lblLPNamePicErr", "grpBoxLPRegister") & fieldCheck(txtPAge.Text, "age", "lblLPAgeErr", "lblLPAgePicErr", "grpBoxLPRegister") & fieldCheck(txtPPhone.Text, "phone", "lblLPPhoneErr", "lblLPPhonePicErr", "grpBoxLPRegister") & fieldCheck(txtPEmail.Text, "email", "lblLPEmailErr", "lblLPEmailPicErr", "grpBoxLPRegister") & fieldCheck(cmbGender.SelectedItem.ToString(),null,null,  "lblLPGenderPicErr", "grpBoxLPRegister") & validation.checkTestListEmpty(labPatient) & validation.checkDateIsSet(labappmnt.Adate, "Lab Appointment"))
                 {
-                    lpb.Dispose();
-                    emptyFields();
-                    labPatient.emptyTestList();
-                    
-                    tabCtrlPReg_App.SelectedIndex = 1;
+                    labPatient.setDetails(txtPName.Text, cmbGender.SelectedValue.ToString(), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text));
+
+                    LabPatientBill lpb = new LabPatientBill(labPatient, labappmnt);
+                    lpb.ShowDialog();
+                    //this.Dispose();
+
+                    if (lpb.appoinmentStatus)
+                    {
+                        lpb.Dispose();
+                        emptyFields();
+                        labPatient.emptyTestList();
+
+                        tabCtrlPReg_App.SelectedIndex = 1;
+
+                    }
+                    else
+                        lpb.Dispose();
 
                 }
+            
+
+            //else
+                //validation.printError(true);
+        }
+
+        private bool fieldCheck(string value, string field=null,string field_lbl=null, string pic_lbl = null, string container=null)
+        {
+            Validation validation = new Validation();
+            
+            if (validation.checkFieldIsSet(value))
+            {
+                assignMessagesToLabels(pic_lbl, "err_pic_remove", container);
+
+                if (field == "name")
+                {
+                    if (validation.alphaVal(value))
+                    {
+                        assignMessagesToLabels(field_lbl, validation.AlphabeticEror, container);
+                        return true;
+                    }
+                    else
+                    {
+                        assignMessagesToLabels(field_lbl, validation.AlphabeticEror, container);
+                        return false;
+                    }
+                }
+
+                else if (field == "age")
+                {
+                    if (validation.IsNumeric(value))
+                    {
+                        assignMessagesToLabels(field_lbl, validation.NumericEror, container);
+
+                        int age = Convert.ToInt32(value);
+                        if (age < 5 || age > 100)
+                        {
+                            assignMessagesToLabels(field_lbl, "*Age should be logical ", container);
+                            return false;
+                        }
+                        else
+                        {
+                            assignMessagesToLabels(field_lbl, "clear", container);
+                            return true;
+                        }
+                    }
+
+
+                    else
+                    {
+                        assignMessagesToLabels(field_lbl, validation.NumericEror, container);
+                        return false;
+                    }
+
+
+                }
+
+                else if (field == "phone")
+                {
+                    if (validation.numberVal(value))
+                    {
+                        assignMessagesToLabels(field_lbl, validation.TelephoneNumberEror, container);
+                        return true;
+                    }
+                    else
+                    {
+                        assignMessagesToLabels(field_lbl, validation.TelephoneNumberEror, container);
+                        return false;
+                    }
+                }
+
+                else if (field == "email")
+                {
+                    if (validation.emailVal(value))
+                    {
+                        assignMessagesToLabels(field_lbl, validation.EmailEror, container);
+                        return true;
+                    }
+                    else
+                    {
+                        assignMessagesToLabels(field_lbl, validation.EmailEror, container);
+                        return false;
+                    }
+                }
+
                 else
-                    lpb.Dispose();
-                
+                    return true;
+
+
             }
+                
             else
-                validation.printError(true);
+            {
+                assignMessagesToLabels(pic_lbl, "err_pic", container);
+                return false;
+            }
+                    
+            
+
+        }
+
+        /* assogn error msg to labels */
+        private void assignMessagesToLabels(string lbl,string msg,string container)
+        {
+            if (container != null)
+            {
+                //var cont=(GroupBox)controls[name]  doesn't work????
+                Label label;
+
+                if (container == "grpBoxLPRegister")
+                {
+                     label = (Label)grpBoxLPRegister.Controls[lbl];
+
+                    if (msg == "err_pic")
+                    {
+                        label.Text = " ";
+                        label.Image = Properties.Resources.required;
+                    }
+                    else if (msg == "err_pic_remove")
+                    {
+                        label.Text = "";
+                    }
+
+                    else if (msg == "clear")
+                    {
+                        label.Text = "";
+                    }
+                    else
+                    {
+                        label.Text = msg;
+                    }
+                }
+
+                if (container == "grpBoxLPUpdate")
+                {
+                     label = (Label)grpBoxLPUpdate.Controls[lbl];
+
+                    if (msg == "err_pic")
+                    {
+                        label.Text = " ";
+                        label.Image = Properties.Resources.required;
+                    }
+                    else if (msg == "err_pic_remove")
+                    {
+                        label.Text = "";
+                    }
+
+                    else if (msg == "clear")
+                    {
+                        label.Text = "";
+                    }
+                    else
+                    {
+                        label.Text = msg;
+                    }
+                }
+
+            }
+
         }
 
         private void emptyFields()
@@ -201,27 +365,28 @@ namespace FamilyCareHospital
 
         private void btnSetAppLimit_Click(object sender, EventArgs e)
         {
-            if (gBxAmpntLimit.Visible == false)
-            {
-                gBxAmpntLimit.Show();
+            //if (gBxAmpntLimit.Visible == false)
+            //{
+            //    gBxAmpntLimit.Show();
                
-            }
-            else if(txtAppmntLimit.Text != null && txtAppmntLimit.Text != "" && gBxAmpntLimit.Visible == true)
-            {
-                Validation val = new Validation();
-                if (val.IsNumeric(txtAppmntLimit.Text, "Set Appointment Limit"))
-                {
-                    DBInsert dbi = new DBInsert();
-                    dbi.insertLabAppointmentLimit(txtAppmntLimit.Text);
-                    MessageBox.Show("Appointment Limit is set ", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                    val.printError(true);
-            }
-            else
-            {
-                gBxAmpntLimit.Hide();
-            }
+            //}
+            //else if(txtAppmntLimit.Text != null && txtAppmntLimit.Text != "" && gBxAmpntLimit.Visible == true)
+            //{
+            //    Validation val = new Validation();
+            //    if (val.IsNumeric(txtAppmntLimit.Text, "Set Appointment Limit"))
+            //    {
+            //        DBInsert dbi = new DBInsert();
+            //        dbi.insertLabAppointmentLimit(txtAppmntLimit.Text);
+            //        MessageBox.Show("Appointment Limit is set ", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    else
+            //        val.printError(true);
+            //}
+            //else
+            //{
+            //    gBxAmpntLimit.Hide();
+            //}
+
         }
 
         private void btnSetAppmntToday_Click(object sender, EventArgs e)
@@ -367,11 +532,11 @@ namespace FamilyCareHospital
         private void btnLPUpdate_Click(object sender, EventArgs e)
         {
             Validation val = new Validation();
-            if(val.alphaVal(txtLPNameUpdate.Text,"patient name") & val.IsNumeric(txtLPAgeUpdate.Text, "patient age") & val.numberVal(txtLPPhoneUpdate.Text, "patient telephone") & val.emailVal(txtLPEmailUpdate.Text))
+            if (fieldCheck(txtLPNameUpdate.Text, "name", "lblLPUpdateNameErr", "lblLPUpdateNamePicErr", "grpBoxLPUpdate") & fieldCheck(txtLPAgeUpdate.Text, "age", "lblLPUpdateAgeErr", "lblLPUpdateAgePicErr", "grpBoxLPUpdate") & fieldCheck(txtLPPhoneUpdate.Text, "phone", "lblLPUpdatePhoneErr", "lblLPUpdatePhonePicErr", "grpBoxLPUpdate") & fieldCheck(txtLPEmailUpdate.Text, "email", "lblLPUpdateEmailErr", "lblLPUpdateEmailPicErr", "grpBoxLPUpdate") & fieldCheck(cmbLPGenderUpdate.SelectedItem.ToString(), null, null, "lblLPUpdateGenderPicErr", "grpBoxLPUpdate")  )
             {
-                string upName = txtLPNameUpdate.Text, upAge = txtLPAgeUpdate.Text, upPhone = txtLPPhoneUpdate.Text , upEmail = txtLPEmailUpdate.Text , upAppmntDate=dateLPAppDateUpdate.Value.ToString("yyyy-MM-dd") , upGender=cmbLPGenderUpdate.SelectedItem.ToString();
+                string upName = txtLPNameUpdate.Text, upAge = txtLPAgeUpdate.Text, upPhone = txtLPPhoneUpdate.Text, upEmail = txtLPEmailUpdate.Text, upAppmntDate = dateLPAppDateUpdate.Value.ToString("yyyy-MM-dd"), upGender = cmbLPGenderUpdate.SelectedItem.ToString();
 
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update Confirm", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (manipulateLabPatient.Name != upName)
@@ -424,6 +589,8 @@ namespace FamilyCareHospital
             {
                 val.printError(true);
             }
+
+
         }
 
         private void btnLPUpdateCancel_Click(object sender, EventArgs e)

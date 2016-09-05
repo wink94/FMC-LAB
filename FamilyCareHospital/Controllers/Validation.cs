@@ -9,22 +9,37 @@ using System.Net.Mail;
 
 namespace FamilyCareHospital.Controllers
 {
-    class Validation
+    class Validation 
     {
-        private Dictionary<string,string> errmsg = new Dictionary<string, string> {
-            {"alphaVal","" },{"numberVal","" },{"emailVal","" },{"IsNumeric","" },{"alphaNumericVal","" }, {"TestListEmpty","" }, {"checkFieldIsSet","" } };
+        private Dictionary<string, string> errmsg;
+        private string errormsg_IsNumeric;
+        private string errormsg_alphaVal;
+        private string errormsg_numberVal;
+        private string errormsg_emailVal;
 
+        public string AlphabeticEror{ get { return errormsg_alphaVal; } }
+        public string NumericEror { get { return errormsg_IsNumeric; } }
+        public string TelephoneNumberEror { get { return errormsg_numberVal; } }
+        public string EmailEror { get { return errormsg_emailVal; } }
+
+
+        //public string Error { get; }
+        public Validation()
+        {
+            errmsg = new Dictionary<string, string> {
+            {"alphaVal","" },{"numberVal","" },{"emailVal","" },{"IsNumeric","" },{"alphaNumericVal","" }, {"TestListEmpty","" }, {"checkFieldIsSet","" } };
+        }
         /* letters only!! validation*/
 
-        public bool alphaVal(string val,string field)
+        public bool alphaVal(string val)
         {
             string pattern = @"^[A-Za-z.\s]+$";
             Match m = Regex.Match(val, pattern);
-            string errormsg_alphaVal;
+            
 
             if (!m.Success || val.Length > 45)
             {
-                errormsg_alphaVal = "invalid entry only letters are allowed in " + field.ToUpper() + ".!\n";
+                errormsg_alphaVal = "invalid entry only letters are allowed in  .!";
                 errmsg["alphaVal"]= errormsg_alphaVal;
                 return false;
             }
@@ -37,23 +52,23 @@ namespace FamilyCareHospital.Controllers
         }
 
         /* phone number validation*/
-        public bool numberVal(string val,string field)
+        public bool numberVal(string val)
         {
             string pattern = @"\d{10}";
             Match m = Regex.Match(val, pattern);
-            string errormsg_numberVal;
+            
 
             if (!m.Success || val.Length != 10)
             {
 
-                errormsg_numberVal = "invalid entry only 10 number are allowed in " + field.ToUpper() + ".!\n";
-                errmsg["numberVal"]=errormsg_numberVal;
+                errormsg_numberVal = "invalid entry only 10 number are allowed ";
+                //errmsg["numberVal"]=errormsg_numberVal;
                 return false;
             }
             else
             {
                 errormsg_numberVal = "";
-                errmsg["numberVal"] = errormsg_numberVal;
+                //errmsg["numberVal"] = errormsg_numberVal;
                 return true;
             }
 
@@ -61,30 +76,30 @@ namespace FamilyCareHospital.Controllers
         /* email validation*/
         public bool emailVal(string emailaddress)
         {
-            string errormsg_emailVal;
+            
             try
             {
                 MailAddress m = new MailAddress(emailaddress);
                 errormsg_emailVal = "";
-                errmsg["emailVal"]=errormsg_emailVal;
+                //errmsg["emailVal"]=errormsg_emailVal;
                 return true;
             }
-            catch (Exception)
+            catch (Exception )
             {
-                errormsg_emailVal = "invalid email !" + "\n";
-                errmsg["emailVal"] = errormsg_emailVal;
+                errormsg_emailVal = "invalid email !";
+                //errmsg["emailVal"] = errormsg_emailVal;
                 return false;
             }
         }
 
         /* numeric validation*/
-        public bool IsNumeric(string input,string field)
+        public bool IsNumeric(string input)
         {
             int test;
-            string errormsg_IsNumeric;
+            
             if (!int.TryParse(input, out test))
             {
-                errormsg_IsNumeric = "invalid numeric value in " + field.ToUpper() + ".!\n";
+                errormsg_IsNumeric = "invalid numeric value in .!";
                 errmsg["IsNumeric"]=errormsg_IsNumeric;
                 return false;
             }
@@ -124,33 +139,54 @@ namespace FamilyCareHospital.Controllers
             if (!lp.checkTestListEmpty())
             {
                 errormsg_checkTestListEmpty = "Test List cannot be empty. Please Select Tests!" + "\n";
-                errmsg["TestListEmpty"] = errormsg_checkTestListEmpty;
+                MessageBox.Show(errormsg_checkTestListEmpty, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            //else
+            //{
+            //    errormsg_checkTestListEmpty = "";
+            //    errmsg["TestListEmpty"] = errormsg_checkTestListEmpty;
+            //    return true;
+            //}
             else
-            {
-                errormsg_checkTestListEmpty = "";
-                errmsg["TestListEmpty"] = errormsg_checkTestListEmpty;
                 return true;
-            }
         }
 
-        public bool checkFieldIsSet(string value,string field)
+        public bool checkFieldIsSet(string value)
         {
             string checkFieldIsSet;
             if (value=="" ||value==null)
             {
-                checkFieldIsSet = field+" field cannot be empty.!" + "\n";
-                errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                checkFieldIsSet = " field cannot be empty.!" + "\n";
+                //errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                messageString(checkFieldIsSet);
                 return false;
             }
             else
             {
                 checkFieldIsSet = "";
-                errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                //errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                messageString(checkFieldIsSet);
                 return true;
             }
         }
+
+
+        public bool checkDateIsSet(string value,string field)
+        {
+            string checkFieldIsSet;
+            if (value == "" || value == null)
+            {
+                checkFieldIsSet = field+" Date  cannot be empty.! ";
+                //errmsg["checkFieldIsSet"] = checkFieldIsSet;
+                MessageBox.Show(checkFieldIsSet, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+                return true;
+            
+        }
+
 
         public void printError(bool val)
         {
@@ -164,6 +200,14 @@ namespace FamilyCareHospital.Controllers
                 }
                 MessageBox.Show(msg,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+
+
+
+        public string messageString(string msg)
+        {
+            return msg;
         }
 
     }

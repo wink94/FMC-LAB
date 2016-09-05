@@ -1533,6 +1533,16 @@ namespace FamilyCareHospital.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap required {
+            get {
+                object obj = ResourceManager.GetObject("required", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Return_Purchase_48 {
             get {
                 object obj = ResourceManager.GetObject("Return_Purchase_48", resourceCulture);

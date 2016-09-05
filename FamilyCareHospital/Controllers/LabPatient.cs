@@ -174,7 +174,7 @@ namespace FamilyCareHospital.Controllers
                 if (updateFlag == "Name")
                     query = "update lab_patient set labPatientName ='" + Name + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
                 else if (updateFlag == "Age")
-                    query = "update lab_patient set labPatientAge ='" + Name + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
+                    query = "update lab_patient set labPatientAge ='" + Age + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
                 else if(updateFlag == "Phone")
                     query = "update lab_patient set labPatientPhone ='" + Phone + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
                 else if (updateFlag == "Email")

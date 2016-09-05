@@ -115,45 +115,45 @@ namespace FamilyCareHospital.Interfaces
 
         private void updateConfirm()
         {
-            string tstName = txtTestName.Text, tstPrice = txtTestPrice.Text;
-            int updateFlag ;
+            //string tstName = txtTestName.Text, tstPrice = txtTestPrice.Text;
+            //int updateFlag ;
            
-            Validation vali = new Validation();
+            //Validation vali = new Validation();
 
-            if (tstName != labtest.Name && tstPrice != labtest.Price.ToString() && vali.IsNumeric(tstPrice," test price") && vali.alphaNumericVal(tstName,"test name"))
-            {
-                labtest.Name = tstName;
-                labtest.Price = Convert.ToDouble(tstPrice);
-                updateFlag = 3;
-            }
-            else if (tstName != labtest.Name && vali.alphaNumericVal(tstName, " test name") && vali.IsNumeric(tstPrice, "test price"))
-            {
-                labtest.Name = tstName;
-                updateFlag = 1;
-            }
-            else if (tstPrice != labtest.Price.ToString() && vali.IsNumeric(tstPrice, "test price") && vali.alphaNumericVal(tstName, "test name"))
-            {
-                labtest.Price = Convert.ToDouble(tstPrice);
-                updateFlag = 2;
-            }
-            else
-            {
-                vali.printError(true);
-                updateFlag = 0;
-            }
+            //if (tstName != labtest.Name && tstPrice != labtest.Price.ToString() && vali.IsNumeric(tstPrice," test price") && vali.alphaNumericVal(tstName,"test name"))
+            //{
+            //    labtest.Name = tstName;
+            //    labtest.Price = Convert.ToDouble(tstPrice);
+            //    updateFlag = 3;
+            //}
+            //else if (tstName != labtest.Name && vali.alphaNumericVal(tstName, " test name") && vali.IsNumeric(tstPrice, "test price"))
+            //{
+            //    labtest.Name = tstName;
+            //    updateFlag = 1;
+            //}
+            //else if (tstPrice != labtest.Price.ToString() && vali.IsNumeric(tstPrice, "test price") && vali.alphaNumericVal(tstName, "test name"))
+            //{
+            //    labtest.Price = Convert.ToDouble(tstPrice);
+            //    updateFlag = 2;
+            //}
+            //else
+            //{
+            //    vali.printError(true);
+            //    updateFlag = 0;
+            //}
 
-            if (updateFlag>0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?","Update Confirm", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    labtest.updateTest(updateFlag);
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    emptyFields();
-                }
-            }
+            //if (updateFlag>0)
+            //{
+            //    DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?","Update Confirm", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        labtest.updateTest(updateFlag);
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        emptyFields();
+            //    }
+            //}
 
         }
 

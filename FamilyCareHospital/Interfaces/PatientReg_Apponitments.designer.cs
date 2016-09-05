@@ -31,18 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.tabCtrlPReg_App = new System.Windows.Forms.TabControl();
             this.tabPRegister = new System.Windows.Forms.TabPage();
-            this.btnSetAppLimit = new System.Windows.Forms.Button();
-            this.gBxAmpntLimit = new System.Windows.Forms.GroupBox();
-            this.txtAppmntLimit = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSetAppointmenToday = new System.Windows.Forms.Button();
-            this.btnSetAppmnt = new System.Windows.Forms.Button();
-            this.gBxSelectApmnt = new System.Windows.Forms.GroupBox();
-            this.dateAppDate = new System.Windows.Forms.DateTimePicker();
-            this.lblAppNum = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnPatientRegBack = new System.Windows.Forms.Button();
+            this.grpBoxLPRegister = new System.Windows.Forms.GroupBox();
+            this.lblLPAgeErr = new System.Windows.Forms.Label();
+            this.lblLPPhoneErr = new System.Windows.Forms.Label();
+            this.lblLPEmailErr = new System.Windows.Forms.Label();
+            this.lblLPPhonePicErr = new System.Windows.Forms.Label();
+            this.lblLPAgePicErr = new System.Windows.Forms.Label();
+            this.lblLPGenderPicErr = new System.Windows.Forms.Label();
+            this.lblLPEmailPicErr = new System.Windows.Forms.Label();
+            this.lblLPNamePicErr = new System.Windows.Forms.Label();
+            this.lblLPNameErr = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pboxAdd = new System.Windows.Forms.PictureBox();
             this.pboxRemove = new System.Windows.Forms.PictureBox();
@@ -61,8 +59,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSetAppLimit = new System.Windows.Forms.Button();
+            this.gBxAmpntLimit = new System.Windows.Forms.GroupBox();
+            this.txtAppmntLimit = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSetAppointmenToday = new System.Windows.Forms.Button();
+            this.btnSetAppmnt = new System.Windows.Forms.Button();
+            this.gBxSelectApmnt = new System.Windows.Forms.GroupBox();
+            this.dateAppDate = new System.Windows.Forms.DateTimePicker();
+            this.lblAppNum = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnPatientRegBack = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grpBoxLPUpdate = new System.Windows.Forms.GroupBox();
             this.btnLPUpdateCancel = new System.Windows.Forms.Button();
             this.btnLPUpdate = new System.Windows.Forms.Button();
             this.dateLPAppDateUpdate = new System.Windows.Forms.DateTimePicker();
@@ -77,7 +87,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtLPNameUpdate = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnManageAppmntBack = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearchAppmntByDate = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -92,17 +101,29 @@
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.txtAppointmentSearch = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnManageAppmntBack = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblLPUpdateNameErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateNamePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateAgePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateEmailPicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdatePhonePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateGenderPicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateDatePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdatePhoneErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateAgeErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateEmailErr = new System.Windows.Forms.Label();
             this.tabCtrlPReg_App.SuspendLayout();
             this.tabPRegister.SuspendLayout();
-            this.gBxAmpntLimit.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.gBxSelectApmnt.SuspendLayout();
+            this.grpBoxLPRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxRemove)).BeginInit();
+            this.gBxAmpntLimit.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.gBxSelectApmnt.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.grpBoxLPUpdate.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).BeginInit();
             this.SuspendLayout();
@@ -123,34 +144,324 @@
             // 
             this.tabPRegister.BackColor = System.Drawing.Color.White;
             this.tabPRegister.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPRegister.Controls.Add(this.grpBoxLPRegister);
             this.tabPRegister.Controls.Add(this.btnSetAppLimit);
             this.tabPRegister.Controls.Add(this.gBxAmpntLimit);
             this.tabPRegister.Controls.Add(this.groupBox1);
             this.tabPRegister.Controls.Add(this.btnPatientRegBack);
-            this.tabPRegister.Controls.Add(this.pictureBox3);
-            this.tabPRegister.Controls.Add(this.pboxAdd);
-            this.tabPRegister.Controls.Add(this.pboxRemove);
-            this.tabPRegister.Controls.Add(this.btnPreview);
-            this.tabPRegister.Controls.Add(this.lstPTests);
-            this.tabPRegister.Controls.Add(this.lstTests);
-            this.tabPRegister.Controls.Add(this.txtPSearchTest);
-            this.tabPRegister.Controls.Add(this.label6);
-            this.tabPRegister.Controls.Add(this.cmbGender);
-            this.tabPRegister.Controls.Add(this.txtPPhone);
-            this.tabPRegister.Controls.Add(this.label3);
-            this.tabPRegister.Controls.Add(this.txtPAge);
-            this.tabPRegister.Controls.Add(this.label2);
-            this.tabPRegister.Controls.Add(this.txtPEmail);
-            this.tabPRegister.Controls.Add(this.label5);
-            this.tabPRegister.Controls.Add(this.label4);
-            this.tabPRegister.Controls.Add(this.txtPName);
-            this.tabPRegister.Controls.Add(this.label1);
             this.tabPRegister.Location = new System.Drawing.Point(4, 29);
             this.tabPRegister.Name = "tabPRegister";
             this.tabPRegister.Padding = new System.Windows.Forms.Padding(3);
             this.tabPRegister.Size = new System.Drawing.Size(1185, 667);
             this.tabPRegister.TabIndex = 0;
             this.tabPRegister.Text = "Patient Registraion";
+            // 
+            // grpBoxLPRegister
+            // 
+            this.grpBoxLPRegister.Controls.Add(this.lblLPAgeErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPPhoneErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPEmailErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPPhonePicErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPAgePicErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPGenderPicErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPEmailPicErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPNamePicErr);
+            this.grpBoxLPRegister.Controls.Add(this.lblLPNameErr);
+            this.grpBoxLPRegister.Controls.Add(this.pictureBox3);
+            this.grpBoxLPRegister.Controls.Add(this.pboxAdd);
+            this.grpBoxLPRegister.Controls.Add(this.pboxRemove);
+            this.grpBoxLPRegister.Controls.Add(this.btnPreview);
+            this.grpBoxLPRegister.Controls.Add(this.lstPTests);
+            this.grpBoxLPRegister.Controls.Add(this.lstTests);
+            this.grpBoxLPRegister.Controls.Add(this.txtPSearchTest);
+            this.grpBoxLPRegister.Controls.Add(this.label6);
+            this.grpBoxLPRegister.Controls.Add(this.cmbGender);
+            this.grpBoxLPRegister.Controls.Add(this.txtPPhone);
+            this.grpBoxLPRegister.Controls.Add(this.label3);
+            this.grpBoxLPRegister.Controls.Add(this.txtPAge);
+            this.grpBoxLPRegister.Controls.Add(this.label2);
+            this.grpBoxLPRegister.Controls.Add(this.txtPEmail);
+            this.grpBoxLPRegister.Controls.Add(this.label5);
+            this.grpBoxLPRegister.Controls.Add(this.label4);
+            this.grpBoxLPRegister.Controls.Add(this.txtPName);
+            this.grpBoxLPRegister.Controls.Add(this.label1);
+            this.grpBoxLPRegister.Location = new System.Drawing.Point(21, 85);
+            this.grpBoxLPRegister.Name = "grpBoxLPRegister";
+            this.grpBoxLPRegister.Size = new System.Drawing.Size(747, 532);
+            this.grpBoxLPRegister.TabIndex = 22;
+            this.grpBoxLPRegister.TabStop = false;
+            this.grpBoxLPRegister.Text = "grpBoxLPRegister";
+            // 
+            // lblLPAgeErr
+            // 
+            this.lblLPAgeErr.AutoSize = true;
+            this.lblLPAgeErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPAgeErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPAgeErr.Location = new System.Drawing.Point(145, 154);
+            this.lblLPAgeErr.Name = "lblLPAgeErr";
+            this.lblLPAgeErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPAgeErr.TabIndex = 50;
+            this.lblLPAgeErr.Text = "label18";
+            // 
+            // lblLPPhoneErr
+            // 
+            this.lblLPPhoneErr.AutoSize = true;
+            this.lblLPPhoneErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPPhoneErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPPhoneErr.Location = new System.Drawing.Point(145, 234);
+            this.lblLPPhoneErr.Name = "lblLPPhoneErr";
+            this.lblLPPhoneErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPPhoneErr.TabIndex = 49;
+            this.lblLPPhoneErr.Text = "label18";
+            // 
+            // lblLPEmailErr
+            // 
+            this.lblLPEmailErr.AutoSize = true;
+            this.lblLPEmailErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPEmailErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPEmailErr.Location = new System.Drawing.Point(498, 75);
+            this.lblLPEmailErr.Name = "lblLPEmailErr";
+            this.lblLPEmailErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPEmailErr.TabIndex = 47;
+            this.lblLPEmailErr.Text = "label18";
+            // 
+            // lblLPPhonePicErr
+            // 
+            this.lblLPPhonePicErr.AutoSize = true;
+            this.lblLPPhonePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPPhonePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPPhonePicErr.Location = new System.Drawing.Point(335, 195);
+            this.lblLPPhonePicErr.Name = "lblLPPhonePicErr";
+            this.lblLPPhonePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPPhonePicErr.TabIndex = 46;
+            this.lblLPPhonePicErr.Text = "label18";
+            // 
+            // lblLPAgePicErr
+            // 
+            this.lblLPAgePicErr.AutoSize = true;
+            this.lblLPAgePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPAgePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPAgePicErr.Location = new System.Drawing.Point(335, 122);
+            this.lblLPAgePicErr.Name = "lblLPAgePicErr";
+            this.lblLPAgePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPAgePicErr.TabIndex = 45;
+            this.lblLPAgePicErr.Text = "label18";
+            // 
+            // lblLPGenderPicErr
+            // 
+            this.lblLPGenderPicErr.AutoSize = true;
+            this.lblLPGenderPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPGenderPicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPGenderPicErr.Location = new System.Drawing.Point(614, 115);
+            this.lblLPGenderPicErr.Name = "lblLPGenderPicErr";
+            this.lblLPGenderPicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPGenderPicErr.TabIndex = 44;
+            this.lblLPGenderPicErr.Text = "label18";
+            // 
+            // lblLPEmailPicErr
+            // 
+            this.lblLPEmailPicErr.AutoSize = true;
+            this.lblLPEmailPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPEmailPicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPEmailPicErr.Location = new System.Drawing.Point(688, 40);
+            this.lblLPEmailPicErr.Name = "lblLPEmailPicErr";
+            this.lblLPEmailPicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPEmailPicErr.TabIndex = 43;
+            this.lblLPEmailPicErr.Text = "label18";
+            // 
+            // lblLPNamePicErr
+            // 
+            this.lblLPNamePicErr.AutoSize = true;
+            this.lblLPNamePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPNamePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPNamePicErr.Location = new System.Drawing.Point(335, 44);
+            this.lblLPNamePicErr.Name = "lblLPNamePicErr";
+            this.lblLPNamePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPNamePicErr.TabIndex = 42;
+            this.lblLPNamePicErr.Text = "label18";
+            // 
+            // lblLPNameErr
+            // 
+            this.lblLPNameErr.AutoSize = true;
+            this.lblLPNameErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPNameErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPNameErr.Location = new System.Drawing.Point(145, 75);
+            this.lblLPNameErr.Name = "lblLPNameErr";
+            this.lblLPNameErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPNameErr.TabIndex = 41;
+            this.lblLPNameErr.Text = "label18";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Image = global::FamilyCareHospital.Properties.Resources.search_icon_png_251;
+            this.pictureBox3.Location = new System.Drawing.Point(349, 289);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 40;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pboxAdd
+            // 
+            this.pboxAdd.Image = global::FamilyCareHospital.Properties.Resources.blue_right_arrow_icon_201;
+            this.pboxAdd.Location = new System.Drawing.Point(371, 345);
+            this.pboxAdd.Name = "pboxAdd";
+            this.pboxAdd.Size = new System.Drawing.Size(50, 50);
+            this.pboxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pboxAdd.TabIndex = 38;
+            this.pboxAdd.TabStop = false;
+            this.pboxAdd.Click += new System.EventHandler(this.pboxAdd_Click);
+            this.pboxAdd.MouseLeave += new System.EventHandler(this.pboxAdd_MouseLeave);
+            this.pboxAdd.MouseHover += new System.EventHandler(this.pboxAdd_MouseHover);
+            // 
+            // pboxRemove
+            // 
+            this.pboxRemove.Image = global::FamilyCareHospital.Properties.Resources.blue_left_arrow_icon_20;
+            this.pboxRemove.Location = new System.Drawing.Point(371, 419);
+            this.pboxRemove.Name = "pboxRemove";
+            this.pboxRemove.Size = new System.Drawing.Size(50, 50);
+            this.pboxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pboxRemove.TabIndex = 39;
+            this.pboxRemove.TabStop = false;
+            this.pboxRemove.Click += new System.EventHandler(this.pboxRemove_Click);
+            this.pboxRemove.MouseLeave += new System.EventHandler(this.pboxRemove_MouseLeave);
+            this.pboxRemove.MouseHover += new System.EventHandler(this.pboxRemove_MouseHover);
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnPreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnPreview.Location = new System.Drawing.Point(583, 493);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(80, 30);
+            this.btnPreview.TabIndex = 37;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.UseVisualStyleBackColor = false;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
+            // lstPTests
+            // 
+            this.lstPTests.FormattingEnabled = true;
+            this.lstPTests.ItemHeight = 20;
+            this.lstPTests.Location = new System.Drawing.Point(478, 345);
+            this.lstPTests.Name = "lstPTests";
+            this.lstPTests.Size = new System.Drawing.Size(180, 124);
+            this.lstPTests.TabIndex = 36;
+            // 
+            // lstTests
+            // 
+            this.lstTests.FormattingEnabled = true;
+            this.lstTests.ItemHeight = 20;
+            this.lstTests.Location = new System.Drawing.Point(146, 345);
+            this.lstTests.Name = "lstTests";
+            this.lstTests.Size = new System.Drawing.Size(180, 124);
+            this.lstTests.TabIndex = 35;
+            // 
+            // txtPSearchTest
+            // 
+            this.txtPSearchTest.Location = new System.Drawing.Point(149, 284);
+            this.txtPSearchTest.Name = "txtPSearchTest";
+            this.txtPSearchTest.Size = new System.Drawing.Size(180, 27);
+            this.txtPSearchTest.TabIndex = 34;
+            this.txtPSearchTest.TextChanged += new System.EventHandler(this.txtPSearchTest_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(17, 283);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 18);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Search Test";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Location = new System.Drawing.Point(502, 107);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(107, 28);
+            this.cmbGender.TabIndex = 32;
+            // 
+            // txtPPhone
+            // 
+            this.txtPPhone.Location = new System.Drawing.Point(149, 191);
+            this.txtPPhone.Name = "txtPPhone";
+            this.txtPPhone.Size = new System.Drawing.Size(180, 27);
+            this.txtPPhone.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 18);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Phone";
+            // 
+            // txtPAge
+            // 
+            this.txtPAge.Location = new System.Drawing.Point(149, 116);
+            this.txtPAge.Name = "txtPAge";
+            this.txtPAge.Size = new System.Drawing.Size(180, 27);
+            this.txtPAge.TabIndex = 29;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 18);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Age";
+            // 
+            // txtPEmail
+            // 
+            this.txtPEmail.Location = new System.Drawing.Point(502, 36);
+            this.txtPEmail.Name = "txtPEmail";
+            this.txtPEmail.Size = new System.Drawing.Size(180, 27);
+            this.txtPEmail.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(398, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 18);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Gender";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(398, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 18);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Email";
+            // 
+            // txtPName
+            // 
+            this.txtPName.Location = new System.Drawing.Point(149, 36);
+            this.txtPName.Name = "txtPName";
+            this.txtPName.Size = new System.Drawing.Size(180, 27);
+            this.txtPName.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 18);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Name";
             // 
             // btnSetAppLimit
             // 
@@ -195,7 +506,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.btnSetAppointmenToday);
             this.groupBox1.Controls.Add(this.btnSetAppmnt);
             this.groupBox1.Controls.Add(this.gBxSelectApmnt);
@@ -275,7 +586,7 @@
             // 
             // btnPatientRegBack
             // 
-            this.btnPatientRegBack.Image = global::FamilyCareHospital.Properties.Resources.back2;
+            this.btnPatientRegBack.Image = global::FamilyCareHospital.Properties.Resources.BACK_undo_32px;
             this.btnPatientRegBack.Location = new System.Drawing.Point(1076, 6);
             this.btnPatientRegBack.Name = "btnPatientRegBack";
             this.btnPatientRegBack.Size = new System.Drawing.Size(59, 50);
@@ -283,184 +594,12 @@
             this.btnPatientRegBack.UseVisualStyleBackColor = true;
             this.btnPatientRegBack.Click += new System.EventHandler(this.btnPatientRegBack_Click);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = global::FamilyCareHospital.Properties.Resources.search_icon_png_251;
-            this.pictureBox3.Location = new System.Drawing.Point(389, 351);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(22, 22);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pboxAdd
-            // 
-            this.pboxAdd.Image = global::FamilyCareHospital.Properties.Resources.blue_right_arrow_icon_201;
-            this.pboxAdd.Location = new System.Drawing.Point(411, 407);
-            this.pboxAdd.Name = "pboxAdd";
-            this.pboxAdd.Size = new System.Drawing.Size(50, 50);
-            this.pboxAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pboxAdd.TabIndex = 8;
-            this.pboxAdd.TabStop = false;
-            this.pboxAdd.Click += new System.EventHandler(this.pboxAdd_Click);
-            this.pboxAdd.MouseLeave += new System.EventHandler(this.pboxAdd_MouseLeave);
-            this.pboxAdd.MouseHover += new System.EventHandler(this.pboxAdd_MouseHover);
-            // 
-            // pboxRemove
-            // 
-            this.pboxRemove.Image = global::FamilyCareHospital.Properties.Resources.blue_left_arrow_icon_20;
-            this.pboxRemove.Location = new System.Drawing.Point(411, 481);
-            this.pboxRemove.Name = "pboxRemove";
-            this.pboxRemove.Size = new System.Drawing.Size(50, 50);
-            this.pboxRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pboxRemove.TabIndex = 8;
-            this.pboxRemove.TabStop = false;
-            this.pboxRemove.Click += new System.EventHandler(this.pboxRemove_Click);
-            this.pboxRemove.MouseLeave += new System.EventHandler(this.pboxRemove_MouseLeave);
-            this.pboxRemove.MouseHover += new System.EventHandler(this.pboxRemove_MouseHover);
-            // 
-            // btnPreview
-            // 
-            this.btnPreview.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnPreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnPreview.Location = new System.Drawing.Point(623, 555);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(80, 30);
-            this.btnPreview.TabIndex = 7;
-            this.btnPreview.Text = "Preview";
-            this.btnPreview.UseVisualStyleBackColor = false;
-            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
-            // 
-            // lstPTests
-            // 
-            this.lstPTests.FormattingEnabled = true;
-            this.lstPTests.ItemHeight = 20;
-            this.lstPTests.Location = new System.Drawing.Point(518, 407);
-            this.lstPTests.Name = "lstPTests";
-            this.lstPTests.Size = new System.Drawing.Size(180, 124);
-            this.lstPTests.TabIndex = 5;
-            // 
-            // lstTests
-            // 
-            this.lstTests.FormattingEnabled = true;
-            this.lstTests.ItemHeight = 20;
-            this.lstTests.Location = new System.Drawing.Point(186, 407);
-            this.lstTests.Name = "lstTests";
-            this.lstTests.Size = new System.Drawing.Size(180, 124);
-            this.lstTests.TabIndex = 5;
-            // 
-            // txtPSearchTest
-            // 
-            this.txtPSearchTest.Location = new System.Drawing.Point(189, 346);
-            this.txtPSearchTest.Name = "txtPSearchTest";
-            this.txtPSearchTest.Size = new System.Drawing.Size(180, 27);
-            this.txtPSearchTest.TabIndex = 4;
-            this.txtPSearchTest.TextChanged += new System.EventHandler(this.txtPSearchTest_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(57, 345);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 18);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Search Test";
-            // 
-            // cmbGender
-            // 
-            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Location = new System.Drawing.Point(518, 169);
-            this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(107, 28);
-            this.cmbGender.TabIndex = 2;
-            // 
-            // txtPPhone
-            // 
-            this.txtPPhone.Location = new System.Drawing.Point(189, 253);
-            this.txtPPhone.Name = "txtPPhone";
-            this.txtPPhone.Size = new System.Drawing.Size(180, 27);
-            this.txtPPhone.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Phone";
-            // 
-            // txtPAge
-            // 
-            this.txtPAge.Location = new System.Drawing.Point(189, 178);
-            this.txtPAge.Name = "txtPAge";
-            this.txtPAge.Size = new System.Drawing.Size(180, 27);
-            this.txtPAge.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Age";
-            // 
-            // txtPEmail
-            // 
-            this.txtPEmail.Location = new System.Drawing.Point(518, 98);
-            this.txtPEmail.Name = "txtPEmail";
-            this.txtPEmail.Size = new System.Drawing.Size(180, 27);
-            this.txtPEmail.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(413, 178);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Gender";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(413, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Email";
-            // 
-            // txtPName
-            // 
-            this.txtPName.Location = new System.Drawing.Point(189, 98);
-            this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(180, 27);
-            this.txtPName.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 98);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.btnManageAppmntBack);
+            this.tabPage2.Controls.Add(this.grpBoxLPUpdate);
             this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.btnManageAppmntBack);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -468,29 +607,39 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Manage Appointments";
             // 
-            // groupBox4
+            // grpBoxLPUpdate
             // 
-            this.groupBox4.BackColor = System.Drawing.Color.Silver;
-            this.groupBox4.Controls.Add(this.btnLPUpdateCancel);
-            this.groupBox4.Controls.Add(this.btnLPUpdate);
-            this.groupBox4.Controls.Add(this.dateLPAppDateUpdate);
-            this.groupBox4.Controls.Add(this.cmbLPGenderUpdate);
-            this.groupBox4.Controls.Add(this.txtLPEmailUpdate);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.txtLPPhoneUpdate);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.txtLPAgeUpdate);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.txtLPNameUpdate);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Location = new System.Drawing.Point(33, 85);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(418, 508);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Patient Update";
+            this.grpBoxLPUpdate.BackColor = System.Drawing.Color.Silver;
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdatePhonePicErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateDatePicErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateGenderPicErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateEmailPicErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateAgePicErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateNamePicErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateAgeErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateEmailErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdatePhoneErr);
+            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateNameErr);
+            this.grpBoxLPUpdate.Controls.Add(this.btnLPUpdateCancel);
+            this.grpBoxLPUpdate.Controls.Add(this.btnLPUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.dateLPAppDateUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.cmbLPGenderUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.txtLPEmailUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.label17);
+            this.grpBoxLPUpdate.Controls.Add(this.label15);
+            this.grpBoxLPUpdate.Controls.Add(this.label16);
+            this.grpBoxLPUpdate.Controls.Add(this.txtLPPhoneUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.label7);
+            this.grpBoxLPUpdate.Controls.Add(this.txtLPAgeUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.label13);
+            this.grpBoxLPUpdate.Controls.Add(this.txtLPNameUpdate);
+            this.grpBoxLPUpdate.Controls.Add(this.label14);
+            this.grpBoxLPUpdate.Location = new System.Drawing.Point(33, 85);
+            this.grpBoxLPUpdate.Name = "grpBoxLPUpdate";
+            this.grpBoxLPUpdate.Size = new System.Drawing.Size(418, 508);
+            this.grpBoxLPUpdate.TabIndex = 15;
+            this.grpBoxLPUpdate.TabStop = false;
+            this.grpBoxLPUpdate.Text = "Patient Update";
             // 
             // btnLPUpdateCancel
             // 
@@ -621,16 +770,6 @@
             this.label14.Size = new System.Drawing.Size(53, 18);
             this.label14.TabIndex = 4;
             this.label14.Text = "Name";
-            // 
-            // btnManageAppmntBack
-            // 
-            this.btnManageAppmntBack.Image = global::FamilyCareHospital.Properties.Resources.back2;
-            this.btnManageAppmntBack.Location = new System.Drawing.Point(1097, 6);
-            this.btnManageAppmntBack.Name = "btnManageAppmntBack";
-            this.btnManageAppmntBack.Size = new System.Drawing.Size(59, 50);
-            this.btnManageAppmntBack.TabIndex = 14;
-            this.btnManageAppmntBack.UseVisualStyleBackColor = true;
-            this.btnManageAppmntBack.Click += new System.EventHandler(this.btnManageAppmntBack_Click);
             // 
             // groupBox2
             // 
@@ -772,12 +911,133 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Search Appointments";
             // 
+            // btnManageAppmntBack
+            // 
+            this.btnManageAppmntBack.Image = global::FamilyCareHospital.Properties.Resources.BACK_undo_32px;
+            this.btnManageAppmntBack.Location = new System.Drawing.Point(1097, 6);
+            this.btnManageAppmntBack.Name = "btnManageAppmntBack";
+            this.btnManageAppmntBack.Size = new System.Drawing.Size(59, 50);
+            this.btnManageAppmntBack.TabIndex = 14;
+            this.btnManageAppmntBack.UseVisualStyleBackColor = true;
+            this.btnManageAppmntBack.Click += new System.EventHandler(this.btnManageAppmntBack_Click);
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "Delete";
             this.dataGridViewImageColumn1.Image = global::FamilyCareHospital.Properties.Resources.cancel_25px;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // lblLPUpdateNameErr
+            // 
+            this.lblLPUpdateNameErr.AutoSize = true;
+            this.lblLPUpdateNameErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateNameErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateNameErr.Location = new System.Drawing.Point(150, 89);
+            this.lblLPUpdateNameErr.Name = "lblLPUpdateNameErr";
+            this.lblLPUpdateNameErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateNameErr.TabIndex = 43;
+            this.lblLPUpdateNameErr.Text = "label18";
+            // 
+            // lblLPUpdateNamePicErr
+            // 
+            this.lblLPUpdateNamePicErr.AutoSize = true;
+            this.lblLPUpdateNamePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateNamePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateNamePicErr.Location = new System.Drawing.Point(339, 67);
+            this.lblLPUpdateNamePicErr.Name = "lblLPUpdateNamePicErr";
+            this.lblLPUpdateNamePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateNamePicErr.TabIndex = 43;
+            this.lblLPUpdateNamePicErr.Text = "label18";
+            // 
+            // lblLPUpdateAgePicErr
+            // 
+            this.lblLPUpdateAgePicErr.AutoSize = true;
+            this.lblLPUpdateAgePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateAgePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateAgePicErr.Location = new System.Drawing.Point(339, 122);
+            this.lblLPUpdateAgePicErr.Name = "lblLPUpdateAgePicErr";
+            this.lblLPUpdateAgePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateAgePicErr.TabIndex = 43;
+            this.lblLPUpdateAgePicErr.Text = "label18";
+            // 
+            // lblLPUpdateEmailPicErr
+            // 
+            this.lblLPUpdateEmailPicErr.AutoSize = true;
+            this.lblLPUpdateEmailPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateEmailPicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateEmailPicErr.Location = new System.Drawing.Point(339, 228);
+            this.lblLPUpdateEmailPicErr.Name = "lblLPUpdateEmailPicErr";
+            this.lblLPUpdateEmailPicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateEmailPicErr.TabIndex = 43;
+            this.lblLPUpdateEmailPicErr.Text = "label18";
+            // 
+            // lblLPUpdatePhonePicErr
+            // 
+            this.lblLPUpdatePhonePicErr.AutoSize = true;
+            this.lblLPUpdatePhonePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdatePhonePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdatePhonePicErr.Location = new System.Drawing.Point(339, 174);
+            this.lblLPUpdatePhonePicErr.Name = "lblLPUpdatePhonePicErr";
+            this.lblLPUpdatePhonePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdatePhonePicErr.TabIndex = 43;
+            this.lblLPUpdatePhonePicErr.Text = "label18";
+            // 
+            // lblLPUpdateGenderPicErr
+            // 
+            this.lblLPUpdateGenderPicErr.AutoSize = true;
+            this.lblLPUpdateGenderPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateGenderPicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateGenderPicErr.Location = new System.Drawing.Point(266, 284);
+            this.lblLPUpdateGenderPicErr.Name = "lblLPUpdateGenderPicErr";
+            this.lblLPUpdateGenderPicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateGenderPicErr.TabIndex = 43;
+            this.lblLPUpdateGenderPicErr.Text = "label18";
+            // 
+            // lblLPUpdateDatePicErr
+            // 
+            this.lblLPUpdateDatePicErr.AutoSize = true;
+            this.lblLPUpdateDatePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateDatePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateDatePicErr.Location = new System.Drawing.Point(364, 343);
+            this.lblLPUpdateDatePicErr.Name = "lblLPUpdateDatePicErr";
+            this.lblLPUpdateDatePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateDatePicErr.TabIndex = 43;
+            this.lblLPUpdateDatePicErr.Text = "label18";
+            // 
+            // lblLPUpdatePhoneErr
+            // 
+            this.lblLPUpdatePhoneErr.AutoSize = true;
+            this.lblLPUpdatePhoneErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdatePhoneErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdatePhoneErr.Location = new System.Drawing.Point(150, 196);
+            this.lblLPUpdatePhoneErr.Name = "lblLPUpdatePhoneErr";
+            this.lblLPUpdatePhoneErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdatePhoneErr.TabIndex = 43;
+            this.lblLPUpdatePhoneErr.Text = "label18";
+            // 
+            // lblLPUpdateAgeErr
+            // 
+            this.lblLPUpdateAgeErr.AutoSize = true;
+            this.lblLPUpdateAgeErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateAgeErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateAgeErr.Location = new System.Drawing.Point(150, 144);
+            this.lblLPUpdateAgeErr.Name = "lblLPUpdateAgeErr";
+            this.lblLPUpdateAgeErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateAgeErr.TabIndex = 43;
+            this.lblLPUpdateAgeErr.Text = "label18";
+            // 
+            // lblLPUpdateEmailErr
+            // 
+            this.lblLPUpdateEmailErr.AutoSize = true;
+            this.lblLPUpdateEmailErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateEmailErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateEmailErr.Location = new System.Drawing.Point(150, 250);
+            this.lblLPUpdateEmailErr.Name = "lblLPUpdateEmailErr";
+            this.lblLPUpdateEmailErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateEmailErr.TabIndex = 43;
+            this.lblLPUpdateEmailErr.Text = "label18";
             // 
             // Form2
             // 
@@ -793,18 +1053,19 @@
             this.Load += new System.EventHandler(this.Form2_Load);
             this.tabCtrlPReg_App.ResumeLayout(false);
             this.tabPRegister.ResumeLayout(false);
-            this.tabPRegister.PerformLayout();
+            this.grpBoxLPRegister.ResumeLayout(false);
+            this.grpBoxLPRegister.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRemove)).EndInit();
             this.gBxAmpntLimit.ResumeLayout(false);
             this.gBxAmpntLimit.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gBxSelectApmnt.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxRemove)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.grpBoxLPUpdate.ResumeLayout(false);
+            this.grpBoxLPUpdate.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentList)).EndInit();
@@ -816,25 +1077,7 @@
 
         public System.Windows.Forms.TabControl tabCtrlPReg_App;
         private System.Windows.Forms.TabPage tabPRegister;
-        private System.Windows.Forms.PictureBox pboxAdd;
-        private System.Windows.Forms.PictureBox pboxRemove;
-        private System.Windows.Forms.Button btnPreview;
-        private System.Windows.Forms.ListBox lstPTests;
-        private System.Windows.Forms.ListBox lstTests;
-        private System.Windows.Forms.TextBox txtPSearchTest;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbGender;
-        private System.Windows.Forms.TextBox txtPPhone;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPAge;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPEmail;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnPatientRegBack;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblAppNum;
@@ -858,7 +1101,7 @@
         private System.Windows.Forms.Button btnSetAppointmenToday;
         private System.Windows.Forms.Button btnSearchAppmntByDate;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox grpBoxLPUpdate;
         private System.Windows.Forms.ComboBox cmbLPGenderUpdate;
         private System.Windows.Forms.TextBox txtLPEmailUpdate;
         private System.Windows.Forms.Label label15;
@@ -878,5 +1121,43 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentDate;
         private System.Windows.Forms.DataGridViewImageColumn dbvAppointmentDelete;
+        private System.Windows.Forms.GroupBox grpBoxLPRegister;
+        private System.Windows.Forms.Label lblLPAgeErr;
+        private System.Windows.Forms.Label lblLPPhoneErr;
+        private System.Windows.Forms.Label lblLPEmailErr;
+        private System.Windows.Forms.Label lblLPPhonePicErr;
+        private System.Windows.Forms.Label lblLPAgePicErr;
+        private System.Windows.Forms.Label lblLPGenderPicErr;
+        private System.Windows.Forms.Label lblLPEmailPicErr;
+        private System.Windows.Forms.Label lblLPNamePicErr;
+        private System.Windows.Forms.Label lblLPNameErr;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pboxAdd;
+        private System.Windows.Forms.PictureBox pboxRemove;
+        private System.Windows.Forms.Button btnPreview;
+        private System.Windows.Forms.ListBox lstPTests;
+        private System.Windows.Forms.ListBox lstTests;
+        private System.Windows.Forms.TextBox txtPSearchTest;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbGender;
+        private System.Windows.Forms.TextBox txtPPhone;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPAge;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLPUpdatePhonePicErr;
+        private System.Windows.Forms.Label lblLPUpdateDatePicErr;
+        private System.Windows.Forms.Label lblLPUpdateGenderPicErr;
+        private System.Windows.Forms.Label lblLPUpdateEmailPicErr;
+        private System.Windows.Forms.Label lblLPUpdateAgePicErr;
+        private System.Windows.Forms.Label lblLPUpdateNamePicErr;
+        private System.Windows.Forms.Label lblLPUpdateAgeErr;
+        private System.Windows.Forms.Label lblLPUpdateEmailErr;
+        private System.Windows.Forms.Label lblLPUpdatePhoneErr;
+        private System.Windows.Forms.Label lblLPUpdateNameErr;
     }
 }
