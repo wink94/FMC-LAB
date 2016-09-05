@@ -109,7 +109,6 @@
             this.lblLPUpdateEmailPicErr = new System.Windows.Forms.Label();
             this.lblLPUpdatePhonePicErr = new System.Windows.Forms.Label();
             this.lblLPUpdateGenderPicErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateDatePicErr = new System.Windows.Forms.Label();
             this.lblLPUpdatePhoneErr = new System.Windows.Forms.Label();
             this.lblLPUpdateAgeErr = new System.Windows.Forms.Label();
             this.lblLPUpdateEmailErr = new System.Windows.Forms.Label();
@@ -611,7 +610,6 @@
             // 
             this.grpBoxLPUpdate.BackColor = System.Drawing.Color.Silver;
             this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdatePhonePicErr);
-            this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateDatePicErr);
             this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateGenderPicErr);
             this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateEmailPicErr);
             this.grpBoxLPUpdate.Controls.Add(this.lblLPUpdateAgePicErr);
@@ -995,17 +993,6 @@
             this.lblLPUpdateGenderPicErr.TabIndex = 43;
             this.lblLPUpdateGenderPicErr.Text = "label18";
             // 
-            // lblLPUpdateDatePicErr
-            // 
-            this.lblLPUpdateDatePicErr.AutoSize = true;
-            this.lblLPUpdateDatePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateDatePicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateDatePicErr.Location = new System.Drawing.Point(364, 343);
-            this.lblLPUpdateDatePicErr.Name = "lblLPUpdateDatePicErr";
-            this.lblLPUpdateDatePicErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateDatePicErr.TabIndex = 43;
-            this.lblLPUpdateDatePicErr.Text = "label18";
-            // 
             // lblLPUpdatePhoneErr
             // 
             this.lblLPUpdatePhoneErr.AutoSize = true;
@@ -1150,7 +1137,6 @@
         private System.Windows.Forms.TextBox txtPName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLPUpdatePhonePicErr;
-        private System.Windows.Forms.Label lblLPUpdateDatePicErr;
         private System.Windows.Forms.Label lblLPUpdateGenderPicErr;
         private System.Windows.Forms.Label lblLPUpdateEmailPicErr;
         private System.Windows.Forms.Label lblLPUpdateAgePicErr;
