@@ -113,47 +113,144 @@ namespace FamilyCareHospital.Interfaces
             }
         }
 
+        /* assogn error msg to labels */
+        private void assignMessagesToLabels(string lbl, string msg, string container)
+        {
+            if (container != null && lbl !=null)
+            {
+                //var cont=(GroupBox)Controls[container]; not work ????
+                Label label;
+
+                if (container == "grpBoxTestUpdate")
+                {
+                    label = (Label)grpBoxTestUpdate.Controls[lbl];
+
+                    if (msg == "err_pic")
+                    {
+                        label.Text = " ";
+                        label.Image = Properties.Resources.required;
+                    }
+                    else if (msg == "err_pic_remove")
+                    {
+                        label.Text = "";
+                    }
+
+                    else if (msg == "clear")
+                    {
+                        label.Text = "";
+                    }
+                    else
+                    {
+                        label.Text = msg;
+                    }
+                }
+
+            }
+        }
+
+        private bool fieldCheck(string value, string field = null, string field_lbl = null, string pic_lbl = null, string container = null)
+        {
+            Validation validation = new Validation();
+
+            if (validation.checkFieldIsSet(value) )
+            {
+                assignMessagesToLabels(pic_lbl, "err_pic_remove", container);
+
+                if (field == "testname" )
+                {
+                    if (validation.alphaVal(value))
+                    {
+                        assignMessagesToLabels(field_lbl, validation.AlphabeticEror, container);
+                        return true;
+                    }
+                    else
+                    {
+                        assignMessagesToLabels(field_lbl, validation.AlphabeticEror, container);
+                        return false;
+                    }
+                }
+
+                else
+                {
+                    if (validation.IsNumeric(value) )
+                    {
+                        assignMessagesToLabels(field_lbl, validation.NumericEror, container);
+
+                        int price = Convert.ToInt32(value);
+                        if (price < 0)
+                        {
+                            assignMessagesToLabels(field_lbl, "*price should be non negative", container);
+                            return false;
+                        }
+                        else
+                        {
+                            assignMessagesToLabels(field_lbl, "clear", container);
+                            return true;
+                        }
+                    }
+
+                    else
+                    {
+                        assignMessagesToLabels(field_lbl, validation.NumericEror, container);
+                        return false;
+                    }
+
+                }
+
+            }
+
+            else
+            {
+                assignMessagesToLabels(field_lbl, "clear", container);
+                assignMessagesToLabels(pic_lbl, "err_pic", container);
+                return false;
+            }
+
+        }
+
+
         private void updateConfirm()
         {
-            //string tstName = txtTestName.Text, tstPrice = txtTestPrice.Text;
-            //int updateFlag ;
-           
-            //Validation vali = new Validation();
+            string tstName = txtTestName.Text, tstPrice = txtTestPrice.Text;
+            int updateFlag;
 
-            //if (tstName != labtest.Name && tstPrice != labtest.Price.ToString() && vali.IsNumeric(tstPrice," test price") && vali.alphaNumericVal(tstName,"test name"))
-            //{
-            //    labtest.Name = tstName;
-            //    labtest.Price = Convert.ToDouble(tstPrice);
-            //    updateFlag = 3;
-            //}
-            //else if (tstName != labtest.Name && vali.alphaNumericVal(tstName, " test name") && vali.IsNumeric(tstPrice, "test price"))
-            //{
-            //    labtest.Name = tstName;
-            //    updateFlag = 1;
-            //}
-            //else if (tstPrice != labtest.Price.ToString() && vali.IsNumeric(tstPrice, "test price") && vali.alphaNumericVal(tstName, "test name"))
-            //{
-            //    labtest.Price = Convert.ToDouble(tstPrice);
-            //    updateFlag = 2;
-            //}
-            //else
-            //{
-            //    vali.printError(true);
-            //    updateFlag = 0;
-            //}
+            Validation vali = new Validation();
 
-            //if (updateFlag>0)
-            //{
-            //    DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?","Update Confirm", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        labtest.updateTest(updateFlag);
-            //    }
-            //    else if (dialogResult == DialogResult.No)
-            //    {
-            //        emptyFields();
-            //    }
-            //}
+            if (tstName != labtest.Name && tstPrice != labtest.Price.ToString() && fieldCheck(tstPrice, " test price", "lblTestPriceErr", "lblTestPricePicErr", "grpBoxTestUpdate") & fieldCheck(tstName, "testname", "lblTestNameErr", "lblTestNamePicErr", "grpBoxTestUpdate"))
+            {
+                labtest.Name = tstName;
+                labtest.Price = Convert.ToDouble(tstPrice);
+                updateFlag = 3;
+            }
+            else if (tstName != labtest.Name && fieldCheck(tstPrice, " test price", "lblTestPriceErr", "lblTestPricePicErr", "grpBoxTestUpdate") & fieldCheck(tstName, "testname", "lblTestNameErr", "lblTestNamePicErr", "grpBoxTestUpdate"))
+            {
+                labtest.Name = tstName;
+                updateFlag = 1;
+            }
+            else if (tstPrice != labtest.Price.ToString() && fieldCheck(tstPrice, " test price", "lblTestPriceErr", "lblTestPricePicErr", "grpBoxTestUpdate") & fieldCheck(tstName, "testname", "lblTestNameErr", "lblTestNamePicErr", "grpBoxTestUpdate"))
+            {
+                labtest.Price = Convert.ToDouble(tstPrice);
+                updateFlag = 2;
+            }
+            else
+            {
+                //vali.printError(true);
+                //MessageBox.Show("please select a field ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                updateFlag = 0;
+            }
+
+            if (updateFlag > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    labtest.updateTest(updateFlag);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    emptyFields();
+                }
+            }
 
         }
 

@@ -39,14 +39,14 @@ namespace FamilyCareHospital.Controllers
 
             if (!m.Success || val.Length > 45)
             {
-                errormsg_alphaVal = "invalid entry only letters are allowed in  .!";
-                errmsg["alphaVal"]= errormsg_alphaVal;
+                errormsg_alphaVal = "*invalid entry only letters are allowed in  .!";
+                //errmsg["alphaVal"]= errormsg_alphaVal;
                 return false;
             }
             else
             {
                 errormsg_alphaVal = "";
-                errmsg["alphaVal"] = errormsg_alphaVal;
+                //errmsg["alphaVal"] = errormsg_alphaVal;
                 return true;
             }
         }
@@ -61,7 +61,7 @@ namespace FamilyCareHospital.Controllers
             if (!m.Success || val.Length != 10)
             {
 
-                errormsg_numberVal = "invalid entry only 10 number are allowed ";
+                errormsg_numberVal = "*invalid entry only 10 number are allowed ";
                 //errmsg["numberVal"]=errormsg_numberVal;
                 return false;
             }
@@ -86,7 +86,7 @@ namespace FamilyCareHospital.Controllers
             }
             catch (Exception )
             {
-                errormsg_emailVal = "invalid email !";
+                errormsg_emailVal = "*invalid email !";
                 //errmsg["emailVal"] = errormsg_emailVal;
                 return false;
             }
@@ -99,14 +99,14 @@ namespace FamilyCareHospital.Controllers
             
             if (!int.TryParse(input, out test))
             {
-                errormsg_IsNumeric = "invalid numeric value in .!";
-                errmsg["IsNumeric"]=errormsg_IsNumeric;
+                errormsg_IsNumeric = "*invalid numeric value in .!";
+                //errmsg["IsNumeric"]=errormsg_IsNumeric;
                 return false;
             }
             else
             {
                 errormsg_IsNumeric = "";
-                errmsg["IsNumeric"] = errormsg_IsNumeric;
+                //errmsg["IsNumeric"] = errormsg_IsNumeric;
                 return true;
             }
         }
@@ -121,14 +121,14 @@ namespace FamilyCareHospital.Controllers
 
             if (!m.Success || val.Length > 45)
             {
-                errormsg_alphaNumericVal = "invalid entry only letters are allowed in " + field.ToUpper() + ".!\n";
-                errmsg["alphaNumericVal"]=errormsg_alphaNumericVal;
+                errormsg_alphaNumericVal = "*invalid entry only letters are allowed in " + field.ToUpper() + ".!\n";
+                //errmsg["alphaNumericVal"]=errormsg_alphaNumericVal;
                 return false;
             }
             else
             {
                 errormsg_alphaNumericVal = "";
-                errmsg["alphaNumericVal"] = errormsg_alphaNumericVal;
+                //errmsg["alphaNumericVal"] = errormsg_alphaNumericVal;
                 return true;
             }
         }
@@ -138,7 +138,7 @@ namespace FamilyCareHospital.Controllers
             string errormsg_checkTestListEmpty;
             if (!lp.checkTestListEmpty())
             {
-                errormsg_checkTestListEmpty = "Test List cannot be empty. Please Select Tests!" + "\n";
+                errormsg_checkTestListEmpty = "*Test List cannot be empty. Please Select Tests!" + "\n";
                 MessageBox.Show(errormsg_checkTestListEmpty, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -157,7 +157,7 @@ namespace FamilyCareHospital.Controllers
             string checkFieldIsSet;
             if (value=="" ||value==null)
             {
-                checkFieldIsSet = " field cannot be empty.!" + "\n";
+                checkFieldIsSet = " *field cannot be empty.!" + "\n";
                 //errmsg["checkFieldIsSet"] = checkFieldIsSet;
                 messageString(checkFieldIsSet);
                 return false;
@@ -188,7 +188,7 @@ namespace FamilyCareHospital.Controllers
         }
 
 
-        public void printError(bool val)
+       /* public void printError(bool val)
         {
             if (val)
             {
@@ -200,7 +200,7 @@ namespace FamilyCareHospital.Controllers
                 }
                 MessageBox.Show(msg,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-        }
+        }*/
 
 
 

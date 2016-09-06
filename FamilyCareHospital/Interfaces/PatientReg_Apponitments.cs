@@ -75,11 +75,11 @@ namespace FamilyCareHospital
         {
             Validation validation = new Validation();
             
-            if (validation.checkFieldIsSet(value))
+            if (validation.checkFieldIsSet(value) )
             {
                 assignMessagesToLabels(pic_lbl, "err_pic_remove", container);
 
-                if (field == "name")
+                if (field == "name" )
                 {
                     if (validation.alphaVal(value))
                     {
@@ -93,7 +93,7 @@ namespace FamilyCareHospital
                     }
                 }
 
-                else if (field == "age")
+                else if (field == "age" )
                 {
                     if (validation.IsNumeric(value))
                     {
@@ -122,7 +122,7 @@ namespace FamilyCareHospital
 
                 }
 
-                else if (field == "phone")
+                else if (field == "phone" )
                 {
                     if (validation.numberVal(value))
                     {
@@ -136,7 +136,7 @@ namespace FamilyCareHospital
                     }
                 }
 
-                else if (field == "email")
+                else if (field == "email" )
                 {
                     if (validation.emailVal(value))
                     {
@@ -158,6 +158,7 @@ namespace FamilyCareHospital
                 
             else
             {
+                assignMessagesToLabels(field_lbl, "clear", container);
                 assignMessagesToLabels(pic_lbl, "err_pic", container);
                 return false;
             }
@@ -169,9 +170,9 @@ namespace FamilyCareHospital
         /* assogn error msg to labels */
         private void assignMessagesToLabels(string lbl,string msg,string container)
         {
-            if (container != null)
+            if (container != null && lbl != null)
             {
-                //var cont=(GroupBox)controls[name]  doesn't work????
+                //var cont=(GroupBox)Controls[container]; not work ????
                 Label label;
 
                 if (container == "grpBoxLPRegister")
@@ -585,10 +586,10 @@ namespace FamilyCareHospital
 
 
             }
-            else
-            {
-                val.printError(true);
-            }
+            //else
+            //{
+            //    MessageBox.Show("please select a field ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
 
 
         }
