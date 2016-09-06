@@ -85,7 +85,7 @@
             this.grpBoxTestUpdate.Controls.Add(this.label2);
             this.grpBoxTestUpdate.Location = new System.Drawing.Point(22, 93);
             this.grpBoxTestUpdate.Name = "grpBoxTestUpdate";
-            this.grpBoxTestUpdate.Size = new System.Drawing.Size(379, 433);
+            this.grpBoxTestUpdate.Size = new System.Drawing.Size(399, 433);
             this.grpBoxTestUpdate.TabIndex = 16;
             this.grpBoxTestUpdate.TabStop = false;
             this.grpBoxTestUpdate.Text = "groupBox2";
