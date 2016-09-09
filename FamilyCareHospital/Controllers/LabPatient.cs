@@ -174,7 +174,7 @@ namespace FamilyCareHospital.Controllers
                 if (updateFlag == "Name")
                     query = "update lab_patient set labPatientName ='" + Name + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
                 else if (updateFlag == "Age")
-                    query = "update lab_patient set labPatientAge ='" + Age + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
+                    query = "update lab_patient set labPatientAge ='" + Name + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
                 else if(updateFlag == "Phone")
                     query = "update lab_patient set labPatientPhone ='" + Phone + "' where labPatientID ='" + Convert.ToInt32(ID) + "'";
                 else if (updateFlag == "Email")
@@ -191,6 +191,58 @@ namespace FamilyCareHospital.Controllers
                 MessageBox.Show("DB Error :" + e.Message);
             }
             conn.Close();
+        }
+
+
+        /*get patients test details*/
+        public DataSet getPatientsTestList()
+        {
+            string query;
+            var dataset = new DataSet();
+            var datatable = dataset.Tables.Add("PatientTestList");
+            int count = 0;
+            datatable.Columns.Add("Test_Number", typeof(int));
+            datatable.Columns.Add("Test_Name", typeof(string));
+            datatable.Columns.Add("Test_Status", typeof(string));
+
+            MySqlConnection conn = ConnectionManager.GetConnection();
+
+            try
+            {
+                conn.Open();
+                query = "SELECT lt.labTestName,ltr.labAppointmentStatus  FROM lab_test lt,lab_test_result ltr WHERE lt.labTestID=ltr.labTestID AND ltr.labPatientID=@PID";
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                command.Parameters.AddWithValue("@PID", patientID);
+
+                MySqlDataReader datareader = command.ExecuteReader();
+                while (datareader.HasRows && datareader.Read())
+                {
+                    count++;
+
+                    if (!Convert.ToBoolean(datareader["labAppointmentStatus"]))
+                    {
+                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], "Incomplete");
+                    }
+                    else
+                    {
+                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], "Complete");
+                    }
+
+                    
+                }
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("connection error " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dataset;
         }
 
 

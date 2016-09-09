@@ -177,6 +177,12 @@
     <Compile Include="Interfaces\PatientReg_Apponitments.designer.cs">
       <DependentUpon>PatientReg_Apponitments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\TestDetailsEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\TestDetailsEntry.designer.cs">
+      <DependentUpon>TestDetailsEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="interfaces_HR\add_departmentHR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -619,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\PatientReg_Apponitments.resx">
       <DependentUpon>PatientReg_Apponitments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\TestDetailsEntry.resx">
+      <DependentUpon>TestDetailsEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="interfaces_HR\add_departmentHR.resx">
       <DependentUpon>add_departmentHR.cs</DependentUpon>

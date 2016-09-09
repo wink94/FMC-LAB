@@ -187,7 +187,7 @@ namespace FamilyCareHospital.DBAccess
             return count;
         }
 
-        /* populate datagridview with appointment details*/
+        /* populate datagridview with appointment details */
 
         public DataSet getAppointmentDetails()
         {
@@ -285,6 +285,160 @@ namespace FamilyCareHospital.DBAccess
             return ds;
         }
 
+        //public bool getTestStatusOfPatient(string PID,MySqlDataReader datareader)
+        //{
+        //    string query;
+
+        //    if (conn.State.ToString() == "Closed")
+        //    {
+        //        conn.Open();
+        //    }
+
+        //    try
+        //    {
+        //        //conn.Open();
+        //        query= "SELECT labAppointmentStatus FROM lab_test_result WHERE labPatientID = @PID";
+        //        MySqlCommand command = new MySqlCommand(query,conn);
+        //        command.Parameters.AddWithValue("@PID",Convert.ToInt32(PID));
+
+        //        //MySqlDataReader datareader = command.ExecuteReader();
+        //        datareader = command.ExecuteReader();
+
+        //        while (datareader.HasRows && datareader.Read())
+        //        {
+        //            if(!Convert.ToBoolean(datareader["labAppointmentStatus"]))
+        //            {
+        //                return false;
+        //            }
+        //        }
+
+        //    }
+
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show("connection error"+e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+                
+        //    }
+        //    return true;
+
+        //}
+
+        public DataSet getTestPatientList(string appointmentID=null,string fromdate=null,string todate=null)
+        {
+            
+            var dataset = new DataSet();
+            DataTable dt = dataset.Tables.Add("TestPatients");
+            string query,previous="";
+            int count = 0;
+
+            dt.Columns.Add("AppointmentID", typeof(string));
+            dt.Columns.Add("PatientID", typeof(string));
+            dt.Columns.Add("PatientName", typeof(string));
+            dt.Columns.Add("AppointmentDate", typeof(string));
+            dt.Columns.Add("TestStatus", typeof(string));
+
+            if (conn.State.ToString() == "Closed")
+            {
+                conn.Open();
+                
+            }
+
+            try
+            {
+                //conn.Open();
+                if (appointmentID == null && fromdate == null && todate == null)
+                {
+                    query = "SELECT distinct la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate,ltr.labAppointmentStatus FROM lab_patient lp, lab_appointment la,lab_test_result ltr  WHERE lp.labPatientID = la.labPatientID  AND ltr.labPatientID=lp.labPatientID";
+                }
+                else if(fromdate == null && todate == null)
+                {
+                    query = "SELECT distinct la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate,ltr.labAppointmentStatus FROM lab_patient lp, lab_appointment la,lab_test_result ltr  WHERE lp.labPatientID = la.labPatientID  AND ltr.labPatientID=lp.labPatientID AND la.labAppointmentID  LIKE '%" + appointmentID + "%'";
+
+                }
+                else
+                {
+                    query = "SELECT distinct la.labAppointmentID ,la.labPatientID ,lp.labPatientName ,la.labAppointmentDate,ltr.labAppointmentStatus FROM lab_patient lp, lab_appointment la,lab_test_result ltr  WHERE lp.labPatientID = la.labPatientID  AND ltr.labPatientID=lp.labPatientID AND la.labAppointmentDate >='" + fromdate + "' AND la.labAppointmentDate <='" + todate + "'";
+
+                }
+
+                MySqlCommand command = new MySqlCommand(query,conn);
+                MySqlDataReader datareader = command.ExecuteReader();
+
+                while ( datareader.Read())
+                {
+                    if (count == 0)
+                    {
+                        if (!Convert.ToBoolean(datareader["labAppointmentStatus"]) )
+                        {
+                            dt.Rows.Add(datareader["labAppointmentID"], datareader["labPatientID"], datareader["labPatientName"], Convert.ToDateTime(datareader["labAppointmentDate"]).ToString("yyyy-MM-dd"), "Incomplete");
+                            
+                            previous = datareader["labAppointmentID"].ToString();
+                        }
+                        else
+                        {
+                            dt.Rows.Add(datareader["labAppointmentID"], datareader["labPatientID"], datareader["labPatientName"], Convert.ToDateTime(datareader["labAppointmentDate"]).ToString("yyyy-MM-dd"), "Complete");
+                            
+                            previous = datareader["labAppointmentID"].ToString();
+                        }
+                    }
+                    else
+                    {
+                        if(previous== datareader["labAppointmentID"].ToString())
+                        {
+                            //if (!Convert.ToBoolean(datareader["labAppointmentStatus"]))
+                            //{
+                                //dataset.Tables["TestPatients"].Rows[count-1]["TestStatus"]= "Incomplete";
+                            dt.Rows[count - 1]["TestStatus"] = "Incomplete";
+
+                            //    dt.Rows.Add(datareader["labAppointmentID"], datareader["labPatientID"], datareader["labPatientName"], Convert.ToDateTime(datareader["labAppointmentDate"]).ToString("yyyy-MM-dd"), "Incomplete");
+                            //    //dt.AcceptChanges();
+                            count--;
+                              
+                        }
+                        else
+                        {
+
+                            if (!Convert.ToBoolean(datareader["labAppointmentStatus"]))
+                            {
+                                dt.Rows.Add(datareader["labAppointmentID"], datareader["labPatientID"], datareader["labPatientName"], Convert.ToDateTime(datareader["labAppointmentDate"]).ToString("yyyy-MM-dd"), "Incomplete");
+                                
+                                previous = datareader["labAppointmentID"].ToString();
+                            }
+                            else
+                            {
+                                dt.Rows.Add(datareader["labAppointmentID"], datareader["labPatientID"], datareader["labPatientName"], Convert.ToDateTime(datareader["labAppointmentDate"]).ToString("yyyy-MM-dd"), "Complete");
+                                
+                                previous = datareader["labAppointmentID"].ToString();
+                            }
+
+                        }
+
+
+                    }
+
+                    count++;
+                }
+                //dt.AcceptChanges();
+                datareader.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("connection error "+e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+            return dataset;
+        }
 
 
     }
