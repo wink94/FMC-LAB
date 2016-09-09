@@ -10,15 +10,28 @@ namespace FamilyCareHospital.Controllers
     {
         private int BTNo;
         private int sugar;
-        private Dictionary<string,int> cellCount=new Dictionary<string, int>() { { "RBC",0 }, { "WBC",0},{"PLATELETS",0} };
+        private int WBC;
+        private int RBC;
+        private int Platelet_Count;
+        private string units;
+        
 
 
-        public BloodTest(int sugar,int rbc,int wbc,int platelets)
+        public void BloodSugar(int sugar,string testUnits)
         {
             this.sugar = sugar;
-            cellCount["RBC"] = rbc;
-            cellCount["WBC"] = wbc;
-            cellCount["PLATELETS"] = platelets;
+            units = testUnits;
+        }
+
+        public void BloodCellCount(int wbcCount,int rbcCount)
+        {
+            WBC = wbcCount;
+            RBC = rbcCount;
+        }
+
+        public void PlateletCount(int plateletCount)
+        {
+            Platelet_Count = plateletCount;
         }
 
     }

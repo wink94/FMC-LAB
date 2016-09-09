@@ -11,13 +11,11 @@ namespace FamilyCareHospital.Controllers
         private int SNo;
         private bool CT;
         private bool MRI;
-        private bool UltraSound;
+        private bool X_RAY;
 
-        public Scans(bool ct,bool mri,bool US)
-        {
-            CT = ct;
-            MRI = mri;
-            UltraSound = US;
-        }
+        public bool CT_Scan { set { CT = value; } get { return CT; } }
+        public bool MRI_Scan { set { MRI = value; } get { return MRI; } }
+        public bool X_RAY_Scan { set { X_RAY = value; } get { return X_RAY; } }
+
     }
 }
