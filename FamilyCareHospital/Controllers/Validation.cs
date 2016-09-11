@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Net.Mail;
+using MySql.Data.MySqlClient;
+using FamilyCareHospital.DBAccess;
 
 namespace FamilyCareHospital.Controllers
 {
@@ -16,11 +18,15 @@ namespace FamilyCareHospital.Controllers
         private string errormsg_alphaVal;
         private string errormsg_numberVal;
         private string errormsg_emailVal;
+        private string errormsg_EmailUnique;
+        private string errormsg_PhoneUnique;
 
         public string AlphabeticEror{ get { return errormsg_alphaVal; } }
         public string NumericEror { get { return errormsg_IsNumeric; } }
         public string TelephoneNumberEror { get { return errormsg_numberVal; } }
+        public string TelephoneNumberEror_unique { get { return errormsg_PhoneUnique; } }
         public string EmailEror { get { return errormsg_emailVal; } }
+        public string EmailEror_unique { get { return errormsg_EmailUnique; } }
 
 
         //public string Error { get; }
@@ -61,7 +67,7 @@ namespace FamilyCareHospital.Controllers
             if (!m.Success || val.Length != 10)
             {
 
-                errormsg_numberVal = "*invalid entry only 10 number are allowed ";
+                errormsg_numberVal = "*invalid entry only 10 number are allowed .!";
                 //errmsg["numberVal"]=errormsg_numberVal;
                 return false;
             }
@@ -138,7 +144,7 @@ namespace FamilyCareHospital.Controllers
             string errormsg_checkTestListEmpty;
             if (!lp.checkTestListEmpty())
             {
-                errormsg_checkTestListEmpty = "*Test List cannot be empty. Please Select Tests!" + "\n";
+                errormsg_checkTestListEmpty = "*Test List cannot be empty. Please Select Tests .!" + "\n";
                 MessageBox.Show(errormsg_checkTestListEmpty, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -187,20 +193,119 @@ namespace FamilyCareHospital.Controllers
             
         }
 
-
-       /* public void printError(bool val)
+        public bool isEmailUnique(string value)
         {
-            if (val)
+            var conn = ConnectionManager.GetConnection();
+            
+            string procedure;
+            int count;
+
+            if (conn.State.ToString() == "Closed")
             {
-                string msg="";
-               foreach(var a in errmsg)
+                try
                 {
-                    if (a.Value != "")
-                        msg += a.Value;
+                    conn.Open();
+                    
+                        procedure = "check_email_exist";
+                        var command = new MySqlCommand(procedure, conn);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@email", value);
+                        count = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (count > 0)
+                        {
+                            errormsg_EmailUnique = "*Email is a duplicate .!";
+                            return false;
+                        }
+                        else
+                        {
+                            errormsg_EmailUnique = "";
+                            return true;
+                        }
+                    
+
+
                 }
-                MessageBox.Show(msg,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                catch (Exception e)
+                {
+
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                
             }
-        }*/
+
+            return false;
+        }
+
+        public bool isPhoneUnique(string value)
+        {
+            var conn = ConnectionManager.GetConnection();
+
+            string procedure;
+            int count;
+
+            if (conn.State.ToString() == "Closed")
+            {
+                try
+                {
+                    conn.Open();
+
+                    procedure = "check_phone_exist";
+                    var command = new MySqlCommand(procedure, conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@phone", value);
+                    count = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        errormsg_PhoneUnique = "*Phone Number is a duplicate .!";
+                        return false;
+                    }
+                    else
+                    {
+                        errormsg_PhoneUnique = "";
+                        return true;
+                    }
+
+
+
+                }
+                catch (Exception e)
+                {
+
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+
+            }
+
+            return false;
+        }
+
+
+
+        /* public void printError(bool val)
+         {
+             if (val)
+             {
+                 string msg="";
+                foreach(var a in errmsg)
+                 {
+                     if (a.Value != "")
+                         msg += a.Value;
+                 }
+                 MessageBox.Show(msg,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+             }
+         }*/
 
 
 

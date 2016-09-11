@@ -38,13 +38,13 @@ namespace FamilyCareHospital.Interfaces
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            dbi.insertLabPatient(lp);
+            lp.insertLabPatient();
 
             string LPID=dbr.getRegisteredPatientID();  //get enterd labpatients id
            
             la.PID = LPID;
-            dbi.insertLabAppointment(la);
-            dbi.insertTestListData(LPID, lp.tests.ToList());
+            la.insertLabAppointment();
+            LabTest.insertTestListData(LPID, lp.tests.ToList());
 
             /*  
               

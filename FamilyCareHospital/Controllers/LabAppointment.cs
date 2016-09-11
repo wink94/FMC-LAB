@@ -85,5 +85,27 @@ namespace FamilyCareHospital.Controllers
             conn.Close();
         }
 
+        /*insert lab appointmetn details to DB*/
+        public void insertLabAppointment()
+        {
+            string query;
+            MySqlConnection conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+
+                query = "insert into lab_appointment(labAppointmentDate,labPatientID) values('" + Adate + "','" + Convert.ToInt32(PID) + "' )";
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
     }
 }

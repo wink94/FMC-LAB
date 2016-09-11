@@ -15,7 +15,7 @@ namespace FamilyCareHospital.Interfaces
     public partial class ManageTest : Form
     {
         private DBRetrieve dbr = new DBRetrieve();
-        private DBUpdate dbu = new DBUpdate();
+        //private DBUpdate dbu = new DBUpdate();
         private LabTest labtest = new LabTest();
 
         public ManageTest()
@@ -244,7 +244,7 @@ namespace FamilyCareHospital.Interfaces
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    labtest.updateTest(updateFlag);
+                    labtest.updateLabTestData(updateFlag);
                 }
                 else if (dialogResult == DialogResult.No)
                 {

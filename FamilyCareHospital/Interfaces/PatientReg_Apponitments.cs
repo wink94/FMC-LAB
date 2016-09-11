@@ -127,7 +127,16 @@ namespace FamilyCareHospital
                     if (validation.numberVal(value))
                     {
                         assignMessagesToLabels(field_lbl, validation.TelephoneNumberEror, container);
-                        return true;
+                        if (validation.isPhoneUnique(value))
+                        {
+                            assignMessagesToLabels(field_lbl, validation.TelephoneNumberEror_unique, container);
+                            return true;
+                        }
+                        else
+                        {
+                            assignMessagesToLabels(field_lbl, validation.TelephoneNumberEror_unique, container);
+                            return false;
+                        }
                     }
                     else
                     {
@@ -141,7 +150,16 @@ namespace FamilyCareHospital
                     if (validation.emailVal(value))
                     {
                         assignMessagesToLabels(field_lbl, validation.EmailEror, container);
-                        return true;
+                        if (validation.isEmailUnique(value))
+                        {
+                            assignMessagesToLabels(field_lbl, validation.EmailEror_unique, container);
+                            return true;
+                        }
+                        else
+                        {
+                            assignMessagesToLabels(field_lbl, validation.EmailEror_unique, container);
+                            return false;
+                        }
                     }
                     else
                     {

@@ -19,28 +19,7 @@ namespace FamilyCareHospital.DBAccess
             conn = ConnectionManager.GetConnection();
         }
 
-        /* delete test from test id*/
-        public bool deleteLabTest(LabTest lt)
-        {
-            string query;
-
-            try
-            {
-                conn.Open();
-                query = "delete from lab_test  where labTestId ='" + lt.ID + "'";
-                MySqlCommand newCmd = new MySqlCommand(query, conn);
-                newCmd.ExecuteNonQuery();
-                conn.Close();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show("DB Error :" + e.Message);
-                conn.Close();
-                return false;
-            }
-            
-        }
+        
 
         
 

@@ -65,12 +65,35 @@ namespace FamilyCareHospital.Interfaces
 
         }
 
+
         private void fillPatientsTests(DataSet ds)
         {
             dgvPatientTest.DataSource = ds.Tables["PatientTestList"].DefaultView;
         }
 
+
         private void dgvAppointmentList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.RowIndex < 0)
+            //    return;
+            //else
+            //{
+            //    labpatient = new LabPatient();
+            //    labpatient.ID = dgvAppointmentList.Rows[e.RowIndex].Cells["dgvPatientID"].Value.ToString();
+            //    fillPatientsTests(labpatient.getPatientsTestList());
+            //}
+
+            //print report cell
+
+
+        }
+
+        private void dgvPatientTest_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvAppointmentList_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;

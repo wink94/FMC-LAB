@@ -245,6 +245,53 @@ namespace FamilyCareHospital.Controllers
             return dataset;
         }
 
+        /*insert patient details to DB*/
+        public void insertLabPatient()
+        {
+            string query;
+            MySqlConnection conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+
+                query = "insert into lab_patient(labPatientName,labPatientAge,labPatientGender,labPatientEmail,labPatientPhone) values('" +Name + "','" + Age + "','" + Gender + "','" + Email + "','" + Phone + "')";
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
+        public void insertTestListData(string pid, List<getTestList> lst)
+        {
+            MySqlConnection conn = ConnectionManager.GetConnection();
+
+            try
+            {
+                conn.Open();
+
+                string query = "";
+                foreach (getTestList gtl in lst)
+                {
+                    query += "insert into lab_test_result(labPatientID,labTestID) values (" + Convert.ToInt32(pid) + ",'" + gtl.id + "');";
+                }
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
 
     }
 }

@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FamilyCareHospital.DBAccess;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace FamilyCareHospital.Controllers
 {
@@ -39,21 +40,104 @@ namespace FamilyCareHospital.Controllers
             testName = testname;
             testPrice = testprice;
         }
-        public void updateTest(int updateFlag)
-        {
-            dbu.updateLabTestData(this, updateFlag);
-        }
+        //public void updateTest(int updateFlag)
+        //{
+        //    dbu.updateLabTestData(this, updateFlag);
+        //}
 
 
         public void removeTest()
         {
-            if (!dbd.deleteLabTest(this))
+            if (deleteLabTest())
             {
                 testID = "";
                 testName = "";
                 testPrice = -1;
             }
         }
-        
+
+        /* enter test list data */
+        public static void insertTestListData(string pid, List<getTestList> lst)
+        {
+            MySqlConnection conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+
+                string query = "";
+                foreach (getTestList gtl in lst)
+                {
+                    query += "insert into lab_test_result(labPatientID,labTestID) values (" + Convert.ToInt32(pid) + ",'" + gtl.id + "');";
+                }
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
+
+        /* delete test from test id*/
+        public bool deleteLabTest()
+        {
+            string query;
+            MySqlConnection conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+                query = "delete from lab_test  where labTestId ='" + ID + "'";
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        /* update test table according according to update flag fieds 1=tesname 2=testprice 3=both*/
+
+        public void updateLabTestData( int updateFlag)
+        {
+            string query;
+            MySqlConnection conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+
+                if (updateFlag == 1)
+                    query = "update lab_test set labTestName ='" + Name + "' where labTestId ='" + ID + "'";
+                else if (updateFlag == 2)
+                    query = "update lab_test set labTestPrice ='" + Price + "' where labTestId ='" + ID + "'";
+                else
+                    query = "update lab_test set labTestName ='" + Name + "',labTestPrice ='" + Price + "' where labTestId ='" + ID + "'";
+
+                MySqlCommand newCmd = new MySqlCommand(query, conn);
+                newCmd.ExecuteNonQuery();
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            conn.Close();
+        }
+
+
+
     }
 }

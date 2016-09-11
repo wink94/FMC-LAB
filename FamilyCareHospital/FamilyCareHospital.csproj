@@ -67,7 +67,7 @@
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BloodTest.cs" />
-    <Compile Include="Controllers\CholosterolTest.cs" />
+    <Compile Include="Controllers\LipidTest.cs" />
     <Compile Include="Controllers\Conduct.cs" />
     <Compile Include="Controllers\getTestList.cs" />
     <Compile Include="Controllers\LabAppointment.cs" />
