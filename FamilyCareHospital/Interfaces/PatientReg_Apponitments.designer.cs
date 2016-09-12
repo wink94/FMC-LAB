@@ -73,6 +73,15 @@
             this.btnPatientRegBack = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grpBoxLPUpdate = new System.Windows.Forms.GroupBox();
+            this.lblLPUpdatePhonePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateGenderPicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateEmailPicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateAgePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateNamePicErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateAgeErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateEmailErr = new System.Windows.Forms.Label();
+            this.lblLPUpdatePhoneErr = new System.Windows.Forms.Label();
+            this.lblLPUpdateNameErr = new System.Windows.Forms.Label();
             this.btnLPUpdateCancel = new System.Windows.Forms.Button();
             this.btnLPUpdate = new System.Windows.Forms.Button();
             this.dateLPAppDateUpdate = new System.Windows.Forms.DateTimePicker();
@@ -103,15 +112,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnManageAppmntBack = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblLPUpdateNameErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateNamePicErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateAgePicErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateEmailPicErr = new System.Windows.Forms.Label();
-            this.lblLPUpdatePhonePicErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateGenderPicErr = new System.Windows.Forms.Label();
-            this.lblLPUpdatePhoneErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateAgeErr = new System.Windows.Forms.Label();
-            this.lblLPUpdateEmailErr = new System.Windows.Forms.Label();
             this.tabCtrlPReg_App.SuspendLayout();
             this.tabPRegister.SuspendLayout();
             this.grpBoxLPRegister.SuspendLayout();
@@ -189,7 +189,7 @@
             this.grpBoxLPRegister.Size = new System.Drawing.Size(747, 532);
             this.grpBoxLPRegister.TabIndex = 22;
             this.grpBoxLPRegister.TabStop = false;
-            this.grpBoxLPRegister.Text = "grpBoxLPRegister";
+            this.grpBoxLPRegister.Text = "Patient Register";
             // 
             // lblLPAgeErr
             // 
@@ -639,6 +639,105 @@
             this.grpBoxLPUpdate.TabStop = false;
             this.grpBoxLPUpdate.Text = "Patient Update";
             // 
+            // lblLPUpdatePhonePicErr
+            // 
+            this.lblLPUpdatePhonePicErr.AutoSize = true;
+            this.lblLPUpdatePhonePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdatePhonePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdatePhonePicErr.Location = new System.Drawing.Point(339, 174);
+            this.lblLPUpdatePhonePicErr.Name = "lblLPUpdatePhonePicErr";
+            this.lblLPUpdatePhonePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdatePhonePicErr.TabIndex = 43;
+            this.lblLPUpdatePhonePicErr.Text = "label18";
+            // 
+            // lblLPUpdateGenderPicErr
+            // 
+            this.lblLPUpdateGenderPicErr.AutoSize = true;
+            this.lblLPUpdateGenderPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateGenderPicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateGenderPicErr.Location = new System.Drawing.Point(266, 284);
+            this.lblLPUpdateGenderPicErr.Name = "lblLPUpdateGenderPicErr";
+            this.lblLPUpdateGenderPicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateGenderPicErr.TabIndex = 43;
+            this.lblLPUpdateGenderPicErr.Text = "label18";
+            // 
+            // lblLPUpdateEmailPicErr
+            // 
+            this.lblLPUpdateEmailPicErr.AutoSize = true;
+            this.lblLPUpdateEmailPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateEmailPicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateEmailPicErr.Location = new System.Drawing.Point(339, 228);
+            this.lblLPUpdateEmailPicErr.Name = "lblLPUpdateEmailPicErr";
+            this.lblLPUpdateEmailPicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateEmailPicErr.TabIndex = 43;
+            this.lblLPUpdateEmailPicErr.Text = "label18";
+            // 
+            // lblLPUpdateAgePicErr
+            // 
+            this.lblLPUpdateAgePicErr.AutoSize = true;
+            this.lblLPUpdateAgePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateAgePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateAgePicErr.Location = new System.Drawing.Point(339, 122);
+            this.lblLPUpdateAgePicErr.Name = "lblLPUpdateAgePicErr";
+            this.lblLPUpdateAgePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateAgePicErr.TabIndex = 43;
+            this.lblLPUpdateAgePicErr.Text = "label18";
+            // 
+            // lblLPUpdateNamePicErr
+            // 
+            this.lblLPUpdateNamePicErr.AutoSize = true;
+            this.lblLPUpdateNamePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateNamePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateNamePicErr.Location = new System.Drawing.Point(339, 67);
+            this.lblLPUpdateNamePicErr.Name = "lblLPUpdateNamePicErr";
+            this.lblLPUpdateNamePicErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateNamePicErr.TabIndex = 43;
+            this.lblLPUpdateNamePicErr.Text = "label18";
+            // 
+            // lblLPUpdateAgeErr
+            // 
+            this.lblLPUpdateAgeErr.AutoSize = true;
+            this.lblLPUpdateAgeErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateAgeErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateAgeErr.Location = new System.Drawing.Point(150, 144);
+            this.lblLPUpdateAgeErr.Name = "lblLPUpdateAgeErr";
+            this.lblLPUpdateAgeErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateAgeErr.TabIndex = 43;
+            this.lblLPUpdateAgeErr.Text = "label18";
+            // 
+            // lblLPUpdateEmailErr
+            // 
+            this.lblLPUpdateEmailErr.AutoSize = true;
+            this.lblLPUpdateEmailErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateEmailErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateEmailErr.Location = new System.Drawing.Point(150, 250);
+            this.lblLPUpdateEmailErr.Name = "lblLPUpdateEmailErr";
+            this.lblLPUpdateEmailErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateEmailErr.TabIndex = 43;
+            this.lblLPUpdateEmailErr.Text = "label18";
+            // 
+            // lblLPUpdatePhoneErr
+            // 
+            this.lblLPUpdatePhoneErr.AutoSize = true;
+            this.lblLPUpdatePhoneErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdatePhoneErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdatePhoneErr.Location = new System.Drawing.Point(150, 196);
+            this.lblLPUpdatePhoneErr.Name = "lblLPUpdatePhoneErr";
+            this.lblLPUpdatePhoneErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdatePhoneErr.TabIndex = 43;
+            this.lblLPUpdatePhoneErr.Text = "label18";
+            // 
+            // lblLPUpdateNameErr
+            // 
+            this.lblLPUpdateNameErr.AutoSize = true;
+            this.lblLPUpdateNameErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLPUpdateNameErr.ForeColor = System.Drawing.Color.Red;
+            this.lblLPUpdateNameErr.Location = new System.Drawing.Point(150, 89);
+            this.lblLPUpdateNameErr.Name = "lblLPUpdateNameErr";
+            this.lblLPUpdateNameErr.Size = new System.Drawing.Size(44, 13);
+            this.lblLPUpdateNameErr.TabIndex = 43;
+            this.lblLPUpdateNameErr.Text = "label18";
+            // 
             // btnLPUpdateCancel
             // 
             this.btnLPUpdateCancel.ForeColor = System.Drawing.Color.Purple;
@@ -926,105 +1025,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // lblLPUpdateNameErr
-            // 
-            this.lblLPUpdateNameErr.AutoSize = true;
-            this.lblLPUpdateNameErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateNameErr.Location = new System.Drawing.Point(150, 89);
-            this.lblLPUpdateNameErr.Name = "lblLPUpdateNameErr";
-            this.lblLPUpdateNameErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateNameErr.TabIndex = 43;
-            this.lblLPUpdateNameErr.Text = "label18";
-            // 
-            // lblLPUpdateNamePicErr
-            // 
-            this.lblLPUpdateNamePicErr.AutoSize = true;
-            this.lblLPUpdateNamePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateNamePicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateNamePicErr.Location = new System.Drawing.Point(339, 67);
-            this.lblLPUpdateNamePicErr.Name = "lblLPUpdateNamePicErr";
-            this.lblLPUpdateNamePicErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateNamePicErr.TabIndex = 43;
-            this.lblLPUpdateNamePicErr.Text = "label18";
-            // 
-            // lblLPUpdateAgePicErr
-            // 
-            this.lblLPUpdateAgePicErr.AutoSize = true;
-            this.lblLPUpdateAgePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateAgePicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateAgePicErr.Location = new System.Drawing.Point(339, 122);
-            this.lblLPUpdateAgePicErr.Name = "lblLPUpdateAgePicErr";
-            this.lblLPUpdateAgePicErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateAgePicErr.TabIndex = 43;
-            this.lblLPUpdateAgePicErr.Text = "label18";
-            // 
-            // lblLPUpdateEmailPicErr
-            // 
-            this.lblLPUpdateEmailPicErr.AutoSize = true;
-            this.lblLPUpdateEmailPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateEmailPicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateEmailPicErr.Location = new System.Drawing.Point(339, 228);
-            this.lblLPUpdateEmailPicErr.Name = "lblLPUpdateEmailPicErr";
-            this.lblLPUpdateEmailPicErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateEmailPicErr.TabIndex = 43;
-            this.lblLPUpdateEmailPicErr.Text = "label18";
-            // 
-            // lblLPUpdatePhonePicErr
-            // 
-            this.lblLPUpdatePhonePicErr.AutoSize = true;
-            this.lblLPUpdatePhonePicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdatePhonePicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdatePhonePicErr.Location = new System.Drawing.Point(339, 174);
-            this.lblLPUpdatePhonePicErr.Name = "lblLPUpdatePhonePicErr";
-            this.lblLPUpdatePhonePicErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdatePhonePicErr.TabIndex = 43;
-            this.lblLPUpdatePhonePicErr.Text = "label18";
-            // 
-            // lblLPUpdateGenderPicErr
-            // 
-            this.lblLPUpdateGenderPicErr.AutoSize = true;
-            this.lblLPUpdateGenderPicErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateGenderPicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateGenderPicErr.Location = new System.Drawing.Point(266, 284);
-            this.lblLPUpdateGenderPicErr.Name = "lblLPUpdateGenderPicErr";
-            this.lblLPUpdateGenderPicErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateGenderPicErr.TabIndex = 43;
-            this.lblLPUpdateGenderPicErr.Text = "label18";
-            // 
-            // lblLPUpdatePhoneErr
-            // 
-            this.lblLPUpdatePhoneErr.AutoSize = true;
-            this.lblLPUpdatePhoneErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdatePhoneErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdatePhoneErr.Location = new System.Drawing.Point(150, 196);
-            this.lblLPUpdatePhoneErr.Name = "lblLPUpdatePhoneErr";
-            this.lblLPUpdatePhoneErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdatePhoneErr.TabIndex = 43;
-            this.lblLPUpdatePhoneErr.Text = "label18";
-            // 
-            // lblLPUpdateAgeErr
-            // 
-            this.lblLPUpdateAgeErr.AutoSize = true;
-            this.lblLPUpdateAgeErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateAgeErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateAgeErr.Location = new System.Drawing.Point(150, 144);
-            this.lblLPUpdateAgeErr.Name = "lblLPUpdateAgeErr";
-            this.lblLPUpdateAgeErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateAgeErr.TabIndex = 43;
-            this.lblLPUpdateAgeErr.Text = "label18";
-            // 
-            // lblLPUpdateEmailErr
-            // 
-            this.lblLPUpdateEmailErr.AutoSize = true;
-            this.lblLPUpdateEmailErr.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLPUpdateEmailErr.ForeColor = System.Drawing.Color.Red;
-            this.lblLPUpdateEmailErr.Location = new System.Drawing.Point(150, 250);
-            this.lblLPUpdateEmailErr.Name = "lblLPUpdateEmailErr";
-            this.lblLPUpdateEmailErr.Size = new System.Drawing.Size(44, 13);
-            this.lblLPUpdateEmailErr.TabIndex = 43;
-            this.lblLPUpdateEmailErr.Text = "label18";
             // 
             // Form2
             // 

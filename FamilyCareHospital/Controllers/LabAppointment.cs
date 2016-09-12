@@ -37,29 +37,29 @@ namespace FamilyCareHospital.Controllers
         }
 
 
-        /* delete lab appointment from appointment id*/
-        public bool deleteLabAppointment()
-        {
-            string query;
-            MySqlConnection conn  = ConnectionManager.GetConnection();
+        ///* delete lab appointment from appointment id*/
+        //public bool deleteLabAppointment()
+        //{
+        //    string query;
+        //    MySqlConnection conn  = ConnectionManager.GetConnection();
 
-            try
-            {
-                conn.Open();
-                query = "delete from lab_appointment  where labAppointmentID ='" + Convert.ToInt32(AID) + "'";
-                MySqlCommand newCmd = new MySqlCommand(query, conn);
-                newCmd.ExecuteNonQuery();
-                conn.Close();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show("DB Error :" + e.Message);
-                conn.Close();
-                return false;
-            }
+        //    try
+        //    {
+        //        conn.Open();
+        //        query = "delete from lab_appointment  where labAppointmentID ='" + Convert.ToInt32(AID) + "'";
+        //        MySqlCommand newCmd = new MySqlCommand(query, conn);
+        //        newCmd.ExecuteNonQuery();
+        //        conn.Close();
+        //        return true;
+        //    }
+        //    catch (MySqlException e)
+        //    {
+        //        MessageBox.Show("DB Error :" + e.Message);
+        //        conn.Close();
+        //        return false;
+        //    }
 
-        }
+        //}
 
 
         /* update lab appointment from appointment id*/

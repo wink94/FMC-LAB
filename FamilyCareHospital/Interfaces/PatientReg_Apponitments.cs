@@ -535,7 +535,7 @@ namespace FamilyCareHospital
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete?", "Delete Confirm", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        manipulateLabAppmnt.deleteLabAppointment();
+                        //manipulateLabAppmnt.deleteLabAppointment();
                         manipulateLabPatient.deleteLabPatientAndTests();
                         emptyUpdateFormData();
                     }

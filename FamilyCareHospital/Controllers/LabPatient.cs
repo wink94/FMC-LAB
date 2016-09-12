@@ -112,8 +112,8 @@ namespace FamilyCareHospital.Controllers
             {
                 conn.Open();
                 query1 = "delete from lab_patient  where labPatientID ='" + Convert.ToInt32(ID) + "';";
-                query2 = "delete from lab_test_result  where labPatientID ='" + Convert.ToInt32(ID) + "';";
-                query = query1 + query2;
+                //query2 = "delete from lab_test_result  where labPatientID ='" + Convert.ToInt32(ID) + "';";
+                query = query1 ;
                 MySqlCommand newCmd = new MySqlCommand(query, conn);
                 newCmd.ExecuteNonQuery();
                 conn.Close();
@@ -203,6 +203,7 @@ namespace FamilyCareHospital.Controllers
             int count = 0;
             datatable.Columns.Add("Test_Number", typeof(int));
             datatable.Columns.Add("Test_Name", typeof(string));
+            datatable.Columns.Add("Test_ID", typeof(string));
             datatable.Columns.Add("Test_Status", typeof(string));
 
             MySqlConnection conn = ConnectionManager.GetConnection();
@@ -210,7 +211,7 @@ namespace FamilyCareHospital.Controllers
             try
             {
                 conn.Open();
-                query = "SELECT lt.labTestName,ltr.labAppointmentStatus  FROM lab_test lt,lab_test_result ltr WHERE lt.labTestID=ltr.labTestID AND ltr.labPatientID=@PID";
+                query = "SELECT lt.labTestName,lt.labTestID,ltr.labAppointmentStatus  FROM lab_test lt,lab_test_result ltr WHERE lt.labTestID=ltr.labTestID AND ltr.labPatientID=@PID";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 command.Parameters.AddWithValue("@PID", patientID);
@@ -222,11 +223,11 @@ namespace FamilyCareHospital.Controllers
 
                     if (!Convert.ToBoolean(datareader["labAppointmentStatus"]))
                     {
-                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], "Incomplete");
+                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], datareader["labTestID"], "Incomplete");
                     }
                     else
                     {
-                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], "Complete");
+                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], datareader["labTestID"], "Complete");
                     }
 
                     
