@@ -117,6 +117,27 @@ namespace FamilyCareHospital.Controllers
             }
         }
 
+        /* double validation*/
+        public bool IsDouble(string input)
+        {
+            double test;
+
+            if (!double.TryParse(input, out test))
+            {
+                errormsg_IsNumeric = "*invalid numeric value in .!";
+                //errmsg["IsNumeric"]=errormsg_IsNumeric;
+                return false;
+            }
+            else
+            {
+                errormsg_IsNumeric = "";
+                //errmsg["IsNumeric"] = errormsg_IsNumeric;
+                return true;
+            }
+        }
+
+
+
         /* check for alphbatical and numeric characters  */
 
         public bool alphaNumericVal(string val,string field)

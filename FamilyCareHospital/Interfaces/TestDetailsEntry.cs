@@ -17,27 +17,39 @@ namespace FamilyCareHospital.Interfaces
         private DBRetrieve dbr;
         private LabPatient labpatient;
         private Validation validation;
+        private BloodTest bloodtest;
+        private LabTest labtest;
         private Dictionary<string, string> txt_Panel1;
         private Dictionary<string, string> txt_Panel2;
         private Dictionary<string, string> txt_Panel3;
+
+        private Dictionary<string, string> updatingTest;
 
         public TestDetailsEntry()
         {
             InitializeComponent();
             labpatient = new LabPatient();
             dbr = new DBRetrieve();
-            validation=new Validation();
+            validation = new Validation();
+            bloodtest = new BloodTest();
+            labtest = new LabTest();
 
-            txt_Panel1 = new Dictionary<string, string> { {"Field","" }, {"DType","" }, {"Error_lbl","" } };
-            txt_Panel2 = new Dictionary<string, string> { { "Field", "" }, { "DType", "" }, { "Error_lbl", "" } };
-            txt_Panel3 = new Dictionary<string, string> { { "Field", "" }, { "DType", "" }, { "Error_lbl", "" } };
-            
+            txt_Panel1 = new Dictionary<string, string> { { "Field", "" }, { "DType", "" }, { "Error_lbl", "" }, { "Value", "" } };
+            txt_Panel2 = new Dictionary<string, string> { { "Field", "" }, { "DType", "" }, { "Error_lbl", "" }, { "Value", "" } };
+            txt_Panel3 = new Dictionary<string, string> { { "Field", "" }, { "DType", "" }, { "Error_lbl", "" }, { "Value", "" } };
+
+            //updatingTest = new Dictionary<string, string> { { "field_num", "" } };
+
+
         }
+
 
         private void TestDetailsEntry_Load(object sender, EventArgs e)
         {
             FillAppointments(null,null,null);
             showHidePanels("Panel1", "Panel2", "Panel3", 0);
+            grpBxScans.Visible = false;
+            grpBoxTextBoxSet.Visible = false;
         }
 
         /*  fill test appointment details  */
@@ -98,6 +110,20 @@ namespace FamilyCareHospital.Interfaces
 
 
         }
+
+        private void clearDictionarys()
+        {
+            string[] keys = { "Field", "DType", "Error_lbl", "Value" };
+
+            foreach (string k in keys)
+            {
+                txt_Panel1[k] = "";
+                txt_Panel2[k] = "";
+                txt_Panel3[k] = "";
+            }
+
+        }
+
 
         private void showHidePanels(string p1,string p2,string p3,int numOfPanels)
         {
@@ -240,42 +266,240 @@ namespace FamilyCareHospital.Interfaces
                 return;
             else
             {
-                var BT = new BloodTest();
-                Dictionary<string, string> testData;
+                //var BT = new BloodTest();
+
                 showHidePanels("Panel1", "Panel2", "Panel3", 0);
                 if (dgvAddTestResult.Index == dgvPatientTest.Columns[e.ColumnIndex].Index)
                 {
-                    string testId = dgvPatientTest.Rows[e.RowIndex].Cells["dgvtestID"].Value.ToString();
-
-                    testData =BT.identifyTests(testId);
-                    //setPanelControls("Panel1", null, null, null);
-                    //setPanelControls("Panel2", null, null, null);
-                    //setPanelControls("Panel3", null, null, null);
-
-                    if (testData["field_num"] == "2")
+                    clearDictionarys();
+                    if (dgvPatientTest.Rows[e.RowIndex].Cells["dgvUniqueTestStatus"].Value.ToString() == "Incomplete")
                     {
 
-                        setPanelControls("Panel1","set",testData["field1_name"], testData["field1_units"]);
-                        setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+                        Dictionary<string, string> testData;
+                        labtest.ID = dgvPatientTest.Rows[e.RowIndex].Cells["dgvtestID"].Value.ToString();
 
-                        setPanelControls("Panel2", "set", testData["field2_name"], testData["field2_units"]);
-                        setTxtBoxDictionaries(testData["field2_name"], testData["field2_dataType"], "lblErrorTest_Panel2", "txt_Panel2");
+                        if (dgvPatientTest.Rows[e.RowIndex].Cells["dgvUniqueTestStatus"].Value.ToString() == "Complete")
+                        {
+                            labtest.Status = true;
+                        }
+                        else
+                        {
+                            labtest.Status = false;
+                        }
 
-                        showHidePanels("Panel1", "Panel2", "Panel3", 2);
+                        if ((testData = labtest.identifyTest()) == null)
+                        {
+                            if (labtest.identifyScan())
+                            {
+                                //labtest.Status = false;
+                                labtest.LTRNumber = dgvPatientTest.Rows[e.RowIndex].Cells["dgvLTRNum"].Value.ToString();
+                                if (!grpBxScans.Visible)
+                                    grpBxScans.Visible = true;
+
+                                if (grpBoxTextBoxSet.Visible)
+                                    grpBoxTextBoxSet.Visible = false;
+                            }
+
+                        }
+
+                        else
+                        {
+                            if (grpBxScans.Visible)
+                                grpBxScans.Visible = false;
+
+                            if (!grpBoxTextBoxSet.Visible)
+                                grpBoxTextBoxSet.Visible = true;
+
+                            //setPanelControls("Panel1", null, null, null);
+                            //setPanelControls("Panel2", null, null, null);
+                            //setPanelControls("Panel3", null, null, null);
+
+                            if (testData["field_num"] == "3")
+                            {
+
+                                setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
+                                setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+
+                                setPanelControls("Panel2", "set", testData["field2_name"], testData["field2_units"]);
+                                setTxtBoxDictionaries(testData["field2_name"], testData["field2_dataType"], "lblErrorTest_Panel2", "txt_Panel2");
+
+                                setPanelControls("Panel3", "set", testData["field3_name"], testData["field3_units"]);
+                                setTxtBoxDictionaries(testData["field3_name"], testData["field3_dataType"], "lblErrorTest_Panel3", "txt_Panel3");
+
+                                showHidePanels("Panel1", "Panel2", "Panel3", 3);
+                            }
+
+
+                            if (testData["field_num"] == "2")
+                            {
+
+                                setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
+                                setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+
+                                setPanelControls("Panel2", "set", testData["field2_name"], testData["field2_units"]);
+                                setTxtBoxDictionaries(testData["field2_name"], testData["field2_dataType"], "lblErrorTest_Panel2", "txt_Panel2");
+
+                                showHidePanels("Panel1", "Panel2", "Panel3", 2);
+                            }
+                            if (testData["field_num"] == "1")
+                            {
+                                setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
+                                setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+
+                                showHidePanels("Panel1", "Panel2", "Panel3", 1);
+
+                            }
+
+                        }
                     }
-                    if (testData["field_num"] == "1")
+                    else
                     {
-                        setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
-                        setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
-
-                        showHidePanels("Panel1", "Panel2", "Panel3", 1);
-
+                        MessageBox.Show("Please select update the Field ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
 
                 }
+
+                ///////////////update test results////////////////////
+
+                if (dgvUpdateTestResult.Index == dgvPatientTest.Columns[e.ColumnIndex].Index)    
+                {
+                    clearDictionarys();
+                    if (dgvPatientTest.Rows[e.RowIndex].Cells["dgvUniqueTestStatus"].Value.ToString() == "Complete")
+                    {
+
+                        Dictionary<string, string> testData;
+                        labtest.ID = dgvPatientTest.Rows[e.RowIndex].Cells["dgvtestID"].Value.ToString();
+
+                        if ((testData = labtest.identifyTest()) == null)
+                        {
+                            if (labtest.identifyScan())
+                            {
+                                //labtest.Status = false;
+
+                                radioSet.Checked = true;
+                                labtest.LTRNumber = dgvPatientTest.Rows[e.RowIndex].Cells["dgvLTRNum"].Value.ToString();
+                                if (!grpBxScans.Visible)
+                                    grpBxScans.Visible = true;
+
+                                if (grpBoxTextBoxSet.Visible)
+                                    grpBoxTextBoxSet.Visible = false;
+
+                            }
+
+                        }
+
+                        else
+                        {
+                            if (grpBxScans.Visible)
+                                grpBxScans.Visible = false;
+
+                            if (!grpBoxTextBoxSet.Visible)
+                                grpBoxTextBoxSet.Visible = true;
+
+                            updatingTest = labtest.getUpdateTestDetails(labpatient.ID);
+
+                            if (testData["field_num"] == "3" && updatingTest["field_num"] == "3")
+                            {
+
+                                setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
+                                setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+
+                                setPanelControls("Panel2", "set", testData["field2_name"], testData["field2_units"]);
+                                setTxtBoxDictionaries(testData["field2_name"], testData["field2_dataType"], "lblErrorTest_Panel2", "txt_Panel2");
+
+                                setPanelControls("Panel3", "set", testData["field3_name"], testData["field3_units"]);
+                                setTxtBoxDictionaries(testData["field3_name"], testData["field3_dataType"], "lblErrorTest_Panel3", "txt_Panel3");
+
+                                if (testData["field1_name"] == updatingTest["field1_name"])
+                                {
+                                    txtTest_Panel1.Text = updatingTest["field1_value"];
+                                    txt_Panel1["Value"] = updatingTest["field1_value"];
+                                }
+
+                                if (testData["field2_name"] == updatingTest["field2_name"])
+                                {
+                                    txtTest_Panel2.Text = updatingTest["field2_value"];
+                                    txt_Panel2["Value"] = updatingTest["field2_value"];
+                                }
+
+                                if (testData["field3_name"] == updatingTest["field3_name"])
+                                {
+                                    txtTest_Panel3.Text = updatingTest["field3_value"];
+                                    txt_Panel3["Value"] = updatingTest["field3_value"];
+                                }
+
+                                showHidePanels("Panel1", "Panel2", "Panel3", 3);
+                            }
+
+
+                            if (testData["field_num"] == "2" && updatingTest["field_num"] == "2")
+                            {
+
+                                setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
+                                setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+
+                                setPanelControls("Panel2", "set", testData["field2_name"], testData["field2_units"]);
+                                setTxtBoxDictionaries(testData["field2_name"], testData["field2_dataType"], "lblErrorTest_Panel2", "txt_Panel2");
+
+                                if (testData["field1_name"] == updatingTest["field1_name"])
+                                {
+                                    txtTest_Panel1.Text = updatingTest["field1_value"];
+                                    txt_Panel1["Value"] = updatingTest["field1_value"];
+                                }
+
+                                if (testData["field1_name"] == updatingTest["field2_name"])
+                                {
+                                    txtTest_Panel1.Text = updatingTest["field2_value"];
+                                    txt_Panel1["Value"] = updatingTest["field2_value"];
+                                }
+
+                                if (testData["field2_name"] == updatingTest["field2_name"])
+                                {
+                                    txtTest_Panel2.Text = updatingTest["field2_value"];
+                                    txt_Panel2["Value"] = updatingTest["field2_value"];
+                                }
+
+                                if (testData["field2_name"] == updatingTest["field1_name"])
+                                {
+                                    txtTest_Panel2.Text = updatingTest["field1_value"];
+                                    txt_Panel2["Value"] = updatingTest["field1_value"];
+                                }
+
+                                showHidePanels("Panel1", "Panel2", "Panel3", 2);
+                            }
+                            if (testData["field_num"] == "1" && updatingTest["field_num"] == "1")
+                            {
+                                setPanelControls("Panel1", "set", testData["field1_name"], testData["field1_units"]);
+                                setTxtBoxDictionaries(testData["field1_name"], testData["field1_dataType"], "lblErrorTest_Panel1", "txt_Panel1");
+
+                                if (testData["field1_name"] == updatingTest["field1_name"])
+                                {
+                                    txtTest_Panel1.Text = updatingTest["field1_value"];
+                                    txt_Panel1["Value"] = updatingTest["field1_value"];
+                                }
+
+                                showHidePanels("Panel1", "Panel2", "Panel3", 1);
+
+                            }
+
+
+
+                        }
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Please Add the Field ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+
             }
+
         }
+
 
         private void dgvAppointmentList_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -285,28 +509,403 @@ namespace FamilyCareHospital.Interfaces
             {
                 
                 labpatient.ID = dgvAppointmentList.Rows[e.RowIndex].Cells["dgvPatientID"].Value.ToString();
+                //showHidePanels("Panel1", "Panel2", "Panel3", 1);
+                clearDictionarys();
                 fillPatientsTests(labpatient.getPatientsTestList());
             }
         }
 
-        private void txtTest_Panel1_TextChanged(object sender, EventArgs e)
+       
+
+        private void txtTest_Panel1_Leave(object sender, EventArgs e)
         {
+
             var panel = (Panel)grpBoxTextBoxSet.Controls["Panel1"];
             var Error_lbl = (Label)panel.Controls[txt_Panel1["Error_lbl"]];
 
-            if (txt_Panel1["DType"]=="int")
+            if (txt_Panel1["DType"] == "int")
             {
-                if (validation.IsNumeric(txtTest_Panel1.Text))
+                if (validation.IsNumeric(txtTest_Panel1.Text) || string.IsNullOrEmpty(txtTest_Panel1.Text))
                 {
-                    Error_lbl.Text = validation.NumericEror;
+                    if (txt_Panel1["Field"] == "WBC"  || txt_Panel1["Field"] == "Platelet Count" || txt_Panel1["Field"] == "Sugar" )
+                    {
+                        if ( string.IsNullOrEmpty(txtTest_Panel1.Text) || int.Parse(txtTest_Panel1.Text) > 0)
+                        {
+                            Error_lbl.Text = "";
+                            txt_Panel1["Value"] = txtTest_Panel1.Text;
+                        }
+                        else
+                        {
+                            Error_lbl.Text = "*Count should be logical";
+                            //txtTest_Panel1.Text = "";
+                            txt_Panel1["Value"] = "";
+                        }
+                    }
+
                 }
                 else
                 {
                     Error_lbl.Text = validation.NumericEror;
-                    txtTest_Panel1.Text = "";
+                    //txtTest_Panel1.Text = "";
+                    txt_Panel1["Value"] = "";
                 }
             }
 
+
+            if (txt_Panel1["DType"] == "double")
+            {
+                if (validation.IsDouble(txtTest_Panel1.Text) || string.IsNullOrEmpty(txtTest_Panel1.Text))
+                {
+                    if (txt_Panel1["Field"] == "HDL" )
+                    {
+                        if (string.IsNullOrEmpty(txtTest_Panel1.Text) || double.Parse(txtTest_Panel1.Text) > 0 )
+                        {
+                            Error_lbl.Text = "";
+                            txt_Panel1["Value"] = txtTest_Panel1.Text;
+                        }
+                        else
+                        {
+                            Error_lbl.Text = "*Value should be logical";
+                            //txtTest_Panel1.Text = "";
+                            txt_Panel1["Value"] = "";
+                        }
+                    }
+
+                }
+                else
+                {
+                    Error_lbl.Text = validation.NumericEror;
+                    //txtTest_Panel1.Text = "";
+                    txt_Panel1["Value"] = "";
+
+                }
+            }
+
+
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (!labtest.Status)
+            {
+                var bloodtest = new BloodTest();
+                
+
+                if (txt_Panel1["Field"] == "Sugar")
+                {
+                    if (!bloodtest.insertSugar( labpatient.ID, labtest.ID, txt_Panel1["Value"]))
+                    {
+                        MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        txtTest_Panel1.Text = "";
+                        fillPatientsTests(labpatient.getPatientsTestList());
+                        labtest.Status = true;
+                    }
+
+                }
+
+                if (txt_Panel1["Field"] == "Platelet Count")
+                {
+                    if (!bloodtest.insertPlatelet(labpatient.ID, labtest.ID, txt_Panel1["Value"]))
+                    {
+                        MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        txtTest_Panel1.Text = "";
+                        fillPatientsTests(labpatient.getPatientsTestList());
+                        labtest.Status = true;
+                    }
+
+                }
+
+
+                if (txt_Panel1["Field"] == "WBC" && txt_Panel2["Field"] == "RBC")
+                {
+                    if (!bloodtest.insertCellCount(labpatient.ID, labtest.ID, txt_Panel1["Value"], txt_Panel2["Value"]))
+                    {
+                        MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        txtTest_Panel1.Text = "";
+                        txtTest_Panel2.Text = "";
+                        fillPatientsTests(labpatient.getPatientsTestList());
+                        labtest.Status = true;
+                    }
+
+                }
+
+                if (txt_Panel1["Field"] == "HDL" && txt_Panel2["Field"] == "LDL" && txt_Panel3["Field"] == "Serum Cholesterol")
+                {
+                    var cholesterol = new LipidTest();
+
+                    if (!cholesterol.insertCholestrolTest(labpatient.ID, labtest.ID, txt_Panel1["Value"], txt_Panel2["Value"],txt_Panel3["Value"]) )
+                    {
+                        MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        txtTest_Panel1.Text = "";
+                        txtTest_Panel2.Text = "";
+                        txtTest_Panel3.Text = "";
+                        fillPatientsTests(labpatient.getPatientsTestList());
+                        labtest.Status = true;
+                    }
+
+                }
+
+                if (grpBxScans.Visible)
+                {
+                    
+                    var scan = new Scans();
+                    if (radioSet.Checked)
+                    {
+                        if (scan.setScanStatus(Convert.ToInt32(labtest.LTRNumber), true, true))
+                        {
+                            radioSet.Checked = false;
+                            radioReset.Checked = false;
+                            fillPatientsTests(labpatient.getPatientsTestList());
+                        }
+                        
+
+                    }
+
+                    if (radioReset.Checked)
+                    {
+                        if(scan.setScanStatus(Convert.ToInt32(labtest.LTRNumber), false, true))
+                        {
+                            radioSet.Checked = false;
+                            radioReset.Checked = false;
+                            fillPatientsTests(labpatient.getPatientsTestList());
+                        }
+                        
+
+                    }
+
+                }
+
+                //clearDictionarys();
+                FillAppointments(null, null, null);
+
+            }
+            else
+            {
+                //txtTest_Panel1.Text = "";
+                //labtest.Status = false;
+                MessageBox.Show("This is already added. Select Update to Change", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtTest_Panel2_Leave(object sender, EventArgs e)
+        {
+
+            var panel = (Panel)grpBoxTextBoxSet.Controls["Panel2"];
+            var Error_lbl = (Label)panel.Controls[txt_Panel2["Error_lbl"]];
+
+            if (txt_Panel2["DType"] == "int")
+            {
+                if (validation.IsNumeric(txtTest_Panel2.Text) || string.IsNullOrEmpty(txtTest_Panel2.Text))
+                {
+                    if (txt_Panel2["Field"] == "RBC" )
+                    {
+                        if (string.IsNullOrEmpty(txtTest_Panel2.Text) || int.Parse(txtTest_Panel2.Text) > 0 )
+                        {
+                            Error_lbl.Text = "";
+                            txt_Panel2["Value"] = txtTest_Panel2.Text;
+                        }
+                        else
+                        {
+                            Error_lbl.Text = "*Count should be logical";
+                            //txtTest_Panel1.Text = "";
+                            txt_Panel2["Value"] = "";
+                        }
+                    }
+
+                }
+                else
+                {
+                    Error_lbl.Text = validation.NumericEror;
+                    //txtTest_Panel1.Text = "";
+                    txt_Panel2["Value"] = "";
+                }
+            }
+
+
+            if (txt_Panel2["DType"] == "double")
+            {
+                if (validation.IsDouble(txtTest_Panel2.Text) || string.IsNullOrEmpty(txtTest_Panel2.Text))
+                {
+                    if (txt_Panel2["Field"] == "LDL")
+                    {
+                        if (string.IsNullOrEmpty(txtTest_Panel2.Text) || double.Parse(txtTest_Panel2.Text) > 0 )
+                        {
+                            Error_lbl.Text = "";
+                            txt_Panel2["Value"] = txtTest_Panel2.Text;
+                        }
+                        else
+                        {
+                            Error_lbl.Text = "*Value should be logical";
+                            //txtTest_Panel1.Text = "";
+                            txt_Panel2["Value"] = "";
+                        }
+                    }
+
+                }
+                else
+                {
+                    Error_lbl.Text = validation.NumericEror;
+                    //txtTest_Panel1.Text = "";
+                    txt_Panel2["Value"] = "";
+
+                }
+            }
+
+
+
+        }
+
+        private void txtTest_Panel3_Leave(object sender, EventArgs e)
+        {
+            var panel = (Panel)grpBoxTextBoxSet.Controls["Panel3"];
+            var Error_lbl = (Label)panel.Controls[txt_Panel3["Error_lbl"]];
+
+
+
+            if (txt_Panel3["DType"] == "double")
+            {
+                if (validation.IsDouble(txtTest_Panel3.Text) || string.IsNullOrEmpty(txtTest_Panel3.Text))
+                {
+                    if (txt_Panel3["Field"] == "Serum Cholesterol")
+                    {
+                        if (string.IsNullOrEmpty(txtTest_Panel3.Text) || double.Parse(txtTest_Panel3.Text) > 0 )
+                        {
+                            Error_lbl.Text = "";
+                            txt_Panel3["Value"] = txtTest_Panel3.Text;
+                        }
+                        else
+                        {
+                            Error_lbl.Text = "*Value should be logical";
+                            //txtTest_Panel1.Text = "";
+                            txt_Panel3["Value"] = "";
+                        }
+                    }
+
+                }
+                else
+                {
+                    Error_lbl.Text = validation.NumericEror;
+                    //txtTest_Panel1.Text = "";
+                    txt_Panel3["Value"] = "";
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            if (grpBxScans.Visible)
+            {
+
+                var scan = new Scans();
+
+
+                if (radioReset.Checked)
+                {
+                    if (scan.setScanStatus(Convert.ToInt32(labtest.LTRNumber), false, true))
+                    {
+                        radioSet.Checked = false;
+                        radioReset.Checked = false;
+                        fillPatientsTests(labpatient.getPatientsTestList());
+                    }
+
+
+                }
+
+            }
+
+
+            var bloodtest = new BloodTest();
+
+
+            if (txt_Panel1["Field"] == "Sugar")
+            {
+                if (!bloodtest.insertSugar(labpatient.ID, labtest.ID, txt_Panel1["Value"]))
+                {
+                    MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txtTest_Panel1.Text = "";
+                    fillPatientsTests(labpatient.getPatientsTestList());
+                    //labtest.Status = true;
+                }
+
+            }
+
+            if (txt_Panel1["Field"] == "Platelet Count")
+            {
+                if (!bloodtest.insertPlatelet(labpatient.ID, labtest.ID, txt_Panel1["Value"]))
+                {
+                    MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txtTest_Panel1.Text = "";
+                    fillPatientsTests(labpatient.getPatientsTestList());
+                    //labtest.Status = true;
+                }
+
+            }
+
+
+            if (txt_Panel1["Field"] == "WBC" && txt_Panel2["Field"] == "RBC")
+            {
+                if (!bloodtest.insertCellCount(labpatient.ID, labtest.ID, txt_Panel1["Value"], txt_Panel2["Value"]))
+                {
+                    MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txtTest_Panel1.Text = "";
+                    txtTest_Panel2.Text = "";
+                    fillPatientsTests(labpatient.getPatientsTestList());
+                    //labtest.Status = true;
+                }
+
+            }
+
+            if (txt_Panel1["Field"] == "HDL" && txt_Panel2["Field"] == "LDL" && txt_Panel3["Field"] == "Serum Cholesterol")
+            {
+                var cholesterol = new LipidTest();
+                if(!cholesterol.updateCholesterolTest(labpatient.ID,  txt_Panel1["Value"], txt_Panel2["Value"], txt_Panel3["Value"]))
+                {
+                    MessageBox.Show("Please Fill the Relevant Field", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
+                else
+                {
+                    txtTest_Panel1.Text = "";
+                    txtTest_Panel2.Text = "";
+                    txtTest_Panel3.Text = "";
+                    fillPatientsTests(labpatient.getPatientsTestList());
+                    //labtest.Status = true;
+                }
+
+            }
+
+            //clearDictionarys();
+            FillAppointments(null, null, null);
         }
     }
 }

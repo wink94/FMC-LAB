@@ -14,13 +14,19 @@ namespace FamilyCareHospital.Controllers
     {
         private string testID;
         private string testName;
+        private bool status;
         private double testPrice;
-        private DBUpdate dbu = new DBUpdate();
-        private DBDelete dbd = new DBDelete();
+        private MySqlConnection conn;
+        private BloodTest bloodtest;
+        private string LTRNo;
 
-        public string ID { get { return testID; } }
+        public string ID { get { return testID; } set { testID = value; } }
+        public bool Status { get { return status; } set { status = value; } }
         public string Name { get { return testName; } set { testName = value; } }
         public double Price { get { return testPrice; } set { testPrice = value; } }
+        public string LTRNumber { set { LTRNo = value; } get { return LTRNo; } }
+
+
 
         /* seaarch test method*/
 
@@ -138,6 +144,129 @@ namespace FamilyCareHospital.Controllers
         }
 
 
+        public void updateLabTestStatus(string PID,string testID)
+        {
+            string procedure;
+            conn = ConnectionManager.GetConnection();
+            if (conn.State.ToString() == "Closed")
+            {
+                conn.Open();
+            }
+
+            try
+            {
+                procedure = "lab_check_labTestStausAndUpdate";
+                var command = new MySqlCommand(procedure, conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
+                command.Parameters.AddWithValue("@TestID",testID);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("DB Error :" + e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+
+
+
+        public Dictionary<string, string> identifyTest()
+        {
+            string patternSugar = @"BS";
+            string patternCellCount = @"BCC";
+            string patternPlatelets = @"PC";
+            string patternLipid = @"LC";
+        
+            Match sugar = Regex.Match(testID, patternSugar);
+            Match cellCount = Regex.Match(testID, patternCellCount);
+            Match platelet = Regex.Match(testID, patternPlatelets);
+
+            Match Lipid = Regex.Match(testID, patternLipid);
+
+           
+            if (sugar.Success)
+            {
+                return BloodTest.identifyBloodTests("sugar");
+            }
+            else if (cellCount.Success)
+                return BloodTest.identifyBloodTests("cellcount");
+
+            else if (platelet.Success)
+                return BloodTest.identifyBloodTests("platelet");
+
+            else if (Lipid.Success)
+                return LipidTest.identifyLipidTests("lipid");
+
+            else
+                return null;
+        }
+
+        public bool identifyScan()
+        {
+            string patternCT = @"SCT";
+            string patternXRAY = @"SX";
+            string patternMRI = @"SMRI";
+
+
+            Match CT = Regex.Match(testID, patternCT);
+            Match XRAY = Regex.Match(testID, patternXRAY);
+            Match MRI = Regex.Match(testID, patternMRI);
+
+            if (CT.Success || XRAY.Success || MRI.Success)
+                return true;
+            else
+                return false;
+
+        }
+
+
+        public Dictionary<string, string> getUpdateTestDetails(string PID)
+        {
+
+            string patternSugar = @"BS";
+            string patternCellCount = @"BCC";
+            string patternPlatelets = @"PC";
+            string patternLipid = @"LC";
+
+            Match sugar = Regex.Match(testID, patternSugar);
+            Match cellCount = Regex.Match(testID, patternCellCount);
+            Match platelet = Regex.Match(testID, patternPlatelets);
+
+            Match Lipid = Regex.Match(testID, patternLipid);
+
+            var bloodtest = new BloodTest();
+            var lipid = new LipidTest();
+
+            if (sugar.Success)
+            {
+                return bloodtest.getSugarValues(PID);
+            }
+            else if (cellCount.Success)
+            {
+                return bloodtest.getBloodCellCountValues(PID);
+            }
+            else if (platelet.Success)
+            {
+                return bloodtest.getPlateletValues(PID);
+            }
+            else if (Lipid.Success)
+            {
+                return lipid.getCholesterolTestData(PID);
+            }
+
+            return null;
+
+        }
+
 
     }
+
+
 }

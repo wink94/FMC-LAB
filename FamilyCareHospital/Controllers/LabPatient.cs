@@ -201,6 +201,7 @@ namespace FamilyCareHospital.Controllers
             var dataset = new DataSet();
             var datatable = dataset.Tables.Add("PatientTestList");
             int count = 0;
+            datatable.Columns.Add("Test_LTRNumber", typeof(int));
             datatable.Columns.Add("Test_Number", typeof(int));
             datatable.Columns.Add("Test_Name", typeof(string));
             datatable.Columns.Add("Test_ID", typeof(string));
@@ -211,7 +212,7 @@ namespace FamilyCareHospital.Controllers
             try
             {
                 conn.Open();
-                query = "SELECT lt.labTestName,lt.labTestID,ltr.labAppointmentStatus  FROM lab_test lt,lab_test_result ltr WHERE lt.labTestID=ltr.labTestID AND ltr.labPatientID=@PID";
+                query = "SELECT ltr.labTestNo,lt.labTestName,lt.labTestID,ltr.labAppointmentStatus  FROM lab_test lt,lab_test_result ltr WHERE lt.labTestID=ltr.labTestID AND ltr.labPatientID=@PID";
 
                 MySqlCommand command = new MySqlCommand(query, conn);
                 command.Parameters.AddWithValue("@PID", patientID);
@@ -223,11 +224,11 @@ namespace FamilyCareHospital.Controllers
 
                     if (!Convert.ToBoolean(datareader["labAppointmentStatus"]))
                     {
-                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], datareader["labTestID"], "Incomplete");
+                        datatable.Rows.Add(datareader["labTestNo"], count.ToString(), datareader["labTestName"], datareader["labTestID"], "Incomplete");
                     }
                     else
                     {
-                        datatable.Rows.Add(count.ToString(), datareader["labTestName"], datareader["labTestID"], "Complete");
+                        datatable.Rows.Add(datareader["labTestNo"], count.ToString(), datareader["labTestName"], datareader["labTestID"], "Complete");
                     }
 
                     

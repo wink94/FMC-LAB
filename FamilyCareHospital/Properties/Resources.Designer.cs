@@ -113,6 +113,16 @@ namespace FamilyCareHospital.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_file_25px {
+            get {
+                object obj = ResourceManager.GetObject("add_file_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_file_32px {
             get {
                 object obj = ResourceManager.GetObject("add_file_32px", resourceCulture);
@@ -683,6 +693,16 @@ namespace FamilyCareHospital.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_property_25px {
+            get {
+                object obj = ResourceManager.GetObject("edit_property_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_user_32px {
             get {
                 object obj = ResourceManager.GetObject("edit_user_32px", resourceCulture);
@@ -786,6 +806,16 @@ namespace FamilyCareHospital.Properties {
         internal static System.Drawing.Bitmap family_care {
             get {
                 object obj = ResourceManager.GetObject("family_care", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap file_25px {
+            get {
+                object obj = ResourceManager.GetObject("file_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
