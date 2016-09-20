@@ -440,6 +440,42 @@ namespace FamilyCareHospital.DBAccess
             return dataset;
         }
 
+        public Dictionary<string,string> getTestPrices(List<getTestList> lst)
+        {
+            var dic = new Dictionary<string, string>();
+            string query="";
+            double tot = 0;
+            string price;
+
+            try
+            {
+                conn.Open();
+                var command = new MySqlCommand(query, conn);
+
+                foreach(getTestList gtl in lst)
+                {
+                    command.CommandText = "SELECT labTestPrice FROM lab_test where labTestID='"+ gtl.id+"'";
+                    //command.Parameters.AddWithValue("@LTID", gtl.id);
+                    price = command.ExecuteScalar().ToString();
+                    dic.Add(gtl.name, price);
+                    tot += Convert.ToDouble(price);
+                }
+
+                dic.Add("Total :", tot.ToString("N2"));
+
+                return dic;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("connection error " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
 
     }
 }

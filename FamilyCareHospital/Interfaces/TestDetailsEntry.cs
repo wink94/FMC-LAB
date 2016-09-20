@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FamilyCareHospital.DBAccess;
 using FamilyCareHospital.Controllers;
+using System.Text.RegularExpressions;
 
 namespace FamilyCareHospital.Interfaces
 {
@@ -495,6 +496,39 @@ namespace FamilyCareHospital.Interfaces
                     }
 
                 }
+
+                if (dgvPrintReport.Index == dgvPatientTest.Columns[e.ColumnIndex].Index)
+                {
+
+                    string testID = dgvPatientTest.Rows[e.RowIndex].Cells["dgvtestID"].Value.ToString();
+
+
+
+                    string patternSugar = @"BS";
+                    string patternCellCount = @"BCC";
+                    string patternPlatelets = @"PC";
+                    string patternLipid = @"LC";
+
+                    Match sugar = Regex.Match(testID, patternSugar);
+                    Match cellCount = Regex.Match(testID, patternCellCount);
+                    Match platelet = Regex.Match(testID, patternPlatelets);
+
+                    Match Lipid = Regex.Match(testID, patternLipid);
+
+                    if (sugar.Success)
+                    {
+                        //var sufrom = new sugarReptest(labpatient.ID, testID);
+                        //sufrom.Show();
+                    }
+                    if (cellCount.Success)
+                    {
+                        var view = new ViewForm(labpatient.ID, testID);
+                        view.ShowDialog();
+                    }
+
+                }
+
+
 
             }
 

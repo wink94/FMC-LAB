@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 using FamilyCareHospital.DBAccess;
 using System.Windows.Forms;
+using System.Data;
+using FamilyCareHospital.Interfaces;
 
 namespace FamilyCareHospital.Controllers
 {
@@ -386,6 +388,62 @@ namespace FamilyCareHospital.Controllers
 
                 return dic;
 
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        public DataSet fillSugarReport(string PID)
+        {
+            string query;
+            conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+                query = "select lp.labPatientName,lp.labPatientAge,lp.labPatientGender,lbt.sugar from lab_blood_test lbt,lab_patient lp where lp.labPatientID=lbt.PatientID and lp.labPatientID=@PID";
+                var command = new MySqlCommand(query, conn);
+                command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
+                var da = new MySqlDataAdapter(command);
+                FMC s = new FMC();
+                s.Clear();
+                da.Fill(s.Tables["sugarTable"]);
+                return s;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        public DataSet fillCellcountReport(string PID)
+        {
+            string query;
+            conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+                query = "select lp.labPatientName,lp.labPatientAge,lp.labPatientGender,lbt.blood_cell_count_WBC,lbt.blood_cell_count_RBC,la.labAppointmentDate from lab_blood_test lbt,lab_patient lp,lab_appointment la where lp.labPatientID=lbt.PatientID and la.labPatientID=lp.labPatientID and lp.labPatientID=@PID";
+                var command = new MySqlCommand(query, conn);
+                command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
+                var da = new MySqlDataAdapter(command);
+                FMC ds = new FMC();
+                ds.Clear();
+                da.Fill(ds.Tables["cellCount1"]);
+                return ds;
             }
             catch (Exception e)
             {

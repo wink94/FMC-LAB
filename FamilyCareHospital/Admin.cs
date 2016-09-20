@@ -26,8 +26,7 @@ namespace FamilyCareHospital
 
         private void button5_Click(object sender, EventArgs e)
         {
-            StoreMain sm = new StoreMain(position);
-            sm.Show();
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -50,26 +49,22 @@ namespace FamilyCareHospital
 
         private void button8_Click(object sender, EventArgs e)
         {
-            DoctorMain dm = new DoctorMain(position);
-            dm.Show();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            interfaces_HR.mainHR mh = new interfaces_HR.mainHR(position);
-            mh.Show();
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Pharmacy_Interfaces.PHmain pm = new Pharmacy_Interfaces.PHmain(position);
-            pm.Show();
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            TransportMain tm = new TransportMain(position);
-            tm.Show();
+            
         }
     }
 }

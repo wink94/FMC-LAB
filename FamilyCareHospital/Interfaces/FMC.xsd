@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="sugar" targetNamespace="http://tempuri.org/sugar.xsd" xmlns:mstns="http://tempuri.org/sugar.xsd" xmlns="http://tempuri.org/sugar.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="sugar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="sugar" msprop:Generator_UserDSName="sugar">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sugarRes1" msprop:Generator_TableClassName="sugarRes1DataTable" msprop:Generator_TableVarName="tablesugarRes1" msprop:Generator_RowChangedName="sugarRes1RowChanged" msprop:Generator_TablePropName="sugarRes1" msprop:Generator_RowDeletingName="sugarRes1RowDeleting" msprop:Generator_RowChangingName="sugarRes1RowChanging" msprop:Generator_RowEvHandlerName="sugarRes1RowChangeEventHandler" msprop:Generator_RowDeletedName="sugarRes1RowDeleted" msprop:Generator_RowClassName="sugarRes1Row" msprop:Generator_UserTableName="sugarRes1" msprop:Generator_RowEvArgName="sugarRes1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="labPatientName" msprop:Generator_ColumnVarNameInTable="columnlabPatientName" msprop:Generator_ColumnPropNameInRow="labPatientName" msprop:Generator_ColumnPropNameInTable="labPatientNameColumn" msprop:Generator_UserColumnName="labPatientName" type="xs:string" minOccurs="0" />
+              <xs:element name="labPatientAge" msprop:Generator_ColumnVarNameInTable="columnlabPatientAge" msprop:Generator_ColumnPropNameInRow="labPatientAge" msprop:Generator_ColumnPropNameInTable="labPatientAgeColumn" msprop:Generator_UserColumnName="labPatientAge" type="xs:string" minOccurs="0" />
+              <xs:element name="labPatientGender" msprop:Generator_ColumnVarNameInTable="columnlabPatientGender" msprop:Generator_ColumnPropNameInRow="labPatientGender" msprop:Generator_ColumnPropNameInTable="labPatientGenderColumn" msprop:Generator_UserColumnName="labPatientGender" type="xs:string" minOccurs="0" />
+              <xs:element name="sugar" msprop:Generator_ColumnVarNameInTable="columnsugar" msprop:Generator_ColumnPropNameInRow="sugar" msprop:Generator_ColumnPropNameInTable="sugarColumn" msprop:Generator_UserColumnName="sugar" type="xs:string" minOccurs="0" />
+              <xs:element name="labAppointmentDate" msprop:Generator_ColumnVarNameInTable="columnlabAppointmentDate" msprop:Generator_ColumnPropNameInRow="labAppointmentDate" msprop:Generator_ColumnPropNameInTable="labAppointmentDateColumn" msprop:Generator_UserColumnName="labAppointmentDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cellCount1" msprop:Generator_TableClassName="cellCount1DataTable" msprop:Generator_TableVarName="tablecellCount1" msprop:Generator_RowChangedName="cellCount1RowChanged" msprop:Generator_TablePropName="cellCount1" msprop:Generator_RowDeletingName="cellCount1RowDeleting" msprop:Generator_RowChangingName="cellCount1RowChanging" msprop:Generator_RowEvHandlerName="cellCount1RowChangeEventHandler" msprop:Generator_RowDeletedName="cellCount1RowDeleted" msprop:Generator_RowClassName="cellCount1Row" msprop:Generator_UserTableName="cellCount1" msprop:Generator_RowEvArgName="cellCount1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="labPatientName" msprop:Generator_ColumnVarNameInTable="columnlabPatientName" msprop:Generator_ColumnPropNameInRow="labPatientName" msprop:Generator_ColumnPropNameInTable="labPatientNameColumn" msprop:Generator_UserColumnName="labPatientName" type="xs:string" minOccurs="0" />
+              <xs:element name="labPatientAge" msprop:Generator_ColumnVarNameInTable="columnlabPatientAge" msprop:Generator_ColumnPropNameInRow="labPatientAge" msprop:Generator_ColumnPropNameInTable="labPatientAgeColumn" msprop:Generator_UserColumnName="labPatientAge" type="xs:string" minOccurs="0" />
+              <xs:element name="labPatientGender" msprop:Generator_ColumnVarNameInTable="columnlabPatientGender" msprop:Generator_ColumnPropNameInRow="labPatientGender" msprop:Generator_ColumnPropNameInTable="labPatientGenderColumn" msprop:Generator_UserColumnName="labPatientGender" type="xs:string" minOccurs="0" />
+              <xs:element name="blood_cell_count_WBC" msprop:Generator_ColumnVarNameInTable="columnblood_cell_count_WBC" msprop:Generator_ColumnPropNameInRow="blood_cell_count_WBC" msprop:Generator_ColumnPropNameInTable="blood_cell_count_WBCColumn" msprop:Generator_UserColumnName="blood_cell_count_WBC" type="xs:string" minOccurs="0" />
+              <xs:element name="blood_cell_count_RBC" msprop:Generator_ColumnVarNameInTable="columnblood_cell_count_RBC" msprop:Generator_ColumnPropNameInRow="blood_cell_count_RBC" msprop:Generator_ColumnPropNameInTable="blood_cell_count_RBCColumn" msprop:Generator_UserColumnName="blood_cell_count_RBC" type="xs:string" minOccurs="0" />
+              <xs:element name="labAppointmentDate" msprop:Generator_ColumnVarNameInTable="columnlabAppointmentDate" msprop:Generator_ColumnPropNameInRow="labAppointmentDate" msprop:Generator_ColumnPropNameInTable="labAppointmentDateColumn" msprop:Generator_UserColumnName="labAppointmentDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

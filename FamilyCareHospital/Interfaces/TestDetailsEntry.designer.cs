@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTestList = new System.Windows.Forms.Label();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -52,13 +53,6 @@
             this.lblUnitsTest_Panel1 = new System.Windows.Forms.Label();
             this.lblErrorTest_Panel1 = new System.Windows.Forms.Label();
             this.dgvPatientTest = new System.Windows.Forms.DataGridView();
-            this.dgvLTRNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtestNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtestID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvUniqueTestStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvAddTestResult = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvUpdateTestResult = new System.Windows.Forms.DataGridViewImageColumn();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -78,6 +72,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvLTRNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvtestNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvtestID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvtestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUniqueTestStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAddTestResult = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvUpdateTestResult = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvPrintReport = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox2.SuspendLayout();
             this.pnl1.SuspendLayout();
             this.grpBxScans.SuspendLayout();
@@ -92,15 +94,28 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblTestList);
             this.groupBox2.Controls.Add(this.pnl1);
             this.groupBox2.Controls.Add(this.dgvPatientTest);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(35, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(509, 620);
+            this.groupBox2.Size = new System.Drawing.Size(531, 620);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Enter Test Data";
+            // 
+            // lblTestList
+            // 
+            this.lblTestList.BackColor = System.Drawing.Color.Aqua;
+            this.lblTestList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestList.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTestList.Location = new System.Drawing.Point(151, 26);
+            this.lblTestList.Name = "lblTestList";
+            this.lblTestList.Size = new System.Drawing.Size(112, 20);
+            this.lblTestList.TabIndex = 2;
+            this.lblTestList.Text = "Test List";
+            this.lblTestList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnl1
             // 
@@ -117,9 +132,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(295, 271);
+            this.btnUpdate.Location = new System.Drawing.Point(395, 286);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 45);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -127,9 +142,9 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(191, 271);
+            this.btnSubmit.Location = new System.Drawing.Point(285, 286);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(75, 45);
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "add";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -145,7 +160,7 @@
             this.grpBxScans.Size = new System.Drawing.Size(200, 100);
             this.grpBxScans.TabIndex = 3;
             this.grpBxScans.TabStop = false;
-            this.grpBxScans.Text = "groupBox4";
+            this.grpBxScans.Text = "Select Scan Status";
             // 
             // radioReset
             // 
@@ -177,10 +192,10 @@
             this.grpBoxTextBoxSet.Controls.Add(this.Panel1);
             this.grpBoxTextBoxSet.Location = new System.Drawing.Point(16, 17);
             this.grpBoxTextBoxSet.Name = "grpBoxTextBoxSet";
-            this.grpBoxTextBoxSet.Size = new System.Drawing.Size(235, 228);
+            this.grpBoxTextBoxSet.Size = new System.Drawing.Size(248, 292);
             this.grpBoxTextBoxSet.TabIndex = 2;
             this.grpBoxTextBoxSet.TabStop = false;
-            this.grpBoxTextBoxSet.Text = "groupBox4";
+            this.grpBoxTextBoxSet.Text = "Test Details Entry";
             // 
             // Panel3
             // 
@@ -189,9 +204,9 @@
             this.Panel3.Controls.Add(this.lblNameTest_Panel3);
             this.Panel3.Controls.Add(this.lblUnitsTest_Panel3);
             this.Panel3.Controls.Add(this.lblErrorTest_Panel3);
-            this.Panel3.Location = new System.Drawing.Point(6, 155);
+            this.Panel3.Location = new System.Drawing.Point(6, 192);
             this.Panel3.Name = "Panel3";
-            this.Panel3.Size = new System.Drawing.Size(215, 57);
+            this.Panel3.Size = new System.Drawing.Size(215, 69);
             this.Panel3.TabIndex = 17;
             // 
             // txtTest_Panel3
@@ -224,7 +239,7 @@
             // 
             this.lblErrorTest_Panel3.AutoSize = true;
             this.lblErrorTest_Panel3.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTest_Panel3.Location = new System.Drawing.Point(55, 33);
+            this.lblErrorTest_Panel3.Location = new System.Drawing.Point(55, 44);
             this.lblErrorTest_Panel3.Name = "lblErrorTest_Panel3";
             this.lblErrorTest_Panel3.Size = new System.Drawing.Size(40, 15);
             this.lblErrorTest_Panel3.TabIndex = 4;
@@ -237,14 +252,14 @@
             this.Panel2.Controls.Add(this.lblNameTest_Panel2);
             this.Panel2.Controls.Add(this.lblUnitsTest_Panel2);
             this.Panel2.Controls.Add(this.lblErrorTest_Panel2);
-            this.Panel2.Location = new System.Drawing.Point(6, 82);
+            this.Panel2.Location = new System.Drawing.Point(6, 103);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(215, 57);
+            this.Panel2.Size = new System.Drawing.Size(215, 69);
             this.Panel2.TabIndex = 17;
             // 
             // txtTest_Panel2
             // 
-            this.txtTest_Panel2.Location = new System.Drawing.Point(58, 7);
+            this.txtTest_Panel2.Location = new System.Drawing.Point(58, 12);
             this.txtTest_Panel2.Name = "txtTest_Panel2";
             this.txtTest_Panel2.Size = new System.Drawing.Size(51, 23);
             this.txtTest_Panel2.TabIndex = 5;
@@ -262,7 +277,7 @@
             // lblUnitsTest_Panel2
             // 
             this.lblUnitsTest_Panel2.AutoSize = true;
-            this.lblUnitsTest_Panel2.Location = new System.Drawing.Point(166, 12);
+            this.lblUnitsTest_Panel2.Location = new System.Drawing.Point(123, 15);
             this.lblUnitsTest_Panel2.Name = "lblUnitsTest_Panel2";
             this.lblUnitsTest_Panel2.Size = new System.Drawing.Size(40, 15);
             this.lblUnitsTest_Panel2.TabIndex = 3;
@@ -272,7 +287,7 @@
             // 
             this.lblErrorTest_Panel2.AutoSize = true;
             this.lblErrorTest_Panel2.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTest_Panel2.Location = new System.Drawing.Point(55, 33);
+            this.lblErrorTest_Panel2.Location = new System.Drawing.Point(55, 43);
             this.lblErrorTest_Panel2.Name = "lblErrorTest_Panel2";
             this.lblErrorTest_Panel2.Size = new System.Drawing.Size(40, 15);
             this.lblErrorTest_Panel2.TabIndex = 4;
@@ -287,7 +302,7 @@
             this.Panel1.Controls.Add(this.lblErrorTest_Panel1);
             this.Panel1.Location = new System.Drawing.Point(6, 19);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(215, 57);
+            this.Panel1.Size = new System.Drawing.Size(215, 69);
             this.Panel1.TabIndex = 17;
             // 
             // txtTest_Panel1
@@ -310,7 +325,7 @@
             // lblUnitsTest_Panel1
             // 
             this.lblUnitsTest_Panel1.AutoSize = true;
-            this.lblUnitsTest_Panel1.Location = new System.Drawing.Point(166, 13);
+            this.lblUnitsTest_Panel1.Location = new System.Drawing.Point(123, 15);
             this.lblUnitsTest_Panel1.Name = "lblUnitsTest_Panel1";
             this.lblUnitsTest_Panel1.Size = new System.Drawing.Size(40, 15);
             this.lblUnitsTest_Panel1.TabIndex = 3;
@@ -320,7 +335,7 @@
             // 
             this.lblErrorTest_Panel1.AutoSize = true;
             this.lblErrorTest_Panel1.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTest_Panel1.Location = new System.Drawing.Point(55, 36);
+            this.lblErrorTest_Panel1.Location = new System.Drawing.Point(55, 44);
             this.lblErrorTest_Panel1.Name = "lblErrorTest_Panel1";
             this.lblErrorTest_Panel1.Size = new System.Drawing.Size(40, 15);
             this.lblErrorTest_Panel1.TabIndex = 4;
@@ -337,68 +352,14 @@
             this.dgvtestName,
             this.dgvUniqueTestStatus,
             this.dgvAddTestResult,
-            this.dgvUpdateTestResult});
-            this.dgvPatientTest.Location = new System.Drawing.Point(6, 40);
+            this.dgvUpdateTestResult,
+            this.dgvPrintReport});
+            this.dgvPatientTest.Location = new System.Drawing.Point(6, 61);
             this.dgvPatientTest.Name = "dgvPatientTest";
             this.dgvPatientTest.ReadOnly = true;
-            this.dgvPatientTest.Size = new System.Drawing.Size(470, 183);
+            this.dgvPatientTest.Size = new System.Drawing.Size(510, 183);
             this.dgvPatientTest.TabIndex = 0;
             this.dgvPatientTest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientTest_CellClick);
-            // 
-            // dgvLTRNum
-            // 
-            this.dgvLTRNum.DataPropertyName = "Test_LTRNumber";
-            this.dgvLTRNum.HeaderText = "LTRNo";
-            this.dgvLTRNum.Name = "dgvLTRNum";
-            this.dgvLTRNum.ReadOnly = true;
-            this.dgvLTRNum.Visible = false;
-            this.dgvLTRNum.Width = 30;
-            // 
-            // dgvtestNum
-            // 
-            this.dgvtestNum.DataPropertyName = "Test_Number";
-            this.dgvtestNum.HeaderText = "No.";
-            this.dgvtestNum.Name = "dgvtestNum";
-            this.dgvtestNum.ReadOnly = true;
-            this.dgvtestNum.Width = 30;
-            // 
-            // dgvtestID
-            // 
-            this.dgvtestID.DataPropertyName = "Test_ID";
-            this.dgvtestID.HeaderText = "Test ID";
-            this.dgvtestID.Name = "dgvtestID";
-            this.dgvtestID.ReadOnly = true;
-            this.dgvtestID.Width = 80;
-            // 
-            // dgvtestName
-            // 
-            this.dgvtestName.DataPropertyName = "Test_Name";
-            this.dgvtestName.HeaderText = "Test Name";
-            this.dgvtestName.Name = "dgvtestName";
-            this.dgvtestName.ReadOnly = true;
-            // 
-            // dgvUniqueTestStatus
-            // 
-            this.dgvUniqueTestStatus.DataPropertyName = "Test_Status";
-            this.dgvUniqueTestStatus.HeaderText = "Test Status";
-            this.dgvUniqueTestStatus.Name = "dgvUniqueTestStatus";
-            this.dgvUniqueTestStatus.ReadOnly = true;
-            // 
-            // dgvAddTestResult
-            // 
-            this.dgvAddTestResult.HeaderText = "Add ";
-            this.dgvAddTestResult.Image = global::FamilyCareHospital.Properties.Resources.add_file_25px;
-            this.dgvAddTestResult.Name = "dgvAddTestResult";
-            this.dgvAddTestResult.ReadOnly = true;
-            this.dgvAddTestResult.Width = 60;
-            // 
-            // dgvUpdateTestResult
-            // 
-            this.dgvUpdateTestResult.HeaderText = "Update ";
-            this.dgvUpdateTestResult.Image = global::FamilyCareHospital.Properties.Resources.edit_property_25px;
-            this.dgvUpdateTestResult.Name = "dgvUpdateTestResult";
-            this.dgvUpdateTestResult.ReadOnly = true;
-            this.dgvUpdateTestResult.Width = 60;
             // 
             // radioButton2
             // 
@@ -424,7 +385,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox1.Controls.Add(this.btnSearchAppmntByDate);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label9);
@@ -586,10 +547,73 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Width = 60;
             // 
+            // dgvLTRNum
+            // 
+            this.dgvLTRNum.DataPropertyName = "Test_LTRNumber";
+            this.dgvLTRNum.HeaderText = "LTRNo";
+            this.dgvLTRNum.Name = "dgvLTRNum";
+            this.dgvLTRNum.ReadOnly = true;
+            this.dgvLTRNum.Visible = false;
+            this.dgvLTRNum.Width = 30;
+            // 
+            // dgvtestNum
+            // 
+            this.dgvtestNum.DataPropertyName = "Test_Number";
+            this.dgvtestNum.HeaderText = "No.";
+            this.dgvtestNum.Name = "dgvtestNum";
+            this.dgvtestNum.ReadOnly = true;
+            this.dgvtestNum.Width = 30;
+            // 
+            // dgvtestID
+            // 
+            this.dgvtestID.DataPropertyName = "Test_ID";
+            this.dgvtestID.HeaderText = "Test ID";
+            this.dgvtestID.Name = "dgvtestID";
+            this.dgvtestID.ReadOnly = true;
+            this.dgvtestID.Width = 80;
+            // 
+            // dgvtestName
+            // 
+            this.dgvtestName.DataPropertyName = "Test_Name";
+            this.dgvtestName.HeaderText = "Test Name";
+            this.dgvtestName.Name = "dgvtestName";
+            this.dgvtestName.ReadOnly = true;
+            // 
+            // dgvUniqueTestStatus
+            // 
+            this.dgvUniqueTestStatus.DataPropertyName = "Test_Status";
+            this.dgvUniqueTestStatus.HeaderText = "Test Status";
+            this.dgvUniqueTestStatus.Name = "dgvUniqueTestStatus";
+            this.dgvUniqueTestStatus.ReadOnly = true;
+            // 
+            // dgvAddTestResult
+            // 
+            this.dgvAddTestResult.HeaderText = "Add ";
+            this.dgvAddTestResult.Image = global::FamilyCareHospital.Properties.Resources.add_file_25px;
+            this.dgvAddTestResult.Name = "dgvAddTestResult";
+            this.dgvAddTestResult.ReadOnly = true;
+            this.dgvAddTestResult.Width = 60;
+            // 
+            // dgvUpdateTestResult
+            // 
+            this.dgvUpdateTestResult.HeaderText = "Update ";
+            this.dgvUpdateTestResult.Image = global::FamilyCareHospital.Properties.Resources.edit_property_25px;
+            this.dgvUpdateTestResult.Name = "dgvUpdateTestResult";
+            this.dgvUpdateTestResult.ReadOnly = true;
+            this.dgvUpdateTestResult.Width = 60;
+            // 
+            // dgvPrintReport
+            // 
+            this.dgvPrintReport.HeaderText = "Report";
+            this.dgvPrintReport.Name = "dgvPrintReport";
+            this.dgvPrintReport.ReadOnly = true;
+            this.dgvPrintReport.Width = 50;
+            // 
             // TestDetailsEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1234, 661);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -654,6 +678,13 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestStatus;
+        private System.Windows.Forms.DataGridViewImageColumn dbvAppointmentPrintReport;
+        private System.Windows.Forms.Label lblTestList;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvLTRNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtestNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtestID;
@@ -661,11 +692,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvUniqueTestStatus;
         private System.Windows.Forms.DataGridViewImageColumn dgvAddTestResult;
         private System.Windows.Forms.DataGridViewImageColumn dgvUpdateTestResult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPatientName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAppointmentDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestStatus;
-        private System.Windows.Forms.DataGridViewImageColumn dbvAppointmentPrintReport;
+        private System.Windows.Forms.DataGridViewImageColumn dgvPrintReport;
     }
 }

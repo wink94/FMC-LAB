@@ -80,78 +80,23 @@
     <Compile Include="DBAccess\DBInsert.cs" />
     <Compile Include="DBAccess\DBRetrieve.cs" />
     <Compile Include="DBAccess\DBUpdate.cs" />
-    <Compile Include="DoctorChanneling_Interface\CalculatePayments.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Interfaces\CrystalReportCellCount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportCellCount.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DoctorChanneling_Interface\CalculatePayments.designer.cs">
-      <DependentUpon>CalculatePayments.cs</DependentUpon>
+    <Compile Include="Interfaces\FMC.cs">
+      <DependentUpon>FMC.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DoctorChanneling_Interface\DoctorMain.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Interfaces\FMC.designer.cs">
+      <DependentUpon>FMC.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctorChanneling_Interface\DoctorMain.designer.cs">
-      <DependentUpon>DoctorMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\DoctorRegistrationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\DoctorRegistrationForm.designer.cs">
-      <DependentUpon>DoctorRegistrationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\DoctorSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\DoctorSearch.designer.cs">
-      <DependentUpon>DoctorSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\MakeAppointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\MakeAppointment.designer.cs">
-      <DependentUpon>MakeAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\validation.cs" />
-    <Compile Include="DoctorChanneling_Interface\ViewAppointments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoctorChanneling_Interface\ViewAppointments.designer.cs">
-      <DependentUpon>ViewAppointments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface Transport\DriverDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface Transport\DriverDetails.designer.cs">
-      <DependentUpon>DriverDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface Transport\PatientDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface Transport\PatientDetails.designer.cs">
-      <DependentUpon>PatientDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface Transport\PaymentDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface Transport\PaymentDetails.designer.cs">
-      <DependentUpon>PaymentDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface Transport\Statement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface Transport\Statement.designer.cs">
-      <DependentUpon>Statement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface Transport\TransportMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface Transport\TransportMain.designer.cs">
-      <DependentUpon>TransportMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface Transport\VechileDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interface Transport\VechileDetails.designer.cs">
-      <DependentUpon>VechileDetails.cs</DependentUpon>
+    <Compile Include="Interfaces\FMC1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FMC.xsd</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\LabHome.cs">
       <SubType>Form</SubType>
@@ -183,173 +128,11 @@
     <Compile Include="Interfaces\TestDetailsEntry.designer.cs">
       <DependentUpon>TestDetailsEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaces_HR\add_departmentHR.cs">
+    <Compile Include="Interfaces\ViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="interfaces_HR\add_departmentHR.designer.cs">
-      <DependentUpon>add_departmentHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\apply_leaveHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\apply_leaveHR.designer.cs">
-      <DependentUpon>apply_leaveHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\assign_workHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\assign_workHR.designer.cs">
-      <DependentUpon>assign_workHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\AttendanceHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\AttendanceHR.designer.cs">
-      <DependentUpon>AttendanceHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\calculate_salaryHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\calculate_salaryHR.designer.cs">
-      <DependentUpon>calculate_salaryHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\mainHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\mainHR.designer.cs">
-      <DependentUpon>mainHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\registrationHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\registrationHR.designer.cs">
-      <DependentUpon>registrationHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\view_leaveHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\view_leaveHR.designer.cs">
-      <DependentUpon>view_leaveHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interfaces_HR\view_salaryHR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interfaces_HR\view_salaryHR.designer.cs">
-      <DependentUpon>view_salaryHR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\AddCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\AddCategory.designer.cs">
-      <DependentUpon>AddCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\AddCategory_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\AddCategory_NM.designer.cs">
-      <DependentUpon>AddCategory_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\IssueOrder_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\IssueOrder_NM.designer.cs">
-      <DependentUpon>IssueOrder_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ManageStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ManageStock.designer.cs">
-      <DependentUpon>ManageStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ManageStock_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ManageStock_NM.designer.cs">
-      <DependentUpon>ManageStock_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ManageSupplier_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ManageSupplier_NM.designer.cs">
-      <DependentUpon>ManageSupplier_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\OrdreIssue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\OrdreIssue.designer.cs">
-      <DependentUpon>OrdreIssue.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\Payment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\Payment.designer.cs">
-      <DependentUpon>Payment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\Payment_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\Payment_NM.designer.cs">
-      <DependentUpon>Payment_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\PurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\PurchaseOrder.designer.cs">
-      <DependentUpon>PurchaseOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\PurchaseOrder_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\PurchaseOrder_NM.designer.cs">
-      <DependentUpon>PurchaseOrder_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\StoreMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\StoreMain.designer.cs">
-      <DependentUpon>StoreMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\Supplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\Supplier.designer.cs">
-      <DependentUpon>Supplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ViewIssueOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ViewIssueOrder.designer.cs">
-      <DependentUpon>ViewIssueOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ViewIssueOrder_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ViewIssueOrder_NM.designer.cs">
-      <DependentUpon>ViewIssueOrder_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ViewPurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ViewPurchaseOrder.designer.cs">
-      <DependentUpon>ViewPurchaseOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ViewPurchaseOrder_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ViewPurchaseOrder_NM.designer.cs">
-      <DependentUpon>ViewPurchaseOrder_NM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ViewStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ViewStock.designer.cs">
-      <DependentUpon>ViewStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="interface_Store\ViewStock_NM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="interface_Store\ViewStock_NM.designer.cs">
-      <DependentUpon>ViewStock_NM.cs</DependentUpon>
+    <Compile Include="Interfaces\ViewForm.Designer.cs">
+      <DependentUpon>ViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="loginHR.cs">
       <SubType>Form</SubType>
@@ -453,83 +236,12 @@
     <Compile Include="OPD\Prescription_Manage.designer.cs">
       <DependentUpon>Prescription_Manage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHaddCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHaddCategory.designer.cs">
-      <DependentUpon>PHaddCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHmain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHmain.designer.cs">
-      <DependentUpon>PHmain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHmanage_stock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHmanage_stock.designer.cs">
-      <DependentUpon>PHmanage_stock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHmanage_supplier_details.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHmanage_supplier_details.designer.cs">
-      <DependentUpon>PHmanage_supplier_details.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHpayment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHpayment.designer.cs">
-      <DependentUpon>PHpayment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHplaced_order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHplaced_order.designer.cs">
-      <DependentUpon>PHplaced_order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHpurchased_order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHpurchased_order.designer.cs">
-      <DependentUpon>PHpurchased_order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHretail_sale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHretail_sale.designer.cs">
-      <DependentUpon>PHretail_sale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHview sales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHview sales.designer.cs">
-      <DependentUpon>PHview sales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHview_purchase_order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHview_purchase_order.designer.cs">
-      <DependentUpon>PHview_purchase_order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHview_stock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pharmacy-Interfaces\PHview_stock.designer.cs">
-      <DependentUpon>PHview_stock.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="test1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Ward Interface\Drug Store\Ward_Admin_Manage-Drug-Store.cs">
       <SubType>Form</SubType>
@@ -588,41 +300,9 @@
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorChanneling_Interface\CalculatePayments.resx">
-      <DependentUpon>CalculatePayments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DoctorChanneling_Interface\DoctorMain.resx">
-      <DependentUpon>DoctorMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DoctorChanneling_Interface\DoctorRegistrationForm.resx">
-      <DependentUpon>DoctorRegistrationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DoctorChanneling_Interface\DoctorSearch.resx">
-      <DependentUpon>DoctorSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DoctorChanneling_Interface\MakeAppointment.resx">
-      <DependentUpon>MakeAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DoctorChanneling_Interface\ViewAppointments.resx">
-      <DependentUpon>ViewAppointments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface Transport\DriverDetails.resx">
-      <DependentUpon>DriverDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface Transport\PatientDetails.resx">
-      <DependentUpon>PatientDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface Transport\PaymentDetails.resx">
-      <DependentUpon>PaymentDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface Transport\Statement.resx">
-      <DependentUpon>Statement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface Transport\TransportMain.resx">
-      <DependentUpon>TransportMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interface Transport\VechileDetails.resx">
-      <DependentUpon>VechileDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\CrystalReportCellCount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportCellCount.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\LabHome.resx">
       <DependentUpon>LabHome.cs</DependentUpon>
@@ -639,89 +319,8 @@
     <EmbeddedResource Include="Interfaces\TestDetailsEntry.resx">
       <DependentUpon>TestDetailsEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\add_departmentHR.resx">
-      <DependentUpon>add_departmentHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\apply_leaveHR.resx">
-      <DependentUpon>apply_leaveHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\assign_workHR.resx">
-      <DependentUpon>assign_workHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\AttendanceHR.resx">
-      <DependentUpon>AttendanceHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\calculate_salaryHR.resx">
-      <DependentUpon>calculate_salaryHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\mainHR.resx">
-      <DependentUpon>mainHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\registrationHR.resx">
-      <DependentUpon>registrationHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\view_leaveHR.resx">
-      <DependentUpon>view_leaveHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interfaces_HR\view_salaryHR.resx">
-      <DependentUpon>view_salaryHR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\AddCategory.resx">
-      <DependentUpon>AddCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\AddCategory_NM.resx">
-      <DependentUpon>AddCategory_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\IssueOrder_NM.resx">
-      <DependentUpon>IssueOrder_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ManageStock.resx">
-      <DependentUpon>ManageStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ManageStock_NM.resx">
-      <DependentUpon>ManageStock_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ManageSupplier_NM.resx">
-      <DependentUpon>ManageSupplier_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\OrdreIssue.resx">
-      <DependentUpon>OrdreIssue.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\Payment.resx">
-      <DependentUpon>Payment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\Payment_NM.resx">
-      <DependentUpon>Payment_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\PurchaseOrder.resx">
-      <DependentUpon>PurchaseOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\PurchaseOrder_NM.resx">
-      <DependentUpon>PurchaseOrder_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\StoreMain.resx">
-      <DependentUpon>StoreMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\Supplier.resx">
-      <DependentUpon>Supplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ViewIssueOrder.resx">
-      <DependentUpon>ViewIssueOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ViewIssueOrder_NM.resx">
-      <DependentUpon>ViewIssueOrder_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ViewPurchaseOrder.resx">
-      <DependentUpon>ViewPurchaseOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ViewPurchaseOrder_NM.resx">
-      <DependentUpon>ViewPurchaseOrder_NM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ViewStock.resx">
-      <DependentUpon>ViewStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="interface_Store\ViewStock_NM.resx">
-      <DependentUpon>ViewStock_NM.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\ViewForm.resx">
+      <DependentUpon>ViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginHR.resx">
       <DependentUpon>loginHR.cs</DependentUpon>
@@ -774,39 +373,6 @@
     <EmbeddedResource Include="OPD\Prescription_Manage.resx">
       <DependentUpon>Prescription_Manage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHaddCategory.resx">
-      <DependentUpon>PHaddCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHmain.resx">
-      <DependentUpon>PHmain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHmanage_stock.resx">
-      <DependentUpon>PHmanage_stock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHmanage_supplier_details.resx">
-      <DependentUpon>PHmanage_supplier_details.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHpayment.resx">
-      <DependentUpon>PHpayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHplaced_order.resx">
-      <DependentUpon>PHplaced_order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHpurchased_order.resx">
-      <DependentUpon>PHpurchased_order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHretail_sale.resx">
-      <DependentUpon>PHretail_sale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHview sales.resx">
-      <DependentUpon>PHview sales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHview_purchase_order.resx">
-      <DependentUpon>PHview_purchase_order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pharmacy-Interfaces\PHview_stock.resx">
-      <DependentUpon>PHview_stock.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -839,6 +405,17 @@
     <EmbeddedResource Include="Ward Interface\Ward_MainFrame.resx">
       <DependentUpon>Ward_MainFrame.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Interfaces\FMC.xsc">
+      <DependentUpon>FMC.xsd</DependentUpon>
+    </None>
+    <None Include="Interfaces\FMC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FMC1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Interfaces\FMC.xss">
+      <DependentUpon>FMC.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -849,17 +426,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="test1.xsc">
-      <DependentUpon>test1.xsd</DependentUpon>
-    </None>
-    <None Include="test1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="test1.xss">
-      <DependentUpon>test1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -1421,6 +987,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\file_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,21 +19,61 @@ namespace FamilyCareHospital.Interfaces
         private DBInsert dbi = new DBInsert();
         private DBRetrieve dbr = new DBRetrieve();
         private bool appState;
+        private Dictionary<string, string> testList;
         
         public bool appoinmentStatus
         { get { return appState; } }
         
 
-        public LabPatientBill()
-        {
-            InitializeComponent();
+        //public LabPatientBill()
+        //{
+        //    InitializeComponent();
 
-        }
-        public LabPatientBill(object lp1,object la1) :this()
+        //}
+        public LabPatientBill(object lp1,object la1) //:this()
         {
             InitializeComponent();
             lp = (LabPatient)lp1;
             la = (LabAppointment)la1;
+            //setPatientDetails();
+
+        }
+
+        private void setPatientDetails()
+        {
+            lblPAge.Text = lp.Age.ToString();
+            lblPEmail.Text = lp.Email;
+            lblPGender.Text = lp.Gender;
+            lblPName.Text = lp.Name;
+            lblPTele.Text = lp.Phone;
+            lblPAppDate.Text = la.Adate;
+        }
+
+        private void createLabelsNAssignValues(Dictionary<string,string> dic)
+        {
+            int x1 = 26, x2 = 209;
+            int y1 = 102;
+            int depth = 0;
+            foreach(string key in dic.Keys)
+            {
+                createLabel(x1, y1 + depth, key, 'g');
+                createLabel(x2, y1 + depth, dic[key], 'A');
+                depth += 40;
+            }
+
+        }
+
+        void createLabel(int x,int y,string value,char color)
+        {
+            var lbl = new Label();
+            lbl.Location = new Point(x, y);
+            lbl.Text = value;
+            if (color == 'A')
+                lbl.BackColor = Color.Aqua;
+            if (color == 'g')
+                lbl.BackColor = Color.Gray;
+
+            grpBxTestPrices.Controls.Add(lbl);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -66,13 +106,18 @@ namespace FamilyCareHospital.Interfaces
             display report
 
             */
+            //lblPAge.Text = lp.Age.ToString();
+            setPatientDetails();
+            testList=dbr.getTestPrices(lp.tests.ToList());
+            createLabelsNAssignValues(testList);
+
         }
        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             appState = false;
-            this.Hide();
+            this.Dispose();
         }
     }
 }

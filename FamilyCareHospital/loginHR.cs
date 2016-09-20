@@ -74,9 +74,7 @@ namespace FamilyCareHospital
                     }
                     else if(position=="Pharmacist")
                     {
-                        Pharmacy_Interfaces.PHmain ph = new Pharmacy_Interfaces.PHmain(position);
-                        ph.Show();
-                        this.Hide();
+                        
 
                     }
                     else if (position == "Ward Master")
@@ -87,15 +85,11 @@ namespace FamilyCareHospital
                     }
                     else if (position == "Store Manager")
                     {
-                        StoreMain sm = new StoreMain(position);
-                        sm.Show();
-                        this.Hide();
+                        
                     }
                     else if (position == "Transport Manager")
                     {
-                        TransportMain tm = new TransportMain(position);
-                        tm.Show();
-                        this.Hide();
+                        
                     }
                     else if (position == "Receptionist")
                     {
@@ -111,14 +105,11 @@ namespace FamilyCareHospital
                     }
                     else if (position == "Chanelling Manager")
                     {
-                        DoctorMain dm = new DoctorMain(position);
-                        dm.Show();
+                        
                     }
                     else if (position == "HR Manager")
                     {
-                        interfaces_HR.mainHR mh = new interfaces_HR.mainHR(position);
-                        this.Hide();
-                        mh.Show();
+                        
                        
                     }
 
