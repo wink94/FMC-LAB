@@ -28,6 +28,10 @@ namespace FamilyCareHospital.Interfaces {
         
         private cellCount1DataTable tablecellCount1;
         
+        private plateletCountTableDataTable tableplateletCountTable;
+        
+        private CholesterolTestTableDataTable tableCholesterolTestTable;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +65,12 @@ namespace FamilyCareHospital.Interfaces {
                 }
                 if ((ds.Tables["cellCount1"] != null)) {
                     base.Tables.Add(new cellCount1DataTable(ds.Tables["cellCount1"]));
+                }
+                if ((ds.Tables["plateletCountTable"] != null)) {
+                    base.Tables.Add(new plateletCountTableDataTable(ds.Tables["plateletCountTable"]));
+                }
+                if ((ds.Tables["CholesterolTestTable"] != null)) {
+                    base.Tables.Add(new CholesterolTestTableDataTable(ds.Tables["CholesterolTestTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +107,26 @@ namespace FamilyCareHospital.Interfaces {
         public cellCount1DataTable cellCount1 {
             get {
                 return this.tablecellCount1;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public plateletCountTableDataTable plateletCountTable {
+            get {
+                return this.tableplateletCountTable;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CholesterolTestTableDataTable CholesterolTestTable {
+            get {
+                return this.tableCholesterolTestTable;
             }
         }
         
@@ -173,6 +203,12 @@ namespace FamilyCareHospital.Interfaces {
                 if ((ds.Tables["cellCount1"] != null)) {
                     base.Tables.Add(new cellCount1DataTable(ds.Tables["cellCount1"]));
                 }
+                if ((ds.Tables["plateletCountTable"] != null)) {
+                    base.Tables.Add(new plateletCountTableDataTable(ds.Tables["plateletCountTable"]));
+                }
+                if ((ds.Tables["CholesterolTestTable"] != null)) {
+                    base.Tables.Add(new CholesterolTestTableDataTable(ds.Tables["CholesterolTestTable"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +254,18 @@ namespace FamilyCareHospital.Interfaces {
                     this.tablecellCount1.InitVars();
                 }
             }
+            this.tableplateletCountTable = ((plateletCountTableDataTable)(base.Tables["plateletCountTable"]));
+            if ((initTable == true)) {
+                if ((this.tableplateletCountTable != null)) {
+                    this.tableplateletCountTable.InitVars();
+                }
+            }
+            this.tableCholesterolTestTable = ((CholesterolTestTableDataTable)(base.Tables["CholesterolTestTable"]));
+            if ((initTable == true)) {
+                if ((this.tableCholesterolTestTable != null)) {
+                    this.tableCholesterolTestTable.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +280,10 @@ namespace FamilyCareHospital.Interfaces {
             base.Tables.Add(this.tablesugarRes1);
             this.tablecellCount1 = new cellCount1DataTable();
             base.Tables.Add(this.tablecellCount1);
+            this.tableplateletCountTable = new plateletCountTableDataTable();
+            base.Tables.Add(this.tableplateletCountTable);
+            this.tableCholesterolTestTable = new CholesterolTestTableDataTable();
+            base.Tables.Add(this.tableCholesterolTestTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +295,18 @@ namespace FamilyCareHospital.Interfaces {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializecellCount1() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeplateletCountTable() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCholesterolTestTable() {
             return false;
         }
         
@@ -307,6 +371,12 @@ namespace FamilyCareHospital.Interfaces {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void cellCount1RowChangeEventHandler(object sender, cellCount1RowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void plateletCountTableRowChangeEventHandler(object sender, plateletCountTableRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void CholesterolTestTableRowChangeEventHandler(object sender, CholesterolTestTableRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -323,6 +393,8 @@ namespace FamilyCareHospital.Interfaces {
             private global::System.Data.DataColumn columnsugar;
             
             private global::System.Data.DataColumn columnlabAppointmentDate;
+            
+            private global::System.Data.DataColumn columnlabPatientID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -399,6 +471,14 @@ namespace FamilyCareHospital.Interfaces {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientIDColumn {
+                get {
+                    return this.columnlabPatientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -434,14 +514,15 @@ namespace FamilyCareHospital.Interfaces {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sugarRes1Row AddsugarRes1Row(string labPatientName, string labPatientAge, string labPatientGender, string sugar, string labAppointmentDate) {
+            public sugarRes1Row AddsugarRes1Row(string labPatientName, string labPatientAge, string labPatientGender, string sugar, string labAppointmentDate, string labPatientID) {
                 sugarRes1Row rowsugarRes1Row = ((sugarRes1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         labPatientName,
                         labPatientAge,
                         labPatientGender,
                         sugar,
-                        labAppointmentDate};
+                        labAppointmentDate,
+                        labPatientID};
                 rowsugarRes1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsugarRes1Row);
                 return rowsugarRes1Row;
@@ -469,6 +550,7 @@ namespace FamilyCareHospital.Interfaces {
                 this.columnlabPatientGender = base.Columns["labPatientGender"];
                 this.columnsugar = base.Columns["sugar"];
                 this.columnlabAppointmentDate = base.Columns["labAppointmentDate"];
+                this.columnlabPatientID = base.Columns["labPatientID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,6 +566,8 @@ namespace FamilyCareHospital.Interfaces {
                 base.Columns.Add(this.columnsugar);
                 this.columnlabAppointmentDate = new global::System.Data.DataColumn("labAppointmentDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlabAppointmentDate);
+                this.columnlabPatientID = new global::System.Data.DataColumn("labPatientID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientID);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -928,6 +1012,682 @@ namespace FamilyCareHospital.Interfaces {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class plateletCountTableDataTable : global::System.Data.TypedTableBase<plateletCountTableRow> {
+            
+            private global::System.Data.DataColumn columnlabPatientName;
+            
+            private global::System.Data.DataColumn columnlabPatientAge;
+            
+            private global::System.Data.DataColumn columnlabPatientGender;
+            
+            private global::System.Data.DataColumn columnplatelet_count;
+            
+            private global::System.Data.DataColumn columnlabAppointmentDate;
+            
+            private global::System.Data.DataColumn columnlabPatientID;
+            
+            private global::System.Data.DataColumn columnDataColumn7;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public plateletCountTableDataTable() {
+                this.TableName = "plateletCountTable";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal plateletCountTableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected plateletCountTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientNameColumn {
+                get {
+                    return this.columnlabPatientName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientAgeColumn {
+                get {
+                    return this.columnlabPatientAge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientGenderColumn {
+                get {
+                    return this.columnlabPatientGender;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn platelet_countColumn {
+                get {
+                    return this.columnplatelet_count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labAppointmentDateColumn {
+                get {
+                    return this.columnlabAppointmentDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientIDColumn {
+                get {
+                    return this.columnlabPatientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DataColumn7Column {
+                get {
+                    return this.columnDataColumn7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public plateletCountTableRow this[int index] {
+                get {
+                    return ((plateletCountTableRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event plateletCountTableRowChangeEventHandler plateletCountTableRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event plateletCountTableRowChangeEventHandler plateletCountTableRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event plateletCountTableRowChangeEventHandler plateletCountTableRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event plateletCountTableRowChangeEventHandler plateletCountTableRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddplateletCountTableRow(plateletCountTableRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public plateletCountTableRow AddplateletCountTableRow(string labPatientName, string labPatientAge, string labPatientGender, string platelet_count, string labAppointmentDate, string labPatientID, string DataColumn7) {
+                plateletCountTableRow rowplateletCountTableRow = ((plateletCountTableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        labPatientName,
+                        labPatientAge,
+                        labPatientGender,
+                        platelet_count,
+                        labAppointmentDate,
+                        labPatientID,
+                        DataColumn7};
+                rowplateletCountTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowplateletCountTableRow);
+                return rowplateletCountTableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                plateletCountTableDataTable cln = ((plateletCountTableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new plateletCountTableDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnlabPatientName = base.Columns["labPatientName"];
+                this.columnlabPatientAge = base.Columns["labPatientAge"];
+                this.columnlabPatientGender = base.Columns["labPatientGender"];
+                this.columnplatelet_count = base.Columns["platelet_count"];
+                this.columnlabAppointmentDate = base.Columns["labAppointmentDate"];
+                this.columnlabPatientID = base.Columns["labPatientID"];
+                this.columnDataColumn7 = base.Columns["DataColumn7"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnlabPatientName = new global::System.Data.DataColumn("labPatientName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientName);
+                this.columnlabPatientAge = new global::System.Data.DataColumn("labPatientAge", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientAge);
+                this.columnlabPatientGender = new global::System.Data.DataColumn("labPatientGender", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientGender);
+                this.columnplatelet_count = new global::System.Data.DataColumn("platelet_count", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnplatelet_count);
+                this.columnlabAppointmentDate = new global::System.Data.DataColumn("labAppointmentDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabAppointmentDate);
+                this.columnlabPatientID = new global::System.Data.DataColumn("labPatientID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientID);
+                this.columnDataColumn7 = new global::System.Data.DataColumn("DataColumn7", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn7);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public plateletCountTableRow NewplateletCountTableRow() {
+                return ((plateletCountTableRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new plateletCountTableRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(plateletCountTableRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.plateletCountTableRowChanged != null)) {
+                    this.plateletCountTableRowChanged(this, new plateletCountTableRowChangeEvent(((plateletCountTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.plateletCountTableRowChanging != null)) {
+                    this.plateletCountTableRowChanging(this, new plateletCountTableRowChangeEvent(((plateletCountTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.plateletCountTableRowDeleted != null)) {
+                    this.plateletCountTableRowDeleted(this, new plateletCountTableRowChangeEvent(((plateletCountTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.plateletCountTableRowDeleting != null)) {
+                    this.plateletCountTableRowDeleting(this, new plateletCountTableRowChangeEvent(((plateletCountTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveplateletCountTableRow(plateletCountTableRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                sugar ds = new sugar();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "plateletCountTableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CholesterolTestTableDataTable : global::System.Data.TypedTableBase<CholesterolTestTableRow> {
+            
+            private global::System.Data.DataColumn columnlabPatientName;
+            
+            private global::System.Data.DataColumn columnlabPatientAge;
+            
+            private global::System.Data.DataColumn columnlabPatientGender;
+            
+            private global::System.Data.DataColumn columnHDL;
+            
+            private global::System.Data.DataColumn columnLDL;
+            
+            private global::System.Data.DataColumn columnserum_cholesterol;
+            
+            private global::System.Data.DataColumn columnlabAppointmentDate;
+            
+            private global::System.Data.DataColumn columnlabPatientID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CholesterolTestTableDataTable() {
+                this.TableName = "CholesterolTestTable";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CholesterolTestTableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected CholesterolTestTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientNameColumn {
+                get {
+                    return this.columnlabPatientName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientAgeColumn {
+                get {
+                    return this.columnlabPatientAge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientGenderColumn {
+                get {
+                    return this.columnlabPatientGender;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HDLColumn {
+                get {
+                    return this.columnHDL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LDLColumn {
+                get {
+                    return this.columnLDL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn serum_cholesterolColumn {
+                get {
+                    return this.columnserum_cholesterol;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labAppointmentDateColumn {
+                get {
+                    return this.columnlabAppointmentDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn labPatientIDColumn {
+                get {
+                    return this.columnlabPatientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CholesterolTestTableRow this[int index] {
+                get {
+                    return ((CholesterolTestTableRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CholesterolTestTableRowChangeEventHandler CholesterolTestTableRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CholesterolTestTableRowChangeEventHandler CholesterolTestTableRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CholesterolTestTableRowChangeEventHandler CholesterolTestTableRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CholesterolTestTableRowChangeEventHandler CholesterolTestTableRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCholesterolTestTableRow(CholesterolTestTableRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CholesterolTestTableRow AddCholesterolTestTableRow(string labPatientName, string labPatientAge, string labPatientGender, string HDL, string LDL, string serum_cholesterol, string labAppointmentDate, string labPatientID) {
+                CholesterolTestTableRow rowCholesterolTestTableRow = ((CholesterolTestTableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        labPatientName,
+                        labPatientAge,
+                        labPatientGender,
+                        HDL,
+                        LDL,
+                        serum_cholesterol,
+                        labAppointmentDate,
+                        labPatientID};
+                rowCholesterolTestTableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCholesterolTestTableRow);
+                return rowCholesterolTestTableRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CholesterolTestTableDataTable cln = ((CholesterolTestTableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CholesterolTestTableDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnlabPatientName = base.Columns["labPatientName"];
+                this.columnlabPatientAge = base.Columns["labPatientAge"];
+                this.columnlabPatientGender = base.Columns["labPatientGender"];
+                this.columnHDL = base.Columns["HDL"];
+                this.columnLDL = base.Columns["LDL"];
+                this.columnserum_cholesterol = base.Columns["serum_cholesterol"];
+                this.columnlabAppointmentDate = base.Columns["labAppointmentDate"];
+                this.columnlabPatientID = base.Columns["labPatientID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnlabPatientName = new global::System.Data.DataColumn("labPatientName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientName);
+                this.columnlabPatientAge = new global::System.Data.DataColumn("labPatientAge", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientAge);
+                this.columnlabPatientGender = new global::System.Data.DataColumn("labPatientGender", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientGender);
+                this.columnHDL = new global::System.Data.DataColumn("HDL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHDL);
+                this.columnLDL = new global::System.Data.DataColumn("LDL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLDL);
+                this.columnserum_cholesterol = new global::System.Data.DataColumn("serum_cholesterol", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnserum_cholesterol);
+                this.columnlabAppointmentDate = new global::System.Data.DataColumn("labAppointmentDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabAppointmentDate);
+                this.columnlabPatientID = new global::System.Data.DataColumn("labPatientID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlabPatientID);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CholesterolTestTableRow NewCholesterolTestTableRow() {
+                return ((CholesterolTestTableRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CholesterolTestTableRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CholesterolTestTableRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CholesterolTestTableRowChanged != null)) {
+                    this.CholesterolTestTableRowChanged(this, new CholesterolTestTableRowChangeEvent(((CholesterolTestTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CholesterolTestTableRowChanging != null)) {
+                    this.CholesterolTestTableRowChanging(this, new CholesterolTestTableRowChangeEvent(((CholesterolTestTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CholesterolTestTableRowDeleted != null)) {
+                    this.CholesterolTestTableRowDeleted(this, new CholesterolTestTableRowChangeEvent(((CholesterolTestTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CholesterolTestTableRowDeleting != null)) {
+                    this.CholesterolTestTableRowDeleting(this, new CholesterolTestTableRowChangeEvent(((CholesterolTestTableRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCholesterolTestTableRow(CholesterolTestTableRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                sugar ds = new sugar();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CholesterolTestTableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class sugarRes1Row : global::System.Data.DataRow {
@@ -1023,6 +1783,22 @@ namespace FamilyCareHospital.Interfaces {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientID {
+                get {
+                    try {
+                        return ((string)(this[this.tablesugarRes1.labPatientIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientID\' in table \'sugarRes1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesugarRes1.labPatientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IslabPatientNameNull() {
                 return this.IsNull(this.tablesugarRes1.labPatientNameColumn);
             }
@@ -1079,6 +1855,18 @@ namespace FamilyCareHospital.Interfaces {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetlabAppointmentDateNull() {
                 this[this.tablesugarRes1.labAppointmentDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientIDNull() {
+                return this.IsNull(this.tablesugarRes1.labPatientIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientIDNull() {
+                this[this.tablesugarRes1.labPatientIDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1266,6 +2054,460 @@ namespace FamilyCareHospital.Interfaces {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class plateletCountTableRow : global::System.Data.DataRow {
+            
+            private plateletCountTableDataTable tableplateletCountTable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal plateletCountTableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableplateletCountTable = ((plateletCountTableDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientName {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.labPatientNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientName\' in table \'plateletCountTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.labPatientNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientAge {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.labPatientAgeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientAge\' in table \'plateletCountTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.labPatientAgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientGender {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.labPatientGenderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientGender\' in table \'plateletCountTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.labPatientGenderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string platelet_count {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.platelet_countColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'platelet_count\' in table \'plateletCountTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.platelet_countColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labAppointmentDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.labAppointmentDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labAppointmentDate\' in table \'plateletCountTable\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.labAppointmentDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientID {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.labPatientIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientID\' in table \'plateletCountTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.labPatientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DataColumn7 {
+                get {
+                    try {
+                        return ((string)(this[this.tableplateletCountTable.DataColumn7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn7\' in table \'plateletCountTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableplateletCountTable.DataColumn7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientNameNull() {
+                return this.IsNull(this.tableplateletCountTable.labPatientNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientNameNull() {
+                this[this.tableplateletCountTable.labPatientNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientAgeNull() {
+                return this.IsNull(this.tableplateletCountTable.labPatientAgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientAgeNull() {
+                this[this.tableplateletCountTable.labPatientAgeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientGenderNull() {
+                return this.IsNull(this.tableplateletCountTable.labPatientGenderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientGenderNull() {
+                this[this.tableplateletCountTable.labPatientGenderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isplatelet_countNull() {
+                return this.IsNull(this.tableplateletCountTable.platelet_countColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setplatelet_countNull() {
+                this[this.tableplateletCountTable.platelet_countColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabAppointmentDateNull() {
+                return this.IsNull(this.tableplateletCountTable.labAppointmentDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabAppointmentDateNull() {
+                this[this.tableplateletCountTable.labAppointmentDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientIDNull() {
+                return this.IsNull(this.tableplateletCountTable.labPatientIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientIDNull() {
+                this[this.tableplateletCountTable.labPatientIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDataColumn7Null() {
+                return this.IsNull(this.tableplateletCountTable.DataColumn7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDataColumn7Null() {
+                this[this.tableplateletCountTable.DataColumn7Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CholesterolTestTableRow : global::System.Data.DataRow {
+            
+            private CholesterolTestTableDataTable tableCholesterolTestTable;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CholesterolTestTableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCholesterolTestTable = ((CholesterolTestTableDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientName {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.labPatientNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientName\' in table \'CholesterolTestTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.labPatientNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientAge {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.labPatientAgeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientAge\' in table \'CholesterolTestTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.labPatientAgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientGender {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.labPatientGenderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientGender\' in table \'CholesterolTestTable\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.labPatientGenderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HDL {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.HDLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HDL\' in table \'CholesterolTestTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.HDLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LDL {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.LDLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LDL\' in table \'CholesterolTestTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.LDLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string serum_cholesterol {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.serum_cholesterolColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'serum_cholesterol\' in table \'CholesterolTestTable\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.serum_cholesterolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labAppointmentDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.labAppointmentDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labAppointmentDate\' in table \'CholesterolTestTable\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.labAppointmentDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string labPatientID {
+                get {
+                    try {
+                        return ((string)(this[this.tableCholesterolTestTable.labPatientIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'labPatientID\' in table \'CholesterolTestTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCholesterolTestTable.labPatientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientNameNull() {
+                return this.IsNull(this.tableCholesterolTestTable.labPatientNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientNameNull() {
+                this[this.tableCholesterolTestTable.labPatientNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientAgeNull() {
+                return this.IsNull(this.tableCholesterolTestTable.labPatientAgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientAgeNull() {
+                this[this.tableCholesterolTestTable.labPatientAgeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientGenderNull() {
+                return this.IsNull(this.tableCholesterolTestTable.labPatientGenderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientGenderNull() {
+                this[this.tableCholesterolTestTable.labPatientGenderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHDLNull() {
+                return this.IsNull(this.tableCholesterolTestTable.HDLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHDLNull() {
+                this[this.tableCholesterolTestTable.HDLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLDLNull() {
+                return this.IsNull(this.tableCholesterolTestTable.LDLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLDLNull() {
+                this[this.tableCholesterolTestTable.LDLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isserum_cholesterolNull() {
+                return this.IsNull(this.tableCholesterolTestTable.serum_cholesterolColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setserum_cholesterolNull() {
+                this[this.tableCholesterolTestTable.serum_cholesterolColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabAppointmentDateNull() {
+                return this.IsNull(this.tableCholesterolTestTable.labAppointmentDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabAppointmentDateNull() {
+                this[this.tableCholesterolTestTable.labAppointmentDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslabPatientIDNull() {
+                return this.IsNull(this.tableCholesterolTestTable.labPatientIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlabPatientIDNull() {
+                this[this.tableCholesterolTestTable.labPatientIDColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1319,6 +2561,74 @@ namespace FamilyCareHospital.Interfaces {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public cellCount1Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class plateletCountTableRowChangeEvent : global::System.EventArgs {
+            
+            private plateletCountTableRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public plateletCountTableRowChangeEvent(plateletCountTableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public plateletCountTableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class CholesterolTestTableRowChangeEvent : global::System.EventArgs {
+            
+            private CholesterolTestTableRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CholesterolTestTableRowChangeEvent(CholesterolTestTableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CholesterolTestTableRow Row {
                 get {
                     return this.eventRow;
                 }

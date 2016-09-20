@@ -499,36 +499,43 @@ namespace FamilyCareHospital.Interfaces
 
                 if (dgvPrintReport.Index == dgvPatientTest.Columns[e.ColumnIndex].Index)
                 {
-
-                    string testID = dgvPatientTest.Rows[e.RowIndex].Cells["dgvtestID"].Value.ToString();
-
-
-
-                    string patternSugar = @"BS";
-                    string patternCellCount = @"BCC";
-                    string patternPlatelets = @"PC";
-                    string patternLipid = @"LC";
-
-                    Match sugar = Regex.Match(testID, patternSugar);
-                    Match cellCount = Regex.Match(testID, patternCellCount);
-                    Match platelet = Regex.Match(testID, patternPlatelets);
-
-                    Match Lipid = Regex.Match(testID, patternLipid);
-
-                    if (sugar.Success)
+                    if (dgvPatientTest.Rows[e.RowIndex].Cells["dgvUniqueTestStatus"].Value.ToString() == "Complete")
                     {
-                        //var sufrom = new sugarReptest(labpatient.ID, testID);
-                        //sufrom.Show();
+
+                        string testID = dgvPatientTest.Rows[e.RowIndex].Cells["dgvtestID"].Value.ToString();
+
+
+
+                        string patternSugar = @"BS";
+                        string patternCellCount = @"BCC";
+                        string patternPlatelets = @"PC";
+                        string patternLipid = @"LC";
+
+                        Match sugar = Regex.Match(testID, patternSugar);
+                        Match cellCount = Regex.Match(testID, patternCellCount);
+                        Match platelet = Regex.Match(testID, patternPlatelets);
+
+                        Match Lipid = Regex.Match(testID, patternLipid);
+
+                        if (sugar.Success || platelet.Success || cellCount.Success || Lipid.Success)
+                        {
+                            var view = new ViewForm(labpatient.ID, testID);
+                            view.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Scan results printed seperately", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
                     }
-                    if (cellCount.Success)
+
+                    else
                     {
-                        var view = new ViewForm(labpatient.ID, testID);
-                        view.ShowDialog();
+                        MessageBox.Show("This test is not Complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
 
                 }
-
-
 
             }
 

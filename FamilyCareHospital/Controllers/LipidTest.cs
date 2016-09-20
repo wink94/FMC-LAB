@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 using FamilyCareHospital.DBAccess;
 using System.Windows.Forms;
+using System.Data;
+using FamilyCareHospital.Interfaces;
 
 namespace FamilyCareHospital.Controllers
 {
@@ -187,6 +189,34 @@ namespace FamilyCareHospital.Controllers
                 }
 
             }
+        }
+
+        public DataSet fillCholesterolReport(string PID)
+        {
+            string query;
+            conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+                query = "select lp.labPatientName,lp.labPatientAge,lp.labPatientGender,lpt.HDL,lpt.LDL,lpt.serum_cholesterol,la.labAppointmentDate,lp.labPatientID from lab_lipid_profile_test lpt,lab_patient lp,lab_appointment la where lp.labPatientID=lpt.PatientID and la.labPatientID=lp.labPatientID and lp.labPatientID=@PID";
+                var command = new MySqlCommand(query, conn);
+                command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
+                var da = new MySqlDataAdapter(command);
+                var ds = new sugar();
+                ds.Clear();
+                da.Fill(ds.Tables["CholesterolTestTable"]);
+                return ds;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
 
     }

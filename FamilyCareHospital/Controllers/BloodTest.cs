@@ -408,13 +408,13 @@ namespace FamilyCareHospital.Controllers
             try
             {
                 conn.Open();
-                query = "select lp.labPatientName,lp.labPatientAge,lp.labPatientGender,lbt.sugar from lab_blood_test lbt,lab_patient lp where lp.labPatientID=lbt.PatientID and lp.labPatientID=@PID";
+                query = "select lp.labPatientName,lp.labPatientAge,lp.labPatientGender,lbt.sugar,la.labAppointmentDate,lp.labPatientID from lab_blood_test lbt,lab_patient lp,lab_appointment la where lp.labPatientID=lbt.PatientID and lp.labPatientID=@PID and la.labPatientID=lp.labPatientID";
                 var command = new MySqlCommand(query, conn);
                 command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
                 var da = new MySqlDataAdapter(command);
-                FMC s = new FMC();
+                var s = new sugar();
                 s.Clear();
-                da.Fill(s.Tables["sugarTable"]);
+                da.Fill(s.Tables["sugarRes1"]);
                 return s;
             }
             catch (Exception e)
@@ -429,6 +429,36 @@ namespace FamilyCareHospital.Controllers
 
         }
 
+        public DataSet fillPlateletReport(string PID)
+        {
+            string query;
+            conn = ConnectionManager.GetConnection();
+            try
+            {
+                conn.Open();
+                query = "select lp.labPatientName,lp.labPatientAge,lp.labPatientGender,lbt.platelet_count,la.labAppointmentDate,lp.labPatientID from lab_blood_test lbt,lab_patient lp,lab_appointment la where lp.labPatientID=lbt.PatientID and lp.labPatientID=@PID and la.labPatientID=lp.labPatientID";
+                var command = new MySqlCommand(query, conn);
+                command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
+                var da = new MySqlDataAdapter(command);
+                var ds = new sugar();
+                ds.Clear();
+                da.Fill(ds.Tables["plateletCountTable"]);
+                return ds;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+
+
         public DataSet fillCellcountReport(string PID)
         {
             string query;
@@ -440,7 +470,7 @@ namespace FamilyCareHospital.Controllers
                 var command = new MySqlCommand(query, conn);
                 command.Parameters.AddWithValue("@PID", Convert.ToInt32(PID));
                 var da = new MySqlDataAdapter(command);
-                FMC ds = new FMC();
+                var ds = new sugar();
                 ds.Clear();
                 da.Fill(ds.Tables["cellCount1"]);
                 return ds;

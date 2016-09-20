@@ -86,6 +86,24 @@
       <DependentUpon>CrystalReportCellCount.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Interfaces\CrystalReportCholesterolTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportCholesterolTest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interfaces\CrystalReportPlateletCount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportPlateletCount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interfaces\CrystalReportSugar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportSugar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Interfaces\FMC.cs">
       <DependentUpon>FMC.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -303,6 +321,18 @@
     <EmbeddedResource Include="Interfaces\CrystalReportCellCount.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportCellCount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\CrystalReportCholesterolTest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportCholesterolTest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\CrystalReportPlateletCount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportPlateletCount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\CrystalReportSugar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportSugar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\LabHome.resx">
       <DependentUpon>LabHome.cs</DependentUpon>

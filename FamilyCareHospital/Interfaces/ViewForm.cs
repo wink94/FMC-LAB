@@ -31,6 +31,33 @@ namespace FamilyCareHospital.Interfaces
                 crystalReportViewerLabReport.ReportSource = cellcount_report;
             }
 
+            if (testid.ToString() == "LTBS001")
+            {
+                var bloodtest = new BloodTest();
+                DataSet ds = bloodtest.fillSugarReport(PID.ToString());
+                var sugar_report = new CrystalReportSugar();
+                sugar_report.SetDataSource(ds);
+                crystalReportViewerLabReport.ReportSource = sugar_report;
+            }
+
+            if (testid.ToString() == "LTBPC007")
+            {
+                var bloodtest = new BloodTest();
+                DataSet ds = bloodtest.fillPlateletReport(PID.ToString());
+                var platelet_report = new CrystalReportPlateletCount();
+                platelet_report.SetDataSource(ds);
+                crystalReportViewerLabReport.ReportSource = platelet_report;
+            }
+
+            if (testid.ToString() == "LTLC003")
+            {
+                var cholesterol_test = new LipidTest();
+                DataSet ds = cholesterol_test.fillCholesterolReport(PID.ToString());
+                var cholesterol_report = new CrystalReportCholesterolTest();
+                cholesterol_report.SetDataSource(ds);
+                crystalReportViewerLabReport.ReportSource = cholesterol_report;
+            }
+
         }
     }
 }
