@@ -51,6 +51,8 @@ namespace FamilyCareHospital.Interfaces
             showHidePanels("Panel1", "Panel2", "Panel3", 0);
             grpBxScans.Visible = false;
             grpBoxTextBoxSet.Visible = false;
+            btnSubmit.Enabled = false;
+            btnUpdate.Enabled = false;
         }
 
         /*  fill test appointment details  */
@@ -272,6 +274,16 @@ namespace FamilyCareHospital.Interfaces
                 showHidePanels("Panel1", "Panel2", "Panel3", 0);
                 if (dgvAddTestResult.Index == dgvPatientTest.Columns[e.ColumnIndex].Index)
                 {
+                    if(!btnSubmit.Enabled)
+                    {
+                        btnSubmit.Enabled = true;
+                    }
+
+                    if (btnUpdate.Enabled)
+                    {
+                        btnUpdate.Enabled = false;
+                    }
+
                     clearDictionarys();
                     if (dgvPatientTest.Rows[e.RowIndex].Cells["dgvUniqueTestStatus"].Value.ToString() == "Incomplete")
                     {
@@ -366,6 +378,18 @@ namespace FamilyCareHospital.Interfaces
                 if (dgvUpdateTestResult.Index == dgvPatientTest.Columns[e.ColumnIndex].Index)    
                 {
                     clearDictionarys();
+
+                    if (btnSubmit.Enabled)
+                    {
+                        btnSubmit.Enabled = false;
+                    }
+
+                    if (!btnUpdate.Enabled)
+                    {
+                        btnUpdate.Enabled = true;
+                    }
+
+
                     if (dgvPatientTest.Rows[e.RowIndex].Cells["dgvUniqueTestStatus"].Value.ToString() == "Complete")
                     {
 
@@ -947,6 +971,13 @@ namespace FamilyCareHospital.Interfaces
 
             //clearDictionarys();
             FillAppointments(null, null, null);
+        }
+
+        private void btnPatientRegBack_Click(object sender, EventArgs e)
+        {
+            var labhome = new Form1();
+            labhome.Show();
+            Dispose();
         }
     }
 }

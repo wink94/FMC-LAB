@@ -86,13 +86,12 @@ namespace FamilyCareHospital.Interfaces
             la.insertLabAppointment();
             LabTest.insertTestListData(LPID, lp.tests.ToList());
 
-            /*  
-              
-             print report handles here
 
+            if (lp.PatientType == "Out")
+                LabTest.insertLabPayment(LPID, lp.PatientType, testList["Total :"], true);
+            else
+                LabTest.insertLabPayment(LPID, lp.PatientType, testList["Total :"]);
 
-             */
-            
 
             appState = true;
             this.Hide();
@@ -101,11 +100,7 @@ namespace FamilyCareHospital.Interfaces
 
         private void LabPatientBill_Load(object sender, EventArgs e)
         {
-            /*
-
-            display report
-
-            */
+            
             //lblPAge.Text = lp.Age.ToString();
             setPatientDetails();
             testList=dbr.getTestPrices(lp.tests.ToList());

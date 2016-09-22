@@ -87,5 +87,12 @@ namespace FamilyCareHospital
             lh.Show();
             this.Close();
         }
+
+        private void btnTestDataEntry_Click(object sender, EventArgs e)
+        {
+            var testentry = new TestDetailsEntry();
+            testentry.Show();
+            Hide();
+        }
     }
 }

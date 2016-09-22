@@ -32,6 +32,10 @@
             this.grpBoxTestUpdate = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnUpdateTest = new System.Windows.Forms.Button();
+            this.lblTestNamePicErr = new System.Windows.Forms.Label();
+            this.lblTestPricePicErr = new System.Windows.Forms.Label();
+            this.lblTestPriceErr = new System.Windows.Forms.Label();
+            this.lblTestNameErr = new System.Windows.Forms.Label();
             this.lblTestID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTestPrice = new System.Windows.Forms.TextBox();
@@ -48,10 +52,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTestSearch = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblTestNameErr = new System.Windows.Forms.Label();
-            this.lblTestPriceErr = new System.Windows.Forms.Label();
-            this.lblTestPricePicErr = new System.Windows.Forms.Label();
-            this.lblTestNamePicErr = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grpBoxTestUpdate.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -118,6 +118,50 @@
             this.btnUpdateTest.UseVisualStyleBackColor = true;
             this.btnUpdateTest.Click += new System.EventHandler(this.btnUpdateTest_Click);
             // 
+            // lblTestNamePicErr
+            // 
+            this.lblTestNamePicErr.AutoSize = true;
+            this.lblTestNamePicErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestNamePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblTestNamePicErr.Location = new System.Drawing.Point(313, 127);
+            this.lblTestNamePicErr.Name = "lblTestNamePicErr";
+            this.lblTestNamePicErr.Size = new System.Drawing.Size(11, 15);
+            this.lblTestNamePicErr.TabIndex = 10;
+            this.lblTestNamePicErr.Text = ".";
+            // 
+            // lblTestPricePicErr
+            // 
+            this.lblTestPricePicErr.AutoSize = true;
+            this.lblTestPricePicErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestPricePicErr.ForeColor = System.Drawing.Color.Red;
+            this.lblTestPricePicErr.Location = new System.Drawing.Point(313, 219);
+            this.lblTestPricePicErr.Name = "lblTestPricePicErr";
+            this.lblTestPricePicErr.Size = new System.Drawing.Size(11, 15);
+            this.lblTestPricePicErr.TabIndex = 10;
+            this.lblTestPricePicErr.Text = ".";
+            // 
+            // lblTestPriceErr
+            // 
+            this.lblTestPriceErr.AutoSize = true;
+            this.lblTestPriceErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestPriceErr.ForeColor = System.Drawing.Color.Red;
+            this.lblTestPriceErr.Location = new System.Drawing.Point(168, 235);
+            this.lblTestPriceErr.Name = "lblTestPriceErr";
+            this.lblTestPriceErr.Size = new System.Drawing.Size(11, 15);
+            this.lblTestPriceErr.TabIndex = 10;
+            this.lblTestPriceErr.Text = ".";
+            // 
+            // lblTestNameErr
+            // 
+            this.lblTestNameErr.AutoSize = true;
+            this.lblTestNameErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestNameErr.ForeColor = System.Drawing.Color.Red;
+            this.lblTestNameErr.Location = new System.Drawing.Point(168, 145);
+            this.lblTestNameErr.Name = "lblTestNameErr";
+            this.lblTestNameErr.Size = new System.Drawing.Size(11, 15);
+            this.lblTestNameErr.TabIndex = 10;
+            this.lblTestNameErr.Text = ".";
+            // 
             // lblTestID
             // 
             this.lblTestID.AutoSize = true;
@@ -175,7 +219,7 @@
             // 
             // btnManageTestBack
             // 
-            this.btnManageTestBack.Image = global::FamilyCareHospital.Properties.Resources.back2;
+            this.btnManageTestBack.Image = global::FamilyCareHospital.Properties.Resources.BACK_undo_32px1;
             this.btnManageTestBack.Location = new System.Drawing.Point(979, 13);
             this.btnManageTestBack.Name = "btnManageTestBack";
             this.btnManageTestBack.Size = new System.Drawing.Size(59, 50);
@@ -185,7 +229,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.SpringGreen;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Highlight;
             this.groupBox1.Controls.Add(this.dgvTests);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTestSearch);
@@ -273,55 +317,11 @@
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 50;
             // 
-            // lblTestNameErr
-            // 
-            this.lblTestNameErr.AutoSize = true;
-            this.lblTestNameErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestNameErr.ForeColor = System.Drawing.Color.Red;
-            this.lblTestNameErr.Location = new System.Drawing.Point(168, 145);
-            this.lblTestNameErr.Name = "lblTestNameErr";
-            this.lblTestNameErr.Size = new System.Drawing.Size(47, 15);
-            this.lblTestNameErr.TabIndex = 10;
-            this.lblTestNameErr.Text = "label5";
-            // 
-            // lblTestPriceErr
-            // 
-            this.lblTestPriceErr.AutoSize = true;
-            this.lblTestPriceErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestPriceErr.ForeColor = System.Drawing.Color.Red;
-            this.lblTestPriceErr.Location = new System.Drawing.Point(168, 235);
-            this.lblTestPriceErr.Name = "lblTestPriceErr";
-            this.lblTestPriceErr.Size = new System.Drawing.Size(47, 15);
-            this.lblTestPriceErr.TabIndex = 10;
-            this.lblTestPriceErr.Text = "label5";
-            // 
-            // lblTestPricePicErr
-            // 
-            this.lblTestPricePicErr.AutoSize = true;
-            this.lblTestPricePicErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestPricePicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblTestPricePicErr.Location = new System.Drawing.Point(313, 219);
-            this.lblTestPricePicErr.Name = "lblTestPricePicErr";
-            this.lblTestPricePicErr.Size = new System.Drawing.Size(47, 15);
-            this.lblTestPricePicErr.TabIndex = 10;
-            this.lblTestPricePicErr.Text = "label5";
-            // 
-            // lblTestNamePicErr
-            // 
-            this.lblTestNamePicErr.AutoSize = true;
-            this.lblTestNamePicErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestNamePicErr.ForeColor = System.Drawing.Color.Red;
-            this.lblTestNamePicErr.Location = new System.Drawing.Point(313, 127);
-            this.lblTestNamePicErr.Name = "lblTestNamePicErr";
-            this.lblTestNamePicErr.Size = new System.Drawing.Size(47, 15);
-            this.lblTestNamePicErr.TabIndex = 10;
-            this.lblTestNamePicErr.Text = "label5";
-            // 
             // ManageTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Blue;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1092, 661);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;

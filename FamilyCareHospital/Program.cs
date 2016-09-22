@@ -17,7 +17,7 @@ namespace FamilyCareHospital
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestDetailsEntry());
+            Application.Run(new Form1());
         }
     }
 }

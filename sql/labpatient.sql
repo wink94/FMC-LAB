@@ -5,11 +5,8 @@ CREATE TABLE `lab_patient` (
   `labPatientGender` varchar(10) NOT NULL,
   `labPatientEmail` varchar(45) NOT NULL,
   `labPatientPhone` varchar(10) NOT NULL,
+  `labPatientType` varchar(10) NOT NULL,
   PRIMARY KEY (`labPatientID`),
   UNIQUE KEY `labPatientEmail_UNIQUE` (`labPatientEmail`),
   UNIQUE KEY `labPatientPhone_UNIQUE` (`labPatientPhone`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000000022 DEFAULT CHARSET=utf8;
-
-
-
-
+) ENGINE=InnoDB AUTO_INCREMENT=1000000023 DEFAULT CHARSET=utf8;

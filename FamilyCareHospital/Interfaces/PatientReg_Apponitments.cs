@@ -31,6 +31,7 @@ namespace FamilyCareHospital
             FillTestSearch();
             FillAppointments();
             FillGendercmbBox();
+            FillPatientTypecmbBox();
             displayTodayAppointmentcount(DateTime.Now);
             gBxSelectApmnt.Hide();
             gBxAmpntLimit.Hide();
@@ -44,9 +45,9 @@ namespace FamilyCareHospital
 
             
 
-                if (fieldCheck(txtPName.Text, "name", "lblLPNameErr", "lblLPNamePicErr", "grpBoxLPRegister") & fieldCheck(txtPAge.Text, "age", "lblLPAgeErr", "lblLPAgePicErr", "grpBoxLPRegister") & fieldCheck(txtPPhone.Text, "phone", "lblLPPhoneErr", "lblLPPhonePicErr", "grpBoxLPRegister") & fieldCheck(txtPEmail.Text, "email", "lblLPEmailErr", "lblLPEmailPicErr", "grpBoxLPRegister") & fieldCheck(cmbGender.SelectedItem.ToString(),null,null,  "lblLPGenderPicErr", "grpBoxLPRegister") & validation.checkTestListEmpty(labPatient) & validation.checkDateIsSet(labappmnt.Adate, "Lab Appointment"))
+                if (fieldCheck(txtPName.Text, "name", "lblLPNameErr", "lblLPNamePicErr", "grpBoxLPRegister") & fieldCheck(txtPAge.Text, "age", "lblLPAgeErr", "lblLPAgePicErr", "grpBoxLPRegister") & fieldCheck(txtPPhone.Text, "phone", "lblLPPhoneErr", "lblLPPhonePicErr", "grpBoxLPRegister") & fieldCheck(txtPEmail.Text, "email", "lblLPEmailErr", "lblLPEmailPicErr", "grpBoxLPRegister") & fieldCheck(cmbGender.SelectedItem.ToString(),null,null,  "lblLPGenderPicErr", "grpBoxLPRegister") & fieldCheck(cmbPatientType.SelectedItem.ToString(), null, null, "lblLPTypePicErr", "grpBoxLPRegister") & validation.checkTestListEmpty(labPatient) & validation.checkDateIsSet(labappmnt.Adate, "Lab Appointment"))
                 {
-                    labPatient.setDetails(txtPName.Text, cmbGender.SelectedValue.ToString(), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text));
+                    labPatient.setDetails(txtPName.Text, cmbGender.SelectedValue.ToString(), txtPEmail.Text, txtPPhone.Text, Convert.ToInt32(txtPAge.Text),cmbPatientType.SelectedValue.ToString());
 
                     LabPatientBill lpb = new LabPatientBill(labPatient, labappmnt);
                     lpb.ShowDialog();
@@ -346,6 +347,15 @@ namespace FamilyCareHospital
                 lstPTests.ClearSelected();
             }
         }
+
+        private void FillPatientTypecmbBox()
+        {
+            string[] type = { "", "In", "Out" };
+
+            cmbPatientType.DataSource = type;
+            //cmbLPGenderUpdate.DataSource = type;
+        }
+
 
         private void FillGendercmbBox()
         {

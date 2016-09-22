@@ -16,6 +16,7 @@ namespace FamilyCareHospital.Controllers
         private string patientGender;
         private string patientEmail;
         private string patientTelephone;
+        private string patientType;
         private BindingList<getTestList> testList = new BindingList<getTestList>();
         private DBRetrieve dbr = new DBRetrieve();
 
@@ -25,15 +26,17 @@ namespace FamilyCareHospital.Controllers
         public string Gender { get { return patientGender; } set { patientGender = value; } }
         public string Email { get { return patientEmail; } set { patientEmail = value; } }
         public string Phone { get { return patientTelephone; } set { patientTelephone = value; } }
+        public string PatientType { get { return patientType; } set { patientType = value; } }
         public BindingList<getTestList> tests { get { return testList; } }
 
-        public void setDetails(string PatientName, string PatientGender, string PatientEmail, string PatientTelephone,int PatientAge)
+        public void setDetails(string PatientName, string PatientGender, string PatientEmail, string PatientTelephone,int PatientAge,string labPatientType)
         {
             patientName = PatientName;
             patientGender = PatientGender;
             patientEmail = PatientEmail;
             patientTelephone = PatientTelephone;
             patientAge = PatientAge;
+            patientType = labPatientType;
         }
 
         public void getPatientTest(getTestList gTL)
@@ -106,7 +109,7 @@ namespace FamilyCareHospital.Controllers
         /* delete lab patient and tests from labpatient id*/
         public bool deleteLabPatientAndTests()
         {
-            string query1, query2, query;
+            string query1,  query;
             MySqlConnection conn = ConnectionManager.GetConnection();
             try
             {
@@ -256,7 +259,7 @@ namespace FamilyCareHospital.Controllers
             {
                 conn.Open();
 
-                query = "insert into lab_patient(labPatientName,labPatientAge,labPatientGender,labPatientEmail,labPatientPhone) values('" +Name + "','" + Age + "','" + Gender + "','" + Email + "','" + Phone + "')";
+                query = "insert into lab_patient(labPatientName,labPatientAge,labPatientGender,labPatientEmail,labPatientPhone,labPatientType) values('" + Name + "','" + Age + "','" + Gender + "','" + Email + "','" + Phone + "','"+patientType+"')";
 
                 MySqlCommand newCmd = new MySqlCommand(query, conn);
                 newCmd.ExecuteNonQuery();

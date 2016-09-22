@@ -13,7 +13,7 @@ namespace FamilyCareHospital.Controllers
 {
     class BloodTest
     {
-        private int BTNo;
+        //private int BTNo;
         private int sugar;
         private int WBC;
         private int RBC;

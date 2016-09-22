@@ -36,7 +36,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnmanageLabTest = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnTestDataEntry = new System.Windows.Forms.Button();
             this.btnmanageAppmt = new System.Windows.Forms.Button();
             this.btnregPatient = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.btnmanageLabTest);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnTestDataEntry);
             this.panel1.Controls.Add(this.btnmanageAppmt);
             this.panel1.Controls.Add(this.btnregPatient);
             this.panel1.Controls.Add(this.label4);
@@ -82,13 +82,13 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.lbl_user);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Size = new System.Drawing.Size(218, 190);
             this.splitContainer1.SplitterDistance = 97;
@@ -96,13 +96,13 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 50);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(0, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 27);
+            this.label6.Size = new System.Drawing.Size(218, 27);
             this.label6.TabIndex = 6;
             this.label6.Text = "date";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -131,12 +131,11 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label5.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 14);
+            this.label5.Location = new System.Drawing.Point(0, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 25);
+            this.label5.Size = new System.Drawing.Size(218, 25);
             this.label5.TabIndex = 5;
             this.label5.Text = "time";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -151,16 +150,17 @@
             this.btnmanageLabTest.UseVisualStyleBackColor = true;
             this.btnmanageLabTest.Click += new System.EventHandler(this.btnmanageLabTest_Click);
             // 
-            // button3
+            // btnTestDataEntry
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::FamilyCareHospital.Properties.Resources.enter_test;
-            this.button3.Location = new System.Drawing.Point(493, 145);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(2);
-            this.button3.Size = new System.Drawing.Size(150, 150);
-            this.button3.TabIndex = 15;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnTestDataEntry.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTestDataEntry.Image = global::FamilyCareHospital.Properties.Resources.enter_test;
+            this.btnTestDataEntry.Location = new System.Drawing.Point(493, 145);
+            this.btnTestDataEntry.Name = "btnTestDataEntry";
+            this.btnTestDataEntry.Padding = new System.Windows.Forms.Padding(2);
+            this.btnTestDataEntry.Size = new System.Drawing.Size(150, 150);
+            this.btnTestDataEntry.TabIndex = 15;
+            this.btnTestDataEntry.UseVisualStyleBackColor = false;
+            this.btnTestDataEntry.Click += new System.EventHandler(this.btnTestDataEntry_Click);
             // 
             // btnmanageAppmt
             // 
@@ -298,7 +298,6 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -316,7 +315,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnmanageLabTest;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTestDataEntry;
         private System.Windows.Forms.Button btnmanageAppmt;
         private System.Windows.Forms.Button btnregPatient;
         private System.Windows.Forms.Label label4;

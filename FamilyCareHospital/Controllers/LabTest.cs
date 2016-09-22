@@ -17,7 +17,7 @@ namespace FamilyCareHospital.Controllers
         private bool status;
         private double testPrice;
         private MySqlConnection conn;
-        private BloodTest bloodtest;
+        //private BloodTest bloodtest;
         private string LTRNo;
 
         public string ID { get { return testID; } set { testID = value; } }
@@ -262,6 +262,44 @@ namespace FamilyCareHospital.Controllers
             }
 
             return null;
+
+        }
+
+        public static bool insertLabPayment(string PID,string PatientType,string amount,bool paymentStatus=false)
+        {
+            string query;
+           MySqlConnection conn = ConnectionManager.GetConnection();
+
+            try
+            {
+                conn.Open();
+                query = "INSERT INTO lab_payment(labPatientID,labPaymentStatus,PatientType,PatientAmount) VALUES(@PID,@status,@PType,@amount);";
+
+                var command = new MySqlCommand(query, conn);
+                command.Parameters.AddWithValue("@PID",PID);
+                command.Parameters.AddWithValue("@status", paymentStatus);
+                command.Parameters.AddWithValue("@PType", PatientType);
+                command.Parameters.AddWithValue("@amount", Convert.ToDouble(amount));
+
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB Error :" + e.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
 
         }
 

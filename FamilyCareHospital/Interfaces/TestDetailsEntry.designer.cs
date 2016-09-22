@@ -53,35 +53,36 @@
             this.lblUnitsTest_Panel1 = new System.Windows.Forms.Label();
             this.lblErrorTest_Panel1 = new System.Windows.Forms.Label();
             this.dgvPatientTest = new System.Windows.Forms.DataGridView();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
-            this.dateTo = new System.Windows.Forms.DateTimePicker();
-            this.dateFrom = new System.Windows.Forms.DateTimePicker();
-            this.txtAppointmentSearch = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.dgvLTRNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvtestNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvtestID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvtestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUniqueTestStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnSearchAppmntByDate = new System.Windows.Forms.Button();
             this.dgvAddTestResult = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvUpdateTestResult = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvPrintReport = new System.Windows.Forms.DataGridViewImageColumn();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearchAppmntByDate = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvAppointmentList = new System.Windows.Forms.DataGridView();
             this.dgvAppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTestStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbvAppointmentPrintReport = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dateTo = new System.Windows.Forms.DateTimePicker();
+            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.txtAppointmentSearch = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnPatientRegBack = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.pnl1.SuspendLayout();
             this.grpBxScans.SuspendLayout();
@@ -237,9 +238,9 @@
             this.lblUnitsTest_Panel3.AutoSize = true;
             this.lblUnitsTest_Panel3.Location = new System.Drawing.Point(166, 15);
             this.lblUnitsTest_Panel3.Name = "lblUnitsTest_Panel3";
-            this.lblUnitsTest_Panel3.Size = new System.Drawing.Size(40, 15);
+            this.lblUnitsTest_Panel3.Size = new System.Drawing.Size(10, 15);
             this.lblUnitsTest_Panel3.TabIndex = 3;
-            this.lblUnitsTest_Panel3.Text = "label1";
+            this.lblUnitsTest_Panel3.Text = ".";
             // 
             // lblErrorTest_Panel3
             // 
@@ -247,9 +248,9 @@
             this.lblErrorTest_Panel3.ForeColor = System.Drawing.Color.Red;
             this.lblErrorTest_Panel3.Location = new System.Drawing.Point(55, 44);
             this.lblErrorTest_Panel3.Name = "lblErrorTest_Panel3";
-            this.lblErrorTest_Panel3.Size = new System.Drawing.Size(40, 15);
+            this.lblErrorTest_Panel3.Size = new System.Drawing.Size(10, 15);
             this.lblErrorTest_Panel3.TabIndex = 4;
-            this.lblErrorTest_Panel3.Text = "label1";
+            this.lblErrorTest_Panel3.Text = ".";
             // 
             // Panel2
             // 
@@ -285,9 +286,9 @@
             this.lblUnitsTest_Panel2.AutoSize = true;
             this.lblUnitsTest_Panel2.Location = new System.Drawing.Point(123, 15);
             this.lblUnitsTest_Panel2.Name = "lblUnitsTest_Panel2";
-            this.lblUnitsTest_Panel2.Size = new System.Drawing.Size(40, 15);
+            this.lblUnitsTest_Panel2.Size = new System.Drawing.Size(10, 15);
             this.lblUnitsTest_Panel2.TabIndex = 3;
-            this.lblUnitsTest_Panel2.Text = "label1";
+            this.lblUnitsTest_Panel2.Text = ".";
             // 
             // lblErrorTest_Panel2
             // 
@@ -295,9 +296,9 @@
             this.lblErrorTest_Panel2.ForeColor = System.Drawing.Color.Red;
             this.lblErrorTest_Panel2.Location = new System.Drawing.Point(55, 43);
             this.lblErrorTest_Panel2.Name = "lblErrorTest_Panel2";
-            this.lblErrorTest_Panel2.Size = new System.Drawing.Size(40, 15);
+            this.lblErrorTest_Panel2.Size = new System.Drawing.Size(10, 15);
             this.lblErrorTest_Panel2.TabIndex = 4;
-            this.lblErrorTest_Panel2.Text = "label1";
+            this.lblErrorTest_Panel2.Text = ".";
             // 
             // Panel1
             // 
@@ -333,9 +334,9 @@
             this.lblUnitsTest_Panel1.AutoSize = true;
             this.lblUnitsTest_Panel1.Location = new System.Drawing.Point(123, 15);
             this.lblUnitsTest_Panel1.Name = "lblUnitsTest_Panel1";
-            this.lblUnitsTest_Panel1.Size = new System.Drawing.Size(40, 15);
+            this.lblUnitsTest_Panel1.Size = new System.Drawing.Size(10, 15);
             this.lblUnitsTest_Panel1.TabIndex = 3;
-            this.lblUnitsTest_Panel1.Text = "label1";
+            this.lblUnitsTest_Panel1.Text = ".";
             // 
             // lblErrorTest_Panel1
             // 
@@ -343,9 +344,9 @@
             this.lblErrorTest_Panel1.ForeColor = System.Drawing.Color.Red;
             this.lblErrorTest_Panel1.Location = new System.Drawing.Point(55, 44);
             this.lblErrorTest_Panel1.Name = "lblErrorTest_Panel1";
-            this.lblErrorTest_Panel1.Size = new System.Drawing.Size(40, 15);
+            this.lblErrorTest_Panel1.Size = new System.Drawing.Size(10, 15);
             this.lblErrorTest_Panel1.TabIndex = 4;
-            this.lblErrorTest_Panel1.Text = "label1";
+            this.lblErrorTest_Panel1.Text = ".";
             // 
             // dgvPatientTest
             // 
@@ -367,121 +368,6 @@
             this.dgvPatientTest.Size = new System.Drawing.Size(486, 183);
             this.dgvPatientTest.TabIndex = 0;
             this.dgvPatientTest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientTest_CellClick);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(34, 55);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton1";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(34, 24);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBox1.Controls.Add(this.btnSearchAppmntByDate);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.dgvAppointmentList);
-            this.groupBox1.Controls.Add(this.dateTo);
-            this.groupBox1.Controls.Add(this.dateFrom);
-            this.groupBox1.Controls.Add(this.txtAppointmentSearch);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(572, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(650, 356);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search Appointment";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Aqua;
-            this.label11.Location = new System.Drawing.Point(7, 85);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 15);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "From";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Aqua;
-            this.label9.Location = new System.Drawing.Point(327, 86);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 15);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "To";
-            // 
-            // dgvAppointmentList
-            // 
-            this.dgvAppointmentList.AllowUserToDeleteRows = false;
-            this.dgvAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAppointmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvAppointmentID,
-            this.dgvPatientID,
-            this.dgvPatientName,
-            this.dgvAppointmentDate,
-            this.dgvTestStatus,
-            this.dbvAppointmentPrintReport});
-            this.dgvAppointmentList.Location = new System.Drawing.Point(29, 129);
-            this.dgvAppointmentList.Name = "dgvAppointmentList";
-            this.dgvAppointmentList.ReadOnly = true;
-            this.dgvAppointmentList.Size = new System.Drawing.Size(579, 208);
-            this.dgvAppointmentList.TabIndex = 8;
-            this.dgvAppointmentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppointmentList_CellClick);
-            this.dgvAppointmentList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAppointmentList_RowHeaderMouseClick);
-            // 
-            // dateTo
-            // 
-            this.dateTo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo.Location = new System.Drawing.Point(367, 81);
-            this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(200, 22);
-            this.dateTo.TabIndex = 13;
-            // 
-            // dateFrom
-            // 
-            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFrom.Location = new System.Drawing.Point(66, 81);
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(200, 22);
-            this.dateFrom.TabIndex = 12;
-            // 
-            // txtAppointmentSearch
-            // 
-            this.txtAppointmentSearch.Location = new System.Drawing.Point(227, 29);
-            this.txtAppointmentSearch.Name = "txtAppointmentSearch";
-            this.txtAppointmentSearch.Size = new System.Drawing.Size(100, 23);
-            this.txtAppointmentSearch.TabIndex = 10;
-            this.txtAppointmentSearch.TextChanged += new System.EventHandler(this.txtAppointmentSearch_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(175, 19);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Search Appointments";
             // 
             // dgvLTRNum
             // 
@@ -522,46 +408,6 @@
             this.dgvUniqueTestStatus.Name = "dgvUniqueTestStatus";
             this.dgvUniqueTestStatus.ReadOnly = true;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Print Report";
-            this.dataGridViewImageColumn1.Image = global::FamilyCareHospital.Properties.Resources.cancel_25px;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 60;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Print Report";
-            this.dataGridViewImageColumn2.Image = global::FamilyCareHospital.Properties.Resources.cancel_25px;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 60;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.HeaderText = "Report";
-            this.dataGridViewImageColumn3.Image = global::FamilyCareHospital.Properties.Resources.file_25px;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Width = 50;
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.HeaderText = "Print Report";
-            this.dataGridViewImageColumn4.Image = global::FamilyCareHospital.Properties.Resources.file_25px;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.Width = 60;
-            // 
-            // btnSearchAppmntByDate
-            // 
-            this.btnSearchAppmntByDate.Image = global::FamilyCareHospital.Properties.Resources.search_35px;
-            this.btnSearchAppmntByDate.Location = new System.Drawing.Point(598, 67);
-            this.btnSearchAppmntByDate.Name = "btnSearchAppmntByDate";
-            this.btnSearchAppmntByDate.Size = new System.Drawing.Size(36, 36);
-            this.btnSearchAppmntByDate.TabIndex = 16;
-            this.btnSearchAppmntByDate.UseVisualStyleBackColor = true;
-            this.btnSearchAppmntByDate.Click += new System.EventHandler(this.btnSearchAppmntByDate_Click);
-            // 
             // dgvAddTestResult
             // 
             this.dgvAddTestResult.HeaderText = "Add ";
@@ -585,6 +431,96 @@
             this.dgvPrintReport.Name = "dgvPrintReport";
             this.dgvPrintReport.ReadOnly = true;
             this.dgvPrintReport.Width = 50;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(34, 55);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton1";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(34, 24);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox1.Controls.Add(this.btnSearchAppmntByDate);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.dgvAppointmentList);
+            this.groupBox1.Controls.Add(this.dateTo);
+            this.groupBox1.Controls.Add(this.dateFrom);
+            this.groupBox1.Controls.Add(this.txtAppointmentSearch);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(572, 69);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(650, 356);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search Appointment";
+            // 
+            // btnSearchAppmntByDate
+            // 
+            this.btnSearchAppmntByDate.Image = global::FamilyCareHospital.Properties.Resources.search_35px;
+            this.btnSearchAppmntByDate.Location = new System.Drawing.Point(598, 67);
+            this.btnSearchAppmntByDate.Name = "btnSearchAppmntByDate";
+            this.btnSearchAppmntByDate.Size = new System.Drawing.Size(36, 36);
+            this.btnSearchAppmntByDate.TabIndex = 16;
+            this.btnSearchAppmntByDate.UseVisualStyleBackColor = true;
+            this.btnSearchAppmntByDate.Click += new System.EventHandler(this.btnSearchAppmntByDate_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Aqua;
+            this.label11.Location = new System.Drawing.Point(7, 85);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 15);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "From";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Aqua;
+            this.label9.Location = new System.Drawing.Point(327, 86);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 15);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "To";
+            // 
+            // dgvAppointmentList
+            // 
+            this.dgvAppointmentList.AllowUserToDeleteRows = false;
+            this.dgvAppointmentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointmentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAppointmentID,
+            this.dgvPatientID,
+            this.dgvPatientName,
+            this.dgvAppointmentDate,
+            this.dgvTestStatus,
+            this.dbvAppointmentPrintReport});
+            this.dgvAppointmentList.Location = new System.Drawing.Point(29, 129);
+            this.dgvAppointmentList.Name = "dgvAppointmentList";
+            this.dgvAppointmentList.ReadOnly = true;
+            this.dgvAppointmentList.Size = new System.Drawing.Size(579, 208);
+            this.dgvAppointmentList.TabIndex = 8;
+            this.dgvAppointmentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAppointmentList_CellClick);
+            this.dgvAppointmentList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAppointmentList_RowHeaderMouseClick);
             // 
             // dgvAppointmentID
             // 
@@ -632,12 +568,88 @@
             this.dbvAppointmentPrintReport.Visible = false;
             this.dbvAppointmentPrintReport.Width = 60;
             // 
+            // dateTo
+            // 
+            this.dateTo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo.Location = new System.Drawing.Point(367, 81);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Size = new System.Drawing.Size(200, 22);
+            this.dateTo.TabIndex = 13;
+            // 
+            // dateFrom
+            // 
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom.Location = new System.Drawing.Point(66, 81);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(200, 22);
+            this.dateFrom.TabIndex = 12;
+            // 
+            // txtAppointmentSearch
+            // 
+            this.txtAppointmentSearch.Location = new System.Drawing.Point(227, 29);
+            this.txtAppointmentSearch.Name = "txtAppointmentSearch";
+            this.txtAppointmentSearch.Size = new System.Drawing.Size(100, 23);
+            this.txtAppointmentSearch.TabIndex = 10;
+            this.txtAppointmentSearch.TextChanged += new System.EventHandler(this.txtAppointmentSearch_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(175, 19);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Search Appointments";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Print Report";
+            this.dataGridViewImageColumn1.Image = global::FamilyCareHospital.Properties.Resources.cancel_25px;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 60;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Print Report";
+            this.dataGridViewImageColumn2.Image = global::FamilyCareHospital.Properties.Resources.cancel_25px;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 60;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "Report";
+            this.dataGridViewImageColumn3.Image = global::FamilyCareHospital.Properties.Resources.file_25px;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Width = 50;
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.HeaderText = "Print Report";
+            this.dataGridViewImageColumn4.Image = global::FamilyCareHospital.Properties.Resources.file_25px;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.Width = 60;
+            // 
+            // btnPatientRegBack
+            // 
+            this.btnPatientRegBack.Image = global::FamilyCareHospital.Properties.Resources.BACK_undo_32px;
+            this.btnPatientRegBack.Location = new System.Drawing.Point(1163, 8);
+            this.btnPatientRegBack.Name = "btnPatientRegBack";
+            this.btnPatientRegBack.Size = new System.Drawing.Size(59, 50);
+            this.btnPatientRegBack.TabIndex = 15;
+            this.btnPatientRegBack.UseVisualStyleBackColor = true;
+            this.btnPatientRegBack.Click += new System.EventHandler(this.btnPatientRegBack_Click);
+            // 
             // TestDetailsEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1234, 661);
+            this.Controls.Add(this.btnPatientRegBack);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "TestDetailsEntry";
@@ -718,5 +730,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dbvAppointmentPrintReport;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
+        private System.Windows.Forms.Button btnPatientRegBack;
     }
 }

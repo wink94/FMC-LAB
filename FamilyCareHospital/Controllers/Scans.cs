@@ -11,12 +11,12 @@ namespace FamilyCareHospital.Controllers
 {
     class Scans
     {
-        private int SNo;
+        //private int SNo;
         private bool CT;
         private bool MRI;
         private bool X_RAY;
         private MySqlConnection conn;
-        private LabTest labtest;
+        //private LabTest labtest;
         
 
         public bool CT_Scan { set { CT = value; } get { return CT; } }
